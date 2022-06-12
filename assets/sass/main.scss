@@ -61,3 +61,25 @@
 	@import 'layout/banner';
 	@import 'layout/footer';
 	@import 'layout/menu';
+
+h1.change, h2.change, h3.change, h4.change, h5.change, h6.change, strong.change, b.change, a.icon.change, ul.icon.change  {
+		color: #efefef;
+}
+#sidebar.change, #search.alt.change {
+    background: #121212;
+}
+body.change {
+	background: #090909;
+}
+ul.icons li .icon.change{
+    color: white;
+}
+ul.contact a.change {
+    color: white;
+}
+p.copyright em.change {
+    color: white;
+}
+a.button.change {
+    color: white !important;
+}
