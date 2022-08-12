@@ -41,3 +41,12 @@ Seperation of Concerns. css animations better be done in css, not with javascrip
 
 [**Responsive Tools**](github.com/ajlkn/responsive-tools)
 
+## Examples:
+
+Take a look at these couple examples that I have in my own portfolio:
+
+**Fylo Landing page:** https://github.com/0ussamaBernou/fylo-landing-page
+
+**Source Layout:** https://github.com/0ussamaBernou/source-layout
+
+**Mobile Grocery list:** https://github.com/0ussamaBernou/grocery-list
