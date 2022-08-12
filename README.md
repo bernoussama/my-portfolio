@@ -14,7 +14,8 @@ A portfolio site to see my projects and ways to get in contact with me.
 
 # Optimizations:
 
-Made a dark theme toggler using an event listener, listening to clicks on a button that toggles between dark and light by toggling css classes, without triggering anyone's laptop fans.
+Made a dark theme toggler using an event listener, listening to clicks on a button that toggles between dark and light by toggling css classes.
+Thought about adding some ongoing animations but that will surely trigger yout laptop's fans.
 
 <br>
 
