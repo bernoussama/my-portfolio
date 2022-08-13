@@ -1,9 +1,3 @@
-/*
-	Editorial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 (function ($) {
   var $window = $(window),
     $head = $("head"),
@@ -222,16 +216,16 @@ function change() {
   if (document.querySelector("body.change")) {
     document.querySelector("[onclick='change()']").classList =
       "icon fa-moon change";
-    document.querySelector('[href="index2.html"]').href = "index.html";
-    if (document.querySelector('[href="aboutme2.html"]')) {
-      document.querySelector('[href="aboutme2.html"]').href = "aboutme.html";
-    }
+    // document.querySelector('[href="index2.html"]').href = "index.html";
+    // if (document.querySelector('[href="aboutme2.html"]')) {
+    //   document.querySelector('[href="aboutme2.html"]').href = "aboutme.html";
+    // }
   } else {
     document.querySelector("[onclick='change()']").classList = "icon fa-sun";
-    document.querySelector('[href="index.html"]').href = "index2.html";
-    if (document.querySelector('[href="aboutme.html"]')) {
-      document.querySelector('[href="aboutme.html"]').href = "aboutme2.html";
-    }
+    // document.querySelector('[href="index.html"]').href = "index2.html";
+    // if (document.querySelector('[href="aboutme.html"]')) {
+    //   document.querySelector('[href="aboutme.html"]').href = "aboutme2.html";
+    // }
   }
   document.querySelector("#sidebar").classList.toggle("change");
   document.querySelector("#search.alt").classList.toggle("change");
