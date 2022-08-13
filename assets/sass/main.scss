@@ -1,12 +1,12 @@
-@import 'libs/vars';
-@import 'libs/functions';
-@import 'libs/mixins';
-@import 'libs/vendor';
-@import 'libs/breakpoints';
-@import 'libs/html-grid';
+@import "libs/vars";
+@import "libs/functions";
+@import "libs/mixins";
+@import "libs/vendor";
+@import "libs/breakpoints";
+@import "libs/html-grid";
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
 /*
 	Editorial by HTML5 UP
@@ -16,70 +16,105 @@
 
 // Breakpoints.
 
-	@include breakpoints((
-		xlarge:   ( 1281px,  1680px ),
-		large:    ( 981px,   1280px ),
-		medium:   ( 737px,   980px  ),
-		small:    ( 481px,   736px  ),
-		xsmall:   ( 361px,   480px  ),
-		xxsmall:  ( null,    360px  ),
-		xlarge-to-max:    '(min-width: 1681px)',
-		small-to-xlarge:  '(min-width: 481px) and (max-width: 1680px)'
-	));
+@include breakpoints(
+  (
+    xlarge: (
+      1281px,
+      1680px,
+    ),
+    large: (
+      981px,
+      1280px,
+    ),
+    medium: (
+      737px,
+      980px,
+    ),
+    small: (
+      481px,
+      736px,
+    ),
+    xsmall: (
+      361px,
+      480px,
+    ),
+    xxsmall: (
+      null,
+      360px,
+    ),
+    xlarge-to-max: "(min-width: 1681px)",
+    small-to-xlarge: "(min-width: 481px) and (max-width: 1680px)",
+  )
+);
 
 // Base.
 
-	@import 'base/reset';
-	@import 'base/page';
-	@import 'base/typography';
+@import "base/reset";
+@import "base/page";
+@import "base/typography";
 
 // Component.
 
-	@import 'components/row';
-	@import 'components/section';
-	@import 'components/form';
-	@import 'components/box';
-	@import 'components/icon';
-	@import 'components/image';
-	@import 'components/list';
-	@import 'components/actions';
-	@import 'components/icons';
-	@import 'components/contact';
-	@import 'components/pagination';
-	@import 'components/table';
-	@import 'components/button';
-	@import 'components/mini-posts';
-	@import 'components/features';
-	@import 'components/posts';
+@import "components/row";
+@import "components/section";
+@import "components/form";
+@import "components/box";
+@import "components/icon";
+@import "components/image";
+@import "components/list";
+@import "components/actions";
+@import "components/icons";
+@import "components/contact";
+@import "components/pagination";
+@import "components/table";
+@import "components/button";
+@import "components/mini-posts";
+@import "components/features";
+@import "components/posts";
 
 // Layout.
 
-	@import 'layout/wrapper';
-	@import 'layout/main';
-	@import 'layout/sidebar';
-	@import 'layout/header';
-	@import 'layout/banner';
-	@import 'layout/footer';
-	@import 'layout/menu';
+@import "layout/wrapper";
+@import "layout/main";
+@import "layout/sidebar";
+@import "layout/header";
+@import "layout/banner";
+@import "layout/footer";
+@import "layout/menu";
 
-h1.change, h2.change, h3.change, h4.change, h5.change, h6.change, strong.change, b.change, a.icon.change, ul.icon.change  {
-		color: #efefef;
+h1.change,
+h2.change,
+h3.change,
+h4.change,
+h5.change,
+h6.change,
+strong.change,
+b.change,
+a.icon.change,
+ul.icon.change {
+  color: #efefef;
 }
-#sidebar.change, #search.alt.change {
-    background: #121212;
+#sidebar.change,
+#search.alt.change {
+  background: #121212;
 }
 body.change {
-	background: #090909;
+  background: #090909;
 }
-ul.icons li .icon.change{
-    color: white;
+ul.icons li .icon.change {
+  color: white;
 }
 ul.contact a.change {
-    color: white;
+  color: white;
 }
 p.copyright em.change {
-    color: white;
+  color: white;
 }
 a.button.change {
-    color: white !important;
+  color: white !important;
 }
+
+#menu ul li a.change {
+  color: white !important;
+}
+

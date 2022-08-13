@@ -205,7 +205,6 @@ h6 {
     font-size: 2em;
     line-height: 1.4;
   }
-
   h2 {
     font-size: 1.5em;
   }
@@ -2847,11 +2846,21 @@ button:disabled,
   padding-top: 0;
 }
 
-h1.change, h2.change, h3.change, h4.change, h5.change, h6.change, strong.change, b.change, a.icon.change, ul.icon.change {
+h1.change,
+h2.change,
+h3.change,
+h4.change,
+h5.change,
+h6.change,
+strong.change,
+b.change,
+a.icon.change,
+ul.icon.change {
   color: #efefef;
 }
 
-#sidebar.change, #search.alt.change {
+#sidebar.change,
+#search.alt.change {
   background: #121212;
 }
 
@@ -2872,5 +2881,9 @@ p.copyright em.change {
 }
 
 a.button.change {
+  color: white !important;
+}
+
+#menu ul li a.change {
   color: white !important;
 }/*# sourceMappingURL=main.css.map */
