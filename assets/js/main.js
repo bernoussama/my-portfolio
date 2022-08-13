@@ -228,6 +228,7 @@ function change() {
     // }
   }
   document.querySelector("#sidebar").classList.toggle("change");
+  document.querySelector(".toggle").classList.toggle("change");
   document.querySelector("#search.alt").classList.toggle("change");
   document.querySelector("body").classList.toggle("change");
   document.querySelectorAll("h1").forEach((x) => x.classList.toggle("change"));
