@@ -1,3 +1,12 @@
+window.addEventListener("load", (event) => {
+  console.log(localStorage.getItem("theme"));
+  if (localStorage.theme == "dark") {
+    change();
+  } else if (localStorage.theme == "light") {
+    localStorage.theme == "light";
+  } else localStorage.removeItem("theme");
+});
+
 (function ($) {
   var $window = $(window),
     $head = $("head"),
@@ -214,6 +223,8 @@
 
 function change() {
   if (document.querySelector("body.change")) {
+    localStorage.removeItem("theme");
+    localStorage.setItem("theme", "light");
     document.querySelector("[onclick='change()']").classList =
       "icon fa-moon change";
     // document.querySelector('[href="index2.html"]').href = "index.html";
@@ -221,6 +232,8 @@ function change() {
     //   document.querySelector('[href="aboutme2.html"]').href = "aboutme.html";
     // }
   } else {
+    localStorage.removeItem("theme");
+    localStorage.theme = "dark";
     document.querySelector("[onclick='change()']").classList = "icon fa-sun";
     // document.querySelector('[href="index.html"]').href = "index2.html";
     // if (document.querySelector('[href="aboutme.html"]')) {
