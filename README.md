@@ -1,6 +1,10 @@
 # My Portfolio site
 
-A portfolio site to see my projects and ways to get in contact with me.
+### A portfolio site to see my projects and ways to get in contact with me.
+<div align="center">
+
+![portfolio-gif](https://user-images.githubusercontent.com/96293508/184633817-9a1ffd3e-d429-47c1-ae5d-3e6dec6d5160.gif)
+</div>
 
 <br>
 
