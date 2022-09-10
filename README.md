@@ -18,16 +18,22 @@
 
 # Optimizations:
 
-Made a dark theme toggler using an event listener, listening to clicks on a button that toggles between dark and light by toggling css classes.
-Thought about adding some ongoing animations but that will surely trigger yout laptop's fans.
+## Dark Mode:
 
-Also fixed theme reset to light them, cause it's the default one, by using localStorage to carry the theme selected through all pages.
+- Made a dark theme toggler using an event listener, listening to clicks on a button that toggles between dark and light by toggling css classes.
+Thought about adding some ongoing animations but don't want anyone's laptop fans triggered.
+
+- Also fixed theme reset to light them, cause it's the default one, by using localStorage to carry the theme selected through all pages.
+
+## Performance optimizations:
+- Added lazy loading for images that are seen after scrolling
+- Replaced JPEGs with compressed WebP images.
 
 <br>
 
 # Lessons Learned:
 
-Seperation of Concerns. css animations better be done in css, not with javascript
+Seperation of Concerns. css animations better be done in css, not with javascript.
 
 <br>
 
