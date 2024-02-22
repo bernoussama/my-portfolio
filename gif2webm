@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Set the directory containing the GIFs
+dir="./public/images"
+
+# Loop through each file in the directory
+for file in "$dir"/*.gif; do
+    # Extract the filename without extension
+    filename="${file%.*}"
+
+    # Convert the GIF to webm using ffmpeg
+    ffmpeg -i "$file" -b:v 1M "$filename.webm"
+
+    # Print a message for confirmation
+    echo "Converted $file to $filename.webm"
+done
+
+echo "All GIFs in $dir have been converted to webm."
