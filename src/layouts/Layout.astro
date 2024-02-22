@@ -1,0 +1,179 @@
+---
+/* interface Props {
+	title: string;
+} */
+
+// const { title } = Astro.props;
+import '../styles/sass/main.css';
+---
+
+<!doctype html>
+
+<html>
+
+<head>
+	<script is:inline src="/js/head.js"></script>
+	<title>Oussama Bernou Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<!-- <link rel="stylesheet" href="/sass/main.css" /> -->
+	<link rel="icon" href="/images/faviconOussa.png">
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<!-- Header -->
+				<header id="header">
+					<a href="index" class="logo"><img style="max-width:300px ;" src="/images/portfolioLogo.png"
+							alt=""></a>
+					<ul class="icons">
+						<li><a onclick="change()" class="icon fa-moon"><span class="label">Night-Mode</span></a>
+						</li>
+						<li><a href="mailto:oussama.bernou@outlook.com" class="icon fa-envelope" target="_blank"><span
+									class="label">Email</span></a>
+						</li>
+						<li><a href="https://www.linkedin.com/in/oussama-bernou/" class="icon brands fa-linkedin"
+								target="_blank"><span class="label" target="_blank">LinkedIn</span></a>
+						</li>
+						<li><a href="https://github.com/0ussamaBernou" class="icon brands fa-github"
+								target="_blank"><span class="label" target="_blank">Github</span></a>
+						</li>
+						<li><a href="https://twitter.com/oussamacodes" class="icon brands fa-twitter"
+								target="_blank"><span class="label">Twitter</span></a>
+						</li>
+						<li><a href="https://angel.co/u/oussama-bernou" class="icon brands fa-angellist"
+								target="_blank"><span class="label">AngelList</span></a>
+						</li>
+						<!-- <li><a href="#" class="icon brands fa-medium-m"><span class="label" target="_blank">Medium</span></a>
+						</li>  -->
+					</ul>
+				</header>
+
+	<slot></slot>
+
+			</div>
+		</div>
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+				<!-- Search -->
+				<section id="search" class="alt">
+					<form method="post" action="#">
+						<input type="text" name="query" id="query" placeholder="Search" />
+					</form>
+				</section>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><a href="index">Homepage</a></li>
+						<!-- <li><a href="about">About Me</a></li> -->
+						<li><a href="/resume">Resume</a></li>
+						<br>
+						<li><a href="freelance">Freelance</a></li>
+
+						<!-- 	<li>
+											<span class="opener">Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li> -->
+						<!-- <li><a href="#">Etiam Dolore</a></li>
+										<li><a href="#">Adipiscing</a></li>
+										<li>
+											<span class="opener">Another Submenu</span>
+											<ul>
+												<li><a href="#">Lorem Dolor</a></li>
+												<li><a href="#">Ipsum Adipiscing</a></li>
+												<li><a href="#">Tempus Magna</a></li>
+												<li><a href="#">Feugiat Veroeros</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Maximus Erat</a></li>
+										<li><a href="#">Sapien Mauris</a></li>
+										<li><a href="#">Amet Lacinia</a></li>
+									-->
+					</ul>
+				</nav>
+
+				<!-- Section -->
+				<!-- 
+								<section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="/images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="/images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="/images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section> -->
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Let's start a conversation
+					</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope">
+							<a href="mailto:contact@bernoussama.com">contact@bernoussama.com</a>
+						</li>
+						<li class="icon brands fa-github"><a
+								href="bernoussama.com/twitter">bernoussama.com/Github</a>
+						</li>
+						<li class="icon brands fa-linkedin"><a
+								href="bernoussama.com/linkedin">bernoussama.com/LinkedIn</a>
+						</li>
+						<li class="icon brands fa-twitter"><a
+								href="bernoussama.com/twitter">bernoussama.com/Twitter</a>
+						</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Oussama Bernou. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script is:inline src="/js/jquery.min.js"></script>
+	<script is:inline src="/js/browser.min.js"></script>
+	<script is:inline src="/js/breakpoints.min.js"></script>
+	<script is:inline src="/js/util.js"></script>
+	<script is:inline src="/js/main.js"></script>
+
+</body>
+
+</html>
