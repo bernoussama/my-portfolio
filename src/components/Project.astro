@@ -1,0 +1,20 @@
+---
+interface Props {
+	href: string;
+	src: string;
+}
+
+const { src, href } = Astro.props;
+---
+
+<article>
+	<a href={href} class="image">
+		<!-- <img loading="lazy" -->
+		<!-- 				src="images/cocktail.gif" alt="" /> -->
+		<video autoplay loop muted >
+			<source src={src} type="video/webm">
+		</video>
+		</a>
+	<slot></slot>
+</article>
+
