@@ -19,7 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Copy repository contents via scp
+    - name: Copy repository contents using scp
       uses: appleboy/scp-action@master
       env:
         HOST: ${{ secrets.HOST }}
@@ -29,6 +29,7 @@ jobs:
       with:
         source: "."
         target: "~/my-portfolio"
+
     - name: Deploy using ssh
       uses: appleboy/ssh-action@master
       with:
