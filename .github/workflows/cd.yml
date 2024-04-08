@@ -34,5 +34,4 @@ jobs:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
           npm install
           npm run build
-          ln -s ~/my-portfolio/dist /var/www/oracle1.bernoussama.com
 
