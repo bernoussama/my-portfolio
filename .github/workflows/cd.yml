@@ -29,6 +29,9 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           cd ~/my-portfolio
+          git pull origin main
+          export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
           npm run build
           ln -s ~/my-portfolio/dist /var/www/oracle1.bernoussama.com
 
