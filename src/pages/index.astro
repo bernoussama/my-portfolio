@@ -85,13 +85,16 @@ import ProjectCard from '../components/ProjectCard.astro';
 				<section class="flex flex-col items-center gap-8 mt-16">
 					<h2 class="text-2xl font-bold">Latest Projects</h2>
 					<div class="grid md:grid-cols-2 grid-flow-row gap-8">
+						<ProjectCard src="images/my-portfolio50.webp" title='My Portfolio & Personal blog'
+							body='A fully responsive Portfolio & personal blog built with Astro and Tailwind'
+							href='https://github.com/0ussamaBernou/my-portfolio' techs={["HTML5", "Astro", "Tailwind", "Franken-UI"]} />
 						<ProjectCard src="images/desktop-preview.jpg" demoUrl='https://fylo.bernoussama.com/'
 							title='Fylo - Responsive Landing Page'
 							body='HTML5 & CSS3 - A fully responsive landing page for a software product'
-							href='https://github.com/0ussamaBernou/fylo-landing-page' />
+							href='https://github.com/0ussamaBernou/fylo-landing-page' techs={["HTML5", "CSS3"]} />
 						<ProjectCard src="images/Source-project.jpeg" title='Source - Responsive Template'
-							body='HTML5 & CSS3 - A fully responsive multi-purpose landing page template'
-							href='https://github.com/0ussamaBernou/source-layout' />
+							body='A fully responsive multi-purpose landing page template'
+							href='https://github.com/0ussamaBernou/source-layout' techs={["HTML5", "CSS3"]} />
 						<!-- <Project src="https://cocktail.bernoussama.com/" src="/images/cocktail.webm"> -->
 						<!-- 	<h3>Cocktail showcase</h3> -->
 						<!-- 	<p>Carousel of cocktails fetched from cocktailDB api</p> -->

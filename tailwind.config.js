@@ -64,6 +64,9 @@ export default {
         divider: {
           hooks: shadcn.divider,
         },
+        badge: {
+          hooks: shadcn.badge,
+        }
       },
     },
     ),
