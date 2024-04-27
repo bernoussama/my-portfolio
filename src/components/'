@@ -1,0 +1,76 @@
+---
+import Nav from './Nav.astro';
+const { pathname } = Astro.url;
+---
+<header uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky;" class="z-50 md:top-0 border-secondary mx-8 rounded-lg max-sm:!bottom-0">
+	<nav class="uk-navbar-container rounded-xl">
+		<div class="container max-w-screen-2xl">
+			<div class="uk-navbar flex items-center justify-between md:px-6" uk-navbar="mode: click">
+				<div class="uk-navbar-left gap-6 flex">
+					<a class="uk-navbar-item text-primary flex gap-2 justify-between items-center" href="/">
+						<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M5.55882 5.19093H12.8092V12.4413L17.3202 16.9523V0.679932H1.04782L5.55882 5.19093ZM12.4415 12.8089H5.19118V5.55857L0.680176 1.04757V17.3199H16.9525L12.4415 12.8089Z"
+								fill="currentColor" />
+						</svg>
+						<span class="text-base font-bold">Bernoussama</span>
+					</a>
+					<ul class="uk-navbar-nav hidden gap-6 lg:flex">
+						<li class={pathname.startsWith("/blog") ? "uk-active" : "" }>
+							<a href="/blog">Blog</a>
+						</li>
+						<li>
+							<a href="https://github.com/sveltecult/franken-ui" target="_blank">Github</a>
+						</li>
+					</ul>
+
+				</div>
+				<ul class="uk-iconnav flex gap-1 flex-none">
+					<li>
+						<a id="theme-toggle">
+							<svg id="theme-toggle-light-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun dark:hidden">
+								<circle cx="12" cy="12" r="4"></circle>
+								<path d="M12 2v2"></path>
+								<path d="M12 20v2"></path>
+								<path d="m4.93 4.93 1.41 1.41"></path>
+								<path d="m17.66 17.66 1.41 1.41"></path>
+								<path d="M2 12h2"></path>
+								<path d="M20 12h2"></path>
+								<path d="m6.34 17.66-1.41 1.41"></path>
+								<path d="m19.07 4.93-1.41 1.41"></path>
+							</svg>
+							<svg id="theme-toggle-dark-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+								stroke-linecap="round" stroke-linejoin="round"
+								class="lucide lucide-moon hidden dark:block">
+								<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+							</svg>
+						</a>
+					</li>
+					<li class="lg:hidden">
+						<a href="#menu" uk-toggle>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round" class="lucide lucide-menu">
+								<line x1="4" x2="20" y1="12" y2="12"></line>
+								<line x1="4" x2="20" y1="6" y2="6"></line>
+								<line x1="4" x2="20" y1="18" y2="18"></line>
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
+<div id="menu" class="uk-offcanvas !bg-opacity-60 !backdrop-blur-[8px]" uk-offcanvas>
+  <div class=" uk-offcanvas-bar p-6 !bg-opacity-60 !backdrop-blur-[8px]">
+
+    <button class="uk-offcanvas-close right-6 top-6" type="button" uk-close
+    ></button>
+
+    <Nav />
+  </div>
+</div>

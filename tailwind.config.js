@@ -37,6 +37,10 @@ export default {
         nav: {
           hooks: shadcn.nav,
         },
+        offcanvas: {
+          hooks: shadcn.offcanvas,
+          media: false,
+        },
         navbar: {
           hooks: shadcn.navbar,
           media: false,

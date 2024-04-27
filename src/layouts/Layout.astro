@@ -17,6 +17,7 @@ title: string;
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script>
+<!-- <script src="uikit/dist/js/uikit-icons.min.js"></script> -->
 	<!-- <link rel="stylesheet" href="/sass/main.css" /> -->
 	<link rel="preload" href="/fonts/geist-font/fonts/GeistVariableVF.woff2" as="font" type="font/woff2" crossorigin />
 	<link rel="preload" href="/fonts/geist-font/fonts/GeistMonoVariableVF.woff2" as="font" type="font/woff2"
@@ -36,10 +37,10 @@ title: string;
 	</script>
 </head>
 
-<body class="bg-background font-geist-sans text-foreground antialiased">
+<body class="bg-background font-geist-sans text-foreground antialiased pt-0">
 
-	<div class="flex min-h-screen flex-col">
-		<div class="flex-1">
+	<div class="flex min-h-screen flex-col pt-0">
+		<div class="flex-1 pt-0">
 			<NavBar />
 			<slot></slot>
 		</div>
