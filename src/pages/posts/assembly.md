@@ -1,6 +1,6 @@
 ---
-layout: ../../layouts/Layout.astro
-title: "My First Blog Post"
+layout: ../../layouts/PostLayout.astro
+title: "Assembly - Hello World"
 pubDate: 2022-04-22
 description: "x86 NASM Assembly - Hello World Explained"
 author: "Oussama Bernou"
@@ -12,10 +12,10 @@ tags: ["astro", "blogging", "learning in public"]
 
 In this post, we'll take you on a step-by-step journey through a classic "Hello, World!" assembly program. We'll break down each line of code.
 
-### Introduction
+## Introduction
 
 - First, let's clarify a few essential concepts. In assembly, comments are denoted by a semicolon `;`, allowing us to add explanations to our code without affecting its functionality. To display text on the screen, we'll utilize the system call `sys_write`.
-  - using system call `sys_write`
+  - using system call ` sys_write `
 
 ```asm
 mov	edx,len     ; message length
