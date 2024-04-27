@@ -10,9 +10,11 @@ const {frontmatter} = Astro.props;
 		<h2 class="">Post author: {frontmatter.author}</h2>
 		<p class="">{frontmatter.description}</p>
 		<div class="uk-divider-small my-2 mb-8"></div>
+
 		<div
 			class="container prose dark:prose-invert prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:underline">
 			<slot /> <!-- Markdown content is injected here -->
 		</div>
+
 	</div>
 </Layout>
