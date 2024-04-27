@@ -9,13 +9,12 @@ image:
   alt: "The full Astro logo."
 tags: ["astro", "blogging", "learning in public"]
 ---
-<br/>
 In this post, we'll take you on a step-by-step journey through a classic "Hello, World!" assembly program. We'll break down each line of code.
 
 ## Introduction
 
 - First, let's clarify a few essential concepts. In assembly, comments are denoted by a semicolon `;`, allowing us to add explanations to our code without affecting its functionality. To display text on the screen, we'll utilize the system call `sys_write`.
-  - using system call `sys_write`
+  - using system call ` sys_write `
 
 ```asm
 mov	edx,len     ; message length

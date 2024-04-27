@@ -57,6 +57,9 @@ export default {
         card: {
           hooks: shadcn.card,
         },
+        divider: {
+          hooks: shadcn.divider,
+        },
       },
     },
     ),
