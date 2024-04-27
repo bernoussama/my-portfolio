@@ -1,0 +1,15 @@
+---
+import Layout from './Layout.astro';
+const {frontmatter} = Astro.props;
+---
+<Layout>
+	<div class="container mt-8 prose dark:prose-invert
+  prose-h1:font-bold prose-h1:text-xl
+  prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl
+  prose-headings:underline">
+		<h1 class="text-3xl text-center font-bold mb-8">{frontmatter.title}</h1>
+		<h2 class="text-secondary">Post author: {frontmatter.author}</h2>
+		<p class="text-secondary text-lg">{frontmatter.description}</p>
+		<slot /> <!-- Markdown content is injected here -->
+	</div>
+</Layout>
