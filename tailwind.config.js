@@ -66,6 +66,9 @@ export default {
         },
         badge: {
           hooks: shadcn.badge,
+        },
+        tooltip: {
+          hooks: shadcn.tooltip,
         }
       },
     },

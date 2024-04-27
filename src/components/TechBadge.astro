@@ -1,0 +1,12 @@
+---
+interface Props {
+iconLink?: string,
+name: string
+}
+const src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg"
+const { iconLink, name } = Astro.props
+---
+<span class="rounded-full mr-1 px-2.5 py-0.5 text-default text-sm font-semibold bg-muted border border-muted items-center gap-1 flex justify-between">
+    <img src={iconLink} title={name} alt={name} width="20" height="20" />
+    <span>{name}</span>
+</span>

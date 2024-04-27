@@ -1,0 +1,49 @@
+---
+import Layout from './Layout.astro';
+---
+<Layout>
+	<div class=" container mt-8 mb-8 flex flex-col items-center text-left" style='font-family: "Articulat CF", sans-serif;'>
+		<div
+			class="container prose dark:prose-invert prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:underline">
+			<slot /> <!-- Markdown content is injected here -->
+		</div>
+
+	</div>
+</Layout>
+<style>
+	@font-face {
+		font-display: swap;
+		font-family: Articulat CF;
+		font-style: normal;
+		font-weight: 400;
+		src: url(52ce32a338a3057de64c3528a8571a7f.woff2) format("woff2"),
+			url(8b7f6754d12df7ff7d2f1aa77f9ee60d.woff) format("woff")
+	}
+
+	@font-face {
+		font-display: swap;
+		font-family: Articulat CF;
+		font-style: normal;
+		font-weight: 500;
+		src: url(dae5654a2e5ffdaf0057259047ba7834.woff2) format("woff2"),
+			url(6a6f588a09b12435164b3000ddef9492.woff) format("woff")
+	}
+
+	@font-face {
+		font-display: swap;
+		font-family: Articulat CF;
+		font-style: normal;
+		font-weight: 600;
+		src: url(ac1dbc3a2cc16a39ee69152e60e7d608.woff2) format("woff2"),
+			url(3807be14386a6352ed314e8c6834b2c3.woff) format("woff")
+	}
+
+	@font-face {
+		font-display: swap;
+		font-family: Articulat CF;
+		font-style: normal;
+		font-weight: 700;
+		src: url(4c25ad540087c6c91e1a512489228e10.woff2) format("woff2"),
+			url(c47c98b0c378fb434f6a083c2fc54ca7.woff) format("woff")
+	}
+</style>
