@@ -9,6 +9,7 @@ image:
   alt: "The full Astro logo."
 tags: ["astro", "blogging", "learning in public"]
 ---
+
 In this post, we'll take you on a step-by-step journey through a classic "Hello, World!" assembly program. We'll break down each line of code.
 
 ## Introduction
