@@ -1,20 +1,24 @@
 ---
 interface Props {
-src: string;
+src?: string;
 title: string;
-body: string;
+body?: string;
 href: string;
 demoUrl?: string;
 techs?: Array<string>;
+buttonText? : string;
 	}
 
-	const { src, title, href, body, demoUrl, techs} = Astro.props;
+	const { src, title, href, body, demoUrl, techs, buttonText} = Astro.props;
 	---
-	<div class="rounded-lg overflow-hidden border border-neutral-200/60 bg-default shadow-sm w-full">
+	<div class="flex flex-col justify-between rounded-lg overflow-hidden border border-neutral-200/60 bg-default shadow-sm w-full">
 		<a href={demoUrl ? demoUrl : href} target="_blank" class="relative">
-			<div class=" overflow-hidden md:h-[320px] max-sm:h-[280px] flex justify-center items-center">
-				<img src={src} class="object-cover h-full w-full transition-all hover:scale-110" loading="lazy" />
-			</div>
+			{ src ?
+			(<div
+				class="border-transparent overflow-hidden md:h-[320px] max-sm:h-[280px] flex justify-center items-center">
+				<img src=`${src}` class="object-cover h-full w-full transition-all hover:scale-110" loading="lazy" />
+			</div>): ""
+			}
 		</a>
 		<div class="p-7 flex flex-col items-start ">
 			<h2 class="mb-2 text-lg font-bold leading-none tracking-tight">{title}</h2>
@@ -28,6 +32,6 @@ techs?: Array<string>;
 			<p class="mb-5 text-neutral-500">{body}</p>
 			<a href={href}
 				class="inline-flex items-center justify-center w-full h-10 px-4 py-2 text-sm font-medium text-secondary transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none bg-primary hover:opacity-90">
-				Project Source</a>
+				{buttonText ? buttonText : "See Project Source"}</a>
 		</div>
 	</div>

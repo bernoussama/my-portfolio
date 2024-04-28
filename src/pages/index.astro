@@ -2,12 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TechBadge from '../components/TechBadge.astro';
+import Card from '../components/Card.astro';
 ---
 
 <Layout>
 	<main class="container">
 		<div class="mx-auto max-w-7xl">
-			<div class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
+			<div class=" transition-all mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
 				<h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
 					Hi, I’m Oussama,
 					Your Next Software Developer</h1>
@@ -47,11 +48,6 @@ import TechBadge from '../components/TechBadge.astro';
 						Blog
 					</a>
 				</div>
-				<!-- <span class="image object"> -->
-				<!-- <img src="/images/portrait.webp" alt="" loading="lazy" -->
-				<!-- 	style="max-height: 800px;max-width: 600px;" /> -->
-				<!-- </span> -->
-				<!-- Section -->
 				<section class="flex flex-col items-center gap-8 mt-16">
 					<h2 class="text-2xl font-bold">Skills</h2>
 					<div class="flex flex-wrap gap-2 items-center justify-center">
@@ -115,6 +111,8 @@ import TechBadge from '../components/TechBadge.astro';
 						<ProjectCard src="images/Source-project.webp" title='Source - Responsive Template'
 							body='A fully responsive multi-purpose landing page template'
 							href='https://github.com/0ussamaBernou/source-layout' techs={["HTML5", "CSS3" ]} />
+						<ProjectCard title='More projects...' href='https://github.com/0ussamaBernou' buttonText='View More' 
+						src='https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' />
 						<!-- <Project src="https://cocktail.bernoussama.com/" src="/images/cocktail.webm"> -->
 						<!-- 	<h3>Cocktail showcase</h3> -->
 						<!-- 	<p>Carousel of cocktails fetched from cocktailDB api</p> -->
@@ -154,32 +152,37 @@ import TechBadge from '../components/TechBadge.astro';
 
 				<div class="flex flex-col items-center gap-8 mt-8">
 					<h2 class="text-2xl font-bold">My services</h2>
-					<div class="grid md:grid-cols-2 grid-flow-row gap-8 -z-10">
-						<div class="uk-card uk-card-default uk-card-body">
-							<h3 class="uk-card-title text-lg"><strong>1. </strong>Consultation</h3>
-							<br>
-							<p>It all begins with a conversation where we'll pinpoint what this project is all
-								about.</p>
-						</div>
-						<div class="uk-card uk-card-default uk-card-body">
-							<h3 class="uk-card-title text-lg"><strong>2. </strong>Proposal</h3>
-							<br>
-							<p>A detailed project proposal including a visual preview will be presented and a plan
-								of action will be
-								decided.</p>
-						</div>
-						<div class="uk-card uk-card-default uk-card-body">
-							<h3 class="uk-card-title text-lg"><strong>3. </strong>Creation</h3>
-							<br>
-							<p>Clients receive regular updates regarding their project status while I create and
-								test it.</p>
-						</div>
-						<div class="uk-card uk-card-default uk-card-body">
-							<h3 class="uk-card-title text-lg"><strong>4. </strong>Launch & Support</h3>
-							<br>
-							<p>Peace of mind is delivered with the final project in the form of available ongoing
-								support.</p>
-						</div>
+					<div class="grid md:grid-cols-2 grid-flow-row gap-8">
+						<Card  title="1. Consultation" body="It all begins with a conversation where we'll pinpoint what this project is all about." />
+
+						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
+						<!-- 	<h3 class="uk-card-title text-lg"><strong>1. </strong>Consultation</h3> -->
+						<!-- 	<br> -->
+						<!-- 	<p>It all begins with a conversation where we'll pinpoint what this project is all -->
+						<!-- 		about.</p> -->
+						<!-- </div> -->
+						<Card title="2. Proposal" body="A detailed project proposal including a visual preview will be presented and a plan of action will be decided." />
+						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
+						<!-- 	<h3 class="uk-card-title text-lg"><strong>2. </strong>Proposal</h3> -->
+						<!-- 	<br> -->
+						<!-- 	<p>A detailed project proposal including a visual preview will be presented and a plan -->
+						<!-- 		of action will be -->
+						<!-- 		decided.</p> -->
+						<!-- </div> -->
+						<Card title="3. Creation" body="Clients receive regular updates regarding their project status while I create and test it." />
+						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
+						<!-- 	<h3 class="uk-card-title text-lg"><strong>3. </strong>Creation</h3> -->
+						<!-- 	<br> -->
+						<!-- 	<p>Clients receive regular updates regarding their project status while I create and -->
+						<!-- 		test it.</p> -->
+						<!-- </div> -->
+						<Card title="4. Launch & Support" body="Peace of mind is delivered with the final project in the form of available ongoing support." />
+						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
+						<!-- 	<h3 class="uk-card-title text-lg"><strong>4. </strong>Launch & Support</h3> -->
+						<!-- 	<br> -->
+						<!-- 	<p>Peace of mind is delivered with the final project in the form of available ongoing -->
+						<!-- 		support.</p> -->
+						<!-- </div> -->
 					</div>
 				</div>
 
