@@ -1,7 +1,2 @@
-generic.html
-elements.html
-license.txt
-freelance-template.html
-about.html
-elements.html
-.vscode
+node_modules
+dist

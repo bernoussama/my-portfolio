@@ -1,3 +1,7 @@
+---
+
+const { pathname } = Astro.url;
+---
 <html lang="en">
 
 <head>
@@ -103,7 +107,7 @@
 		</svg>
 		<h1 class="text-3xl"><span class="statusCode">404: </span> <span class="statusMessage">Not found</span></h1>
 
-		<pre class="flex items-center justify-center">Path: /Resume</pre>
+		<pre class="flex items-center justify-center">Path: {pathname}</pre>
 
 	</main>
 
