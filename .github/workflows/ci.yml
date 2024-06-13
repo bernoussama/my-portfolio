@@ -36,12 +36,9 @@ jobs:
         env:
           DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
 
-      - name: install rsync
-        run: sudo apt install -y rsync
-
       - name: Deploy the website
         run: >-
-          rsync -avx --delete --exclude '.ssh' /home/runner/work/my-portfolio/my-portfolio/dist/ $DEPLOY_USERNAME@$DEPLOY_SERVER:./
+          rsync -avx --delete --exclude '.ssh' dist/ $DEPLOY_USERNAME@$DEPLOY_SERVER:./
         env:
           DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
           DEPLOY_USERNAME: ${{ secrets.DEPLOY_USERNAME }}
