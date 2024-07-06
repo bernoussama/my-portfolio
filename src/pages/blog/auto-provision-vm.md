@@ -359,13 +359,14 @@ With everything set up, let's provision and start our Kali Linux VM:
 1. Navigate to the project directory (`vagrant_kali`).
 2. Run the command `vagrant up` to bring up the VM and execute the Ansible playbook.
 
-![[vagrant-up.png]]
+![vagrant up command running](vagrant-up.webp) 
 Vagrant will provision and start the Kali Linux VM. If configured, the VirtualBox GUI will be displayed.
 
-![[ansible-play.png]]
+![ansible playbook provisioning](ansible-play.webp)
+![ansible playbook success](successful-playbook.webp)
 This is the Ansible playbook output, indicating successful completion.
 
-![[kali-up.png]]
+![kali up and running](kali-up.webp) 
 The Kali VM is up and running!
 
 >**N.B**
@@ -374,6 +375,7 @@ The Kali VM is up and running!
 **Vagrant Commands:**
 Here's a quick reference for some common Vagrant commands:
 * `vagrant up`: Provisions and starts the virtual machine.
+* `vagrant provision`: Runs provisioning playbook.
 * `vagrant halt`: Pauses the virtual machine.
 * `vagrant destroy`: Completely removes the virtual machine and its associated resources.
 
