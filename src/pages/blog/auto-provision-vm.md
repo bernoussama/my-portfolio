@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: "Automate Your local VM workflow"
-pubDate: 2022-07-04
+pubDate: 2022-07-06
 description: "Provision a Kali Linux VM with Vagrant and Ansible"
 author: "Oussama Bernou"
 image:
@@ -211,17 +211,52 @@ The tasks for installing packages and configuring Tor are divided into separate 
       - neovim
       - curl
       - wget
+      - git
+      - tmux
+      - apt-transport-https
+      - maltego
+      - metasploit-framework
+      - burpsuite
+      - wireshark
+      - aircrack-ng
+      - hydra
+      - nmap
+      - beef-xss
+      - nikto
       - nmap
       - wireshark
-      - tor
       - proxychains
-      - torbrowser-launcher
     state: present
   become: yes
 ```
 
 * `tor.yml`: This file configures the Tor anonymization service for improved security during pen testing activities.
+> tor is available in kali's repositories but is not always up-to-date and something as sensitive as anonymizition software should be installed directly from source
 ```yaml
+---
+- name: Add Tor project repository to sources list
+  copy:
+    dest: /etc/apt/sources.list.d/tor.list
+    content: |
+      deb https://deb.torproject.org/torproject.org stable main
+      deb-src https://deb.torproject.org/torproject.org stable main
+
+- name: Add Tor project GPG key
+  apt_key:
+    url: https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc
+    state: present
+
+- name: Update apt package lists
+  apt:
+    update_cache: yes
+
+- name: Install Tor and keyring
+  apt:
+    name:
+      - tor
+      - deb.torproject.org-keyring
+    state: present
+
 - name: Ensure Proxychains is installed
   apt:
     name: proxychains
@@ -280,6 +315,37 @@ The tasks for installing packages and configuring Tor are divided into separate 
     path: /etc/proxychains.conf
     line: 'socks4  127.0.0.1 9050'
     state: present
+```
+
+* `install_syncthing.yml`: This file installs the Syncthing service.
+```yaml
+- name: Add Syncthing GPG key
+  apt_key:
+    url: https://syncthing.net/release-key.txt
+    state: present
+
+- name: Add Syncthing repository to sources list
+  apt_repository:
+    repo: 'deb https://apt.syncthing.net/ syncthing stable'
+    state: present
+
+- name: Create preferences file for Syncthing
+  copy:
+    dest: /etc/apt/preferences.d/syncthing
+    content: |
+      Package: *
+      Pin: origin apt.syncthing.net
+      Pin-Priority: 1001
+
+- name: Update apt package lists
+  apt:
+    update_cache: yes
+
+- name: Install Syncthing
+  apt:
+    name: syncthing
+    state: present
+
 ```
 
 **5. Security Considerations:**
