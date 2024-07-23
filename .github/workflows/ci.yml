@@ -23,13 +23,13 @@ jobs:
           source ~/.bashrc 
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-          nvm install lts/hydrogen
+          nvm install latest
 
       - name: Install Astro
         run: npm install
 
       - name: Build Astro
-        run: npm run build
+        run: node --run build
       
       - name: Scan the host key
         run: mkdir -p ~/.ssh/ && ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
