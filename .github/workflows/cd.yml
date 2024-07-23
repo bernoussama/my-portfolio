@@ -1,8 +1,10 @@
-name: CI
+name: CD
 run-name: Portfolio Deployment
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '**/README.md'
 
 jobs:
   build:
@@ -25,7 +27,6 @@ jobs:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
           nvm install node
           npm install
-          nvm use node
           node --run build
       
       - name: Scan the host key
