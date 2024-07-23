@@ -29,7 +29,9 @@ jobs:
         run: npm install
 
       - name: Build Astro
-        run: node --run build
+        run: |
+          nvm use node
+          node --run build
       
       - name: Scan the host key
         run: mkdir -p ~/.ssh/ && ssh-keyscan -H $DEPLOY_SERVER >> ~/.ssh/known_hosts
