@@ -15,4 +15,4 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 =======
 
-Built using [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com), and [Frenken-UI](https://frenken-ui.com).
+Built using [Astro](https://astro.build/), [Tailwind CSS](https://tailwindcss.com), and [Franken-UI](https://franken-ui.dev).
