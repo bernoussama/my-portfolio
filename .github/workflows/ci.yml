@@ -17,19 +17,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Install npm
+      - name: Install npm, astro & build
         run: |
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
           source ~/.bashrc 
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
           nvm install node
-
-      - name: Install Astro
-        run: npm install
-
-      - name: Build Astro
-        run: |
+          npm install
           nvm use node
           node --run build
       
