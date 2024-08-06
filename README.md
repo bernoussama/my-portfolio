@@ -1,5 +1,6 @@
 # My Portfolio Site
 
+<a href="https://bernoussama.com" target="_blank" ref="noreferrer"> <img src="https://github.com/0ussamaBernou/0ussamaBernou/assets/96293508/bf672fbd-d9c0-49ae-ad77-256baeebaf42" alt="My portfolio"/> </a>
 
 ## 🧞 Commands
 
