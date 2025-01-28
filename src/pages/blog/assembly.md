@@ -7,7 +7,7 @@ author: "Oussama Bernou"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
   alt: "The full Astro logo."
-tags: ["assembly", "blogging", "learning in public", "hellow world", "tutorial"]
+tags: ["assembly", "blogging", "learning in public", "hello world", "tutorial"]
 ---
 
 In this post, we'll take you on a step-by-step journey through a classic "Hello, World!" assembly program. We'll break down each line of code.
