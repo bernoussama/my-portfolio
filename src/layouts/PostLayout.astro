@@ -16,8 +16,8 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 		<h1 class="text-3xl text-center font-bold mb-8">{frontmatter.title}</h1>
 		<div class="uk-divider-small my-2"></div>
 		<div class="flex items-center gap-4">
-			<span class="text-gray-600 dark:text-gray-400">{formattedDate}</span>
-      <span>|</span>
+			<span class="">{formattedDate}</span>
+      <span class="text-gray-600">|</span>
     <PageViews url={pageUrl} />
 		</div>
 		<!-- <h2 class="">Post author: {frontmatter.author}</h2> -->

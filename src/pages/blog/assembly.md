@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: "Assembly - Hello World"
-pubDate: 2022-04-22
+pubDate: 2024-04-27
 description: "x86 NASM Assembly - Hello World Explained"
 author: "Oussama Bernou"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
   alt: "The full Astro logo."
-tags: ["astro", "blogging", "learning in public"]
+tags: ["assembly", "blogging", "learning in public", "hellow world", "tutorial"]
 ---
 
 In this post, we'll take you on a step-by-step journey through a classic "Hello, World!" assembly program. We'll break down each line of code.
