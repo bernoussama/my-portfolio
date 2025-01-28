@@ -102,7 +102,8 @@ const counterUrl = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=${e
       } else {
         viewsCount.textContent = "N/A";
       }
-    } catch {
+    } catch (error) {
+      console.error('Failed to parse page view count:', error);
       viewsCount.textContent = "N/A";
     }
   }
