@@ -1,15 +1,28 @@
 ---
 import Layout from './Layout.astro';
 const {frontmatter} = Astro.props;
+import PageViews from "../components/PageViews.astro";
+
+const pageUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
+const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
 ---
 <Layout>
 	<div class="container mt-8 mb-8 flex flex-col items-center text-left">
 
 		<h1 class="text-3xl text-center font-bold mb-8">{frontmatter.title}</h1>
 		<div class="uk-divider-small my-2"></div>
+		<div class="flex items-center gap-4">
+			<span class="">{formattedDate}</span>
+      <span class="text-gray-600">|</span>
+    <PageViews url={pageUrl} />
+		</div>
 		<!-- <h2 class="">Post author: {frontmatter.author}</h2> -->
-		<p class="">{frontmatter.description}</p>
 		<div class="uk-divider-small my-2 mb-8"></div>
+		<p class="mt-2">{frontmatter.description}</p>
 
 		<div
 			class="container prose dark:prose-invert prose-h1:font-bold prose-h1:text-xl prose-a:text-blue-600 prose-p:text-justify prose-img:rounded-xl prose-headings:underline mt-8">
