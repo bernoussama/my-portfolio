@@ -194,6 +194,8 @@ go run main.go
 
 Visit `http://localhost:8080/` to see your application in action!
 
+![api response](./embeded-spa.png)
+![api response](https://cdn.hashnode.com/res/hashnode/image/upload/v1738113972526/ac67e8bf-8583-4f99-b2c9-0df2606e684c.png)
+
 Congrats, now your Go backend server is serving an embedded React SPA, from a single, deployable binary that serves both your frontend and backend.
 
-![api response](https://cdn.hashnode.com/res/hashnode/image/upload/v1738113972526/ac67e8bf-8583-4f99-b2c9-0df2606e684c.png)
