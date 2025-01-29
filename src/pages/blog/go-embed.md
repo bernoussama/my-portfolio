@@ -24,7 +24,9 @@ I needed to create an internal web app to be deployed on an internal server. I d
 * **Full-stack Go** - Leverage Go's excellent HTTP capabilities
     
 
-# TLDR
+## TLDR
+
+Here's the key code that makes it all work:
 
 ```go
 import (
@@ -45,7 +47,9 @@ In this tutorial, we will focus on embedding a Remix Single Page Application (SP
 
 Let's start a demo project for this tutorial.
 
-## project structure
+### 1. Project Structure
+
+Let's start by setting up our project structure:
 
 ```plaintext
 my-app/
@@ -58,18 +62,18 @@ my-app/
 └── go.mod
 ```
 
-let’s create the project
+### 2. Project Setup
+
+First, create your project directory:
 
 ```bash
 mkdir myapp
 cd myapp
-# or
+# or use this helpful shortcut
 take myapp # see tip below
 ```
 
-> Tip:
-> 
-> add this to you `.zshrc` or `.bashrc` . So simple yet so useful
+> 💡 Tip: Add this useful function to your `.zshrc` or `.bashrc`:
 > 
 > ```bash
 > # function that create a directory and cd to it
@@ -78,21 +82,24 @@ take myapp # see tip below
 > }
 > ```
 
-create a new go module:
+Initialize your Go module:
 
 ```bash
 go mod init myapp
 ```
 
-let’s create the remix spa:
+### 3. Create the Remix SPA
+
+Set up the Remix SPA using the official template:
 
 ```bash
 npx create-remix@latest --install --no-git-init --template remix-run/remix/templates/spa ui -y
 ```
 
-now we will put the go code for the embedding inside the ui/ directory for the sake of
+### 4. Implement the Embedding
 
-`ui/embed.go`
+Create `ui/embed.go` to handle the frontend embedding:
+
 
 ```go
 // Package ui handles the frontend embedding.
@@ -110,7 +117,9 @@ var distDir embed.FS
 var DistDirFS, _ = fs.Sub(distDir, "build/client")
 ```
 
-`main.go`
+### 5. Create the Server
+
+Implement your main server in `main.go`:
 
 ```go
 package main
@@ -139,7 +148,9 @@ func main() {
 }
 ```
 
-`ui/app/routes/_index.tsx`
+### 6. Frontend Implementation
+
+Create a simple frontend page in `ui/app/routes/_index.tsx`:
 
 ```javascript
 export default function Index() {
@@ -164,21 +175,25 @@ export default function Index() {
 }
 ```
 
-build the front end
+### 7. Build and Run
+
+Build the frontend:
 
 ```bash
+cd ui
 npm install
-npm  run build
+npm run build
+cd ..
 ```
 
-run the backend
+Start the server:
 
 ```go
 go run main.go
 ```
 
-Now, head over to `http://localhost:8080/`.
+Visit `http://localhost:8080/` to see your application in action!
 
-Congrats, now your go backend server is serving an embedded React SPA
+Congrats, now your Go backend server is serving an embedded React SPA, from a single, deployable binary that serves both your frontend and backend.
 
 ![api response](https://cdn.hashnode.com/res/hashnode/image/upload/v1738113972526/ac67e8bf-8583-4f99-b2c9-0df2606e684c.png)
