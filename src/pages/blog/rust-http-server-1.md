@@ -228,7 +228,7 @@ impl Response {
 
 This gives us a basic 200 OK response.
 
-All that’s left is a method to convert the response to bytes:
+Finally, a method to serialize it:
 
 ```rust
 pub fn to_bytes(&mut self) -> Vec<u8> {
@@ -266,4 +266,8 @@ pub fn to_bytes(&mut self) -> Vec<u8> {
 }
 ```
 
-We’ll build on it in Part 2. Stay tuned.
+In upcoming part(s), we’ll build on this.
+
+We'll handle requests and send responses, add concurrency, serve static files and add support for compression.
+
+Stay tuned.
