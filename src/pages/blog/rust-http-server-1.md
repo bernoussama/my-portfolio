@@ -7,7 +7,7 @@ author: "Oussama Bernou"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
   alt: "The full Astro logo."
-tags: ["Rust"]
+tags: ["Rust", "HTTP", "Server", "Rewrite"]
 ---
 
 <!--toc:start-->
