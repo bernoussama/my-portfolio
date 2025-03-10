@@ -1,6 +1,9 @@
 ---
-
-const allPosts = await Astro.glob('./*.md');
+const allPosts = (await Astro.glob('./*.md')).sort((a, b) => {
+    const dateA = new Date(a.frontmatter.pubDate);
+    const dateB = new Date(b.frontmatter.pubDate);
+    return Number(dateB) - Number(dateA); // Sort in descending order (newest first)
+});
 import BlogPost from '../../components/BlogPost.astro';
 import Layout from '../../layouts/Layout.astro';
 
@@ -14,7 +17,7 @@ import Layout from '../../layouts/Layout.astro';
 	<section class="container flex flex-col w-full gap-4 mt-8">
 			<h1 class="text-3xl font-bold">Blog Posts</h1>
 		  <ul class="flex flex-col text-left gap-2">
-			  {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description}  />)}
+      {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} />)}
 		  </ul>
 	</section>
 
