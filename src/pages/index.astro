@@ -2,7 +2,66 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TechBadge from '../components/TechBadge.astro';
-import Card from '../components/Card.astro';
+// import Card from '../components/Card.astro';
+
+const projects = [
+	{
+		src: "images/dns-image.webp",
+		title: "Mercury - DNS Server from scratch",
+		body: "Authoritave and recursive DNS server built from scratch in Go",
+		href: "https://github.com/0ussamaBernou/mercury",
+    techs: ["DNS Server", "From Scratch", "Go"]
+	},
+	{
+		src: "images/simplinvo-image.webp",
+		title: "Simplinvo - Invoicing App",
+		body: "Invoicing solution built with Remix, PocketBase and Tailwind",
+		href: "https://github.com/0ussamaBernou/simplinvo",
+    techs: [ "React", "Remix", "Tailwind", "PocketBase", "Go", "SPA"]
+	},
+	{
+		src: "images/httpc-logo.webp",
+		title: "HTTPC - http server from scratch",
+		body: "An HTTP/1.1 server built from scratch in C",
+		href: "https://github.com/bernoussama/httpc",
+    techs: ["HTTP/1.1", "C", "from scratch", "http server"]
+	},
+	{
+		src: "images/yanc-image.webp",
+    title: "YANC - Yet Another Netflix Clone",
+		body: "YANC is yet another Netflix clone built with Next.js 15, Tailwind and TMDB API",
+		href: "https://github.com/0ussamaBernou/yanc",
+		techs: ["React", "Next.js", "Tailwind"]
+	},
+	{
+		src: "images/portfolio-image.webp",
+		title: "My Portfolio & Personal blog",
+		body: "A fully responsive Portfolio & personal blog built with Astro and Tailwind",
+		href: "https://github.com/0ussamaBernou/my-portfolio",
+		techs: ["HTML5", "Astro", "Tailwind", "Franken-UI"]
+	},
+	{
+		src: "images/desktop-preview.webp",
+		title: "Fylo - Responsive Landing Page",
+		body: "HTML5 & CSS3 - A fully responsive landing page for a software product",
+		href: "https://github.com/0ussamaBernou/fylo-landing-page",
+		demoUrl: "https://fylo.bernoussama.com/",
+		techs: ["HTML5", "CSS3"]
+	},
+	{
+		src: "images/Source-project.webp",
+		title: "Source - Responsive Template",
+		body: "A fully responsive multi-purpose landing page template",
+		href: "https://github.com/0ussamaBernou/source-layout",
+		techs: ["HTML5", "CSS3"]
+	},
+	{
+		src: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2",
+		title: "More projects...",
+		href: "https://github.com/0ussamaBernou",
+		buttonText: "View More"
+	}
+];
 ---
 
 <Layout>
@@ -100,19 +159,17 @@ import Card from '../components/Card.astro';
 				<section class="flex flex-col items-center gap-8 mt-16">
 					<h2 class="text-2xl font-bold">Latest Projects</h2>
 					<div class="grid md:grid-cols-2 grid-flow-row gap-8">
-						<ProjectCard src="images/portfolio-image.webp" title='My Portfolio & Personal blog'
-							body='A fully responsive Portfolio & personal blog built with Astro and Tailwind'
-							href='https://github.com/0ussamaBernou/my-portfolio' techs={["HTML5", "Astro" , "Tailwind"
-							, "Franken-UI" ]} />
-						<ProjectCard src="images/desktop-preview.webp" demoUrl='https://fylo.bernoussama.com/'
-							title='Fylo - Responsive Landing Page'
-							body='HTML5 & CSS3 - A fully responsive landing page for a software product'
-							href='https://github.com/0ussamaBernou/fylo-landing-page' techs={["HTML5", "CSS3" ]} />
-						<ProjectCard src="images/Source-project.webp" title='Source - Responsive Template'
-							body='A fully responsive multi-purpose landing page template'
-							href='https://github.com/0ussamaBernou/source-layout' techs={["HTML5", "CSS3" ]} />
-						<ProjectCard title='More projects...' href='https://github.com/0ussamaBernou' buttonText='View More' 
-						src='https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2' />
+						{projects.map((project) => (
+							<ProjectCard 
+								src={project.src}
+								title={project.title}
+								body={project.body}
+								href={project.href}
+								demoUrl={project.demoUrl}
+								techs={project.techs}
+								buttonText={project.buttonText}
+							/>
+						))}
 						<!-- <Project src="https://cocktail.bernoussama.com/" src="/images/cocktail.webm"> -->
 						<!-- 	<h3>Cocktail showcase</h3> -->
 						<!-- 	<p>Carousel of cocktails fetched from cocktailDB api</p> -->
@@ -150,10 +207,10 @@ import Card from '../components/Card.astro';
 					</div> -->
 				</section>
 
-				<div class="flex flex-col items-center gap-8 mt-8">
-					<h2 class="text-2xl font-bold">My services</h2>
-					<div class="grid md:grid-cols-2 grid-flow-row gap-8">
-						<Card  title="1. Consultation" body="It all begins with a conversation where we'll pinpoint what this project is all about." />
+				<!-- <div class="flex flex-col items-center gap-8 mt-8"> -->
+				<!-- 	<h2 class="text-2xl font-bold">My services</h2> -->
+				<!-- 	<div class="grid md:grid-cols-2 grid-flow-row gap-8"> -->
+				<!-- 		<Card  title="1. Consultation" body="It all begins with a conversation where we'll pinpoint what this project is all about." /> -->
 
 						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
 						<!-- 	<h3 class="uk-card-title text-lg"><strong>1. </strong>Consultation</h3> -->
@@ -161,7 +218,7 @@ import Card from '../components/Card.astro';
 						<!-- 	<p>It all begins with a conversation where we'll pinpoint what this project is all -->
 						<!-- 		about.</p> -->
 						<!-- </div> -->
-						<Card title="2. Proposal" body="A detailed project proposal including a visual preview will be presented and a plan of action will be decided." />
+						<!-- <Card title="2. Proposal" body="A detailed project proposal including a visual preview will be presented and a plan of action will be decided." /> -->
 						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
 						<!-- 	<h3 class="uk-card-title text-lg"><strong>2. </strong>Proposal</h3> -->
 						<!-- 	<br> -->
@@ -169,14 +226,14 @@ import Card from '../components/Card.astro';
 						<!-- 		of action will be -->
 						<!-- 		decided.</p> -->
 						<!-- </div> -->
-						<Card title="3. Creation" body="Clients receive regular updates regarding their project status while I create and test it." />
+						<!-- <Card title="3. Creation" body="Clients receive regular updates regarding their project status while I create and test it." /> -->
 						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
 						<!-- 	<h3 class="uk-card-title text-lg"><strong>3. </strong>Creation</h3> -->
 						<!-- 	<br> -->
 						<!-- 	<p>Clients receive regular updates regarding their project status while I create and -->
 						<!-- 		test it.</p> -->
 						<!-- </div> -->
-						<Card title="4. Launch & Support" body="Peace of mind is delivered with the final project in the form of available ongoing support." />
+						<!-- <Card title="4. Launch & Support" body="Peace of mind is delivered with the final project in the form of available ongoing support." /> -->
 						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
 						<!-- 	<h3 class="uk-card-title text-lg"><strong>4. </strong>Launch & Support</h3> -->
 						<!-- 	<br> -->
