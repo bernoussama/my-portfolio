@@ -3,20 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TechBadge from '../components/TechBadge.astro';
 // import Card from '../components/Card.astro';
+//
+const githubUrl = "https://github.com"
+const myGithubUrl = githubUrl + "/bernoussama";
 
 const projects = [
+	{
+		src: "images/lazyshell-image.webp",
+		title: "LazyShell - AI CLI",
+		body: "A CLI tool that uses generative AI to generate shell commands",
+		href: myGithubUrl + "/lazyshell",
+		techs: ["AI", "CLI", "Shell", "Linux", "OpenAI", "Anthropic", "Claude"]
+	},
 	{
 		src: "images/dns-image.webp",
 		title: "Mercury - DNS Server from scratch",
 		body: "Authoritave and recursive DNS server built from scratch in Go",
-		href: "https://github.com/0ussamaBernou/mercury",
+		href: myGithubUrl + "/mercury",
     techs: ["DNS Server", "From Scratch", "Go"]
 	},
 	{
 		src: "images/simplinvo-image.webp",
 		title: "Simplinvo - Invoicing App",
 		body: "Invoicing solution built with Remix, PocketBase and Tailwind",
-		href: "https://github.com/0ussamaBernou/simplinvo",
+		href: myGithubUrl + "/simplinvo",
     techs: [ "React", "Remix", "Tailwind", "PocketBase", "Go", "SPA"]
 	},
 	{
@@ -30,21 +40,21 @@ const projects = [
 		src: "images/yanc-image.webp",
     title: "YANC - Yet Another Netflix Clone",
 		body: "YANC is yet another Netflix clone built with Next.js 15, Tailwind and TMDB API",
-		href: "https://github.com/0ussamaBernou/yanc",
+		href: myGithubUrl + "/yanc",
 		techs: ["React", "Next.js", "Tailwind"]
 	},
 	{
 		src: "images/portfolio-image.webp",
 		title: "My Portfolio & Personal blog",
 		body: "A fully responsive Portfolio & personal blog built with Astro and Tailwind",
-		href: "https://github.com/0ussamaBernou/my-portfolio",
+		href: myGithubUrl + "/my-portfolio",
 		techs: ["HTML5", "Astro", "Tailwind", "Franken-UI"]
 	},
 	{
 		src: "images/desktop-preview.webp",
 		title: "Fylo - Responsive Landing Page",
 		body: "HTML5 & CSS3 - A fully responsive landing page for a software product",
-		href: "https://github.com/0ussamaBernou/fylo-landing-page",
+		href: myGithubUrl + "/fylo-landing-page",
 		demoUrl: "https://fylo.bernoussama.com/",
 		techs: ["HTML5", "CSS3"]
 	},
@@ -52,13 +62,13 @@ const projects = [
 		src: "images/Source-project.webp",
 		title: "Source - Responsive Template",
 		body: "A fully responsive multi-purpose landing page template",
-		href: "https://github.com/0ussamaBernou/source-layout",
+		href: myGithubUrl + "/source-layout",
 		techs: ["HTML5", "CSS3"]
 	},
 	{
 		src: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2",
 		title: "More projects...",
-		href: "https://github.com/0ussamaBernou",
+		href: myGithubUrl,
 		buttonText: "View More"
 	}
 ];
@@ -83,7 +93,7 @@ const projects = [
 					through software.
 				</h3>
 				<div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
-					<a class="uk-button uk-button-primary gap-x-2" href="https://github.com/0ussamaBernou"
+					<a class="uk-button uk-button-primary gap-x-2" href={myGithubUrl}
 						target="_blank">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
 							stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
