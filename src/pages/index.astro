@@ -9,39 +9,25 @@ const myGithubUrl = githubUrl + "/bernoussama";
 
 const projects = [
 	{
-		src: "images/httpc-logo.webp",
-		title: "Multithreaded HTTP Server",
-		body: "Built a multithreaded HTTP server in C from scratch, with compression support in progress. Rewriting in Rust for improved memory safety and performance.",
-		href: "https://github.com/bernoussama/httpc",
-	techs: ["HTTP", "C", "Rust", "Systems Programming"]
-	},
-	{
-		src: "images/under-construction.webp",
-		title: "Maze Game",
-		body: "A 3D maze game using raycasting, written in C with SDL2. Features smooth player movement, a minimap, and realistic textures.",
-		href: myGithubUrl + "/3D-maze-game",
-		techs: ["C", "SDL2", "Raycasting", "Game Development"]
+		src: "",
+		title: "Trustun - User-Space VPN",
+		body: "A secure, high-performance user-space IP-over-UDP VPN implementation written in Rust using async I/O and modern cryptography.",
+		href: myGithubUrl + "/trustun",
+	techs: ["VPN", "Networking", "Rust", "Systems Programming"]
 	},
 	{
 		src: "images/dns-image.webp",
 		title: "DNS Server",
-		body: "Currently building a DNS server to deepen my understanding of protocols and bit manipulation, transitioning from Python prototypes to low-level C for clarity and control.",
+		body: "Currently building a DNS server to deepen my understanding of protocols and bit manipulation, transitioning from Python prototypes to low-level Go for clarity and control.",
 		href: myGithubUrl + "/mercury",
-	techs: ["DNS", "Networking", "C", "Python", "Go"]
+	techs: ["DNS", "Networking", "Python", "Go", "Systems Programming"]
 	},
 	{
-		src: "images/under-construction.webp",
-		title: "ConText Tools (Chrome Extension)",
-		body: "Created a browser extension that integrates with the Gemini API to enhance writing directly in the browser via the right-click menu.",
-		href: myGithubUrl + "/context-tools",
-	techs: [ "Chrome Extension", "Gemini API", "JavaScript", "Web"]
-	},
-	{
-		src: "images/simplinvo-image.webp",
-		title: "Simplinvo - Invoicing App",
-		body: "Invoicing solution built with Remix, PocketBase and Tailwind",
-		href: myGithubUrl + "/simplinvo",
-    techs: [ "React", "Remix", "Tailwind", "PocketBase", "Go", "SPA"]
+		src: "images/httpc-logo.webp",
+		title: "Multithreaded HTTP Server",
+		body: "Built a multithreaded HTTP server in C from scratch, with compression support in progress. Rewriting in Rust for improved memory safety and performance.",
+		href: myGithubUrl + "/httpr",
+	techs: ["HTTP", "Networking", "C", "Rust", "Systems Programming"]
 	},
 	{
 		src: "images/lazyshell-demo.gif",
@@ -51,11 +37,34 @@ const projects = [
 		techs: ["AI", "CLI", "Typescript", "Node.js"]
 	},
 	{
+		src: "images/simplinvo-image.webp",
+		title: "Simplinvo - Invoicing App",
+		body: "Invoicing solution built with Remix, PocketBase and Tailwind",
+		href: myGithubUrl + "/simplinvo",
+    techs: [ "React", "Remix", "Tailwind", "PocketBase", "Go", "SPA"]
+	},
+	{
 		src: "images/yanc-image.webp",
     title: "YANC - Yet Another Netflix Clone",
 		body: "YANC is yet another Netflix clone built with Next.js 15, Tailwind and TMDB API",
 		href: myGithubUrl + "/yanc",
 		techs: ["React", "Next.js", "Tailwind"]
+	},
+
+	{
+		src: "images/under-construction.webp",
+		title: "Maze Game",
+		body: "A 3D maze game using raycasting, written in C with SDL2. Features smooth player movement, a minimap, and realistic textures.",
+		href: myGithubUrl + "/3D-maze-game",
+		techs: ["C", "SDL2", "Raycasting", "Game Development"]
+	},
+
+	{
+		src: "images/under-construction.webp",
+		title: "ConText Tools (Chrome Extension)",
+		body: "Created a browser extension that integrates with the Gemini API to enhance writing directly in the browser via the right-click menu.",
+		href: myGithubUrl + "/context-tools",
+	techs: [ "Chrome Extension", "Gemini API", "JavaScript", "Web"]
 	},
 	{
 		src: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2",
@@ -161,7 +170,6 @@ const projects = [
 								title={project.title}
 								body={project.body}
 								href={project.href}
-								demoUrl={project.demoUrl}
 								techs={project.techs}
 								buttonText={project.buttonText}
 							/>
@@ -205,18 +213,17 @@ const projects = [
 
 				<div class="flex flex-col items-center gap-8 mt-8">
 					<h2 class="text-2xl font-bold">What I Do</h2>
-					<p class="text-center text-lg sm:text-xl"
-						style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
+					<p class="text-center text-md sm:text-lg">
 						I build reliable software for both businesses and developers. Whether it’s designing scalable web applications, creating automation tools, or exploring low-level systems like custom servers and interpreters, I focus on writing clean, efficient code that solves real problems.
-						<br /><br />
+            <br/>
+            <br/>
 						I build software to understand how things work and to create tools that make people more productive.
 					</p>
 				</div>
 
 				<section class="flex flex-col items-center gap-8 mt-16">
 					<h2 class="text-2xl font-bold">Get in Touch</h2>
-					<p class="text-center text-lg sm:text-xl"
-						style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
+					<p class="text-center">
 						Looking to collaborate on a project or hire a developer? Let’s talk.
 					</p>
 					<a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com"
