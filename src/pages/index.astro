@@ -9,18 +9,32 @@ const myGithubUrl = githubUrl + "/bernoussama";
 
 const projects = [
 	{
-		src: "images/lazyshell-demo.gif",
-		title: "LazyShell - AI CLI",
-		body: "A CLI tool that uses generative AI to generate shell commands",
-		href: myGithubUrl + "/lazyshell",
-		techs: ["AI", "CLI", "Typescript", "Node.js"]
+		src: "images/httpc-logo.webp",
+		title: "Multithreaded HTTP Server",
+		body: "Built a multithreaded HTTP server in C from scratch, with compression support in progress. Rewriting in Rust for improved memory safety and performance.",
+		href: "https://github.com/bernoussama/httpc",
+	techs: ["HTTP", "C", "Rust", "Systems Programming"]
+	},
+	{
+		src: "images/under-construction.webp",
+		title: "Maze Game",
+		body: "A 3D maze game using raycasting, written in C with SDL2. Features smooth player movement, a minimap, and realistic textures.",
+		href: myGithubUrl + "/3D-maze-game",
+		techs: ["C", "SDL2", "Raycasting", "Game Development"]
 	},
 	{
 		src: "images/dns-image.webp",
-		title: "Mercury - DNS Server from scratch",
-		body: "Authoritave and recursive DNS server built from scratch in Go",
+		title: "DNS Server",
+		body: "Currently building a DNS server to deepen my understanding of protocols and bit manipulation, transitioning from Python prototypes to low-level C for clarity and control.",
 		href: myGithubUrl + "/mercury",
-    techs: ["DNS Server", "From Scratch", "Go"]
+	techs: ["DNS", "Networking", "C", "Python", "Go"]
+	},
+	{
+		src: "images/under-construction.webp",
+		title: "ConText Tools (Chrome Extension)",
+		body: "Created a browser extension that integrates with the Gemini API to enhance writing directly in the browser via the right-click menu.",
+		href: myGithubUrl + "/context-tools",
+	techs: [ "Chrome Extension", "Gemini API", "JavaScript", "Web"]
 	},
 	{
 		src: "images/simplinvo-image.webp",
@@ -30,11 +44,11 @@ const projects = [
     techs: [ "React", "Remix", "Tailwind", "PocketBase", "Go", "SPA"]
 	},
 	{
-		src: "images/httpc-logo.webp",
-		title: "HTTPC - http server from scratch",
-		body: "An HTTP/1.1 server built from scratch in C",
-		href: "https://github.com/bernoussama/httpc",
-    techs: ["HTTP/1.1", "C", "from scratch", "http server"]
+		src: "images/lazyshell-demo.gif",
+		title: "LazyShell - AI CLI",
+		body: "A CLI tool that uses generative AI to generate shell commands",
+		href: myGithubUrl + "/lazyshell",
+		techs: ["AI", "CLI", "Typescript", "Node.js"]
 	},
 	{
 		src: "images/yanc-image.webp",
@@ -42,28 +56,6 @@ const projects = [
 		body: "YANC is yet another Netflix clone built with Next.js 15, Tailwind and TMDB API",
 		href: myGithubUrl + "/yanc",
 		techs: ["React", "Next.js", "Tailwind"]
-	},
-	{
-		src: "images/portfolio-image.webp",
-		title: "My Portfolio & Personal blog",
-		body: "A fully responsive Portfolio & personal blog built with Astro and Tailwind",
-		href: myGithubUrl + "/my-portfolio",
-		techs: ["HTML5", "Astro", "Tailwind", "Franken-UI"]
-	},
-	{
-		src: "images/desktop-preview.webp",
-		title: "Fylo - Responsive Landing Page",
-		body: "HTML5 & CSS3 - A fully responsive landing page for a software product",
-		href: myGithubUrl + "/fylo-landing-page",
-		demoUrl: "https://fylo.bernoussama.com/",
-		techs: ["HTML5", "CSS3"]
-	},
-	{
-		src: "images/Source-project.webp",
-		title: "Source - Responsive Template",
-		body: "A fully responsive multi-purpose landing page template",
-		href: myGithubUrl + "/source-layout",
-		techs: ["HTML5", "CSS3"]
 	},
 	{
 		src: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2",
@@ -79,19 +71,13 @@ const projects = [
 		<div class="mx-auto max-w-7xl">
 			<div class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
 				<h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-					Hi, I’m Oussama,
-					Your Next Software Developer</h1>
+					From servers to interfaces – I enjoy building the layers that make software work.
+				</h1>
 
-				<h2 class="text-center text-lg sm:text-xl"
-					style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;"
-					uk-tooltip="title: Backend Dev who knows how to center a div;pos: right">
-					Specialized in Full-stack Web Development
-				</h2>
-				<h3 class="text-center text-lg text-muted-foreground sm:text-xl"
+				<p class="text-center text-lg sm:text-xl"
 					style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
-					A passionate Problem Solver, who chose Software Development to help build impactful solutions
-					through software.
-				</h3>
+					Hi, I’m Oussama – a software engineering student and developer who loves building everything from fast, low-level servers to intuitive web apps. I specialize in full-stack development with JavaScript, Go, and C, and I enjoy turning complex problems into practical solutions.
+				</p>
 				<div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
 					<a class="uk-button uk-button-primary gap-x-2" href={myGithubUrl}
 						target="_blank">
@@ -217,42 +203,27 @@ const projects = [
 					</div> -->
 				</section>
 
-				<!-- <div class="flex flex-col items-center gap-8 mt-8"> -->
-				<!-- 	<h2 class="text-2xl font-bold">My services</h2> -->
-				<!-- 	<div class="grid md:grid-cols-2 grid-flow-row gap-8"> -->
-				<!-- 		<Card  title="1. Consultation" body="It all begins with a conversation where we'll pinpoint what this project is all about." /> -->
-
-						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
-						<!-- 	<h3 class="uk-card-title text-lg"><strong>1. </strong>Consultation</h3> -->
-						<!-- 	<br> -->
-						<!-- 	<p>It all begins with a conversation where we'll pinpoint what this project is all -->
-						<!-- 		about.</p> -->
-						<!-- </div> -->
-						<!-- <Card title="2. Proposal" body="A detailed project proposal including a visual preview will be presented and a plan of action will be decided." /> -->
-						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
-						<!-- 	<h3 class="uk-card-title text-lg"><strong>2. </strong>Proposal</h3> -->
-						<!-- 	<br> -->
-						<!-- 	<p>A detailed project proposal including a visual preview will be presented and a plan -->
-						<!-- 		of action will be -->
-						<!-- 		decided.</p> -->
-						<!-- </div> -->
-						<!-- <Card title="3. Creation" body="Clients receive regular updates regarding their project status while I create and test it." /> -->
-						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
-						<!-- 	<h3 class="uk-card-title text-lg"><strong>3. </strong>Creation</h3> -->
-						<!-- 	<br> -->
-						<!-- 	<p>Clients receive regular updates regarding their project status while I create and -->
-						<!-- 		test it.</p> -->
-						<!-- </div> -->
-						<!-- <Card title="4. Launch & Support" body="Peace of mind is delivered with the final project in the form of available ongoing support." /> -->
-						<!-- <div class="uk-card uk-card-default uk-card-body"> -->
-						<!-- 	<h3 class="uk-card-title text-lg"><strong>4. </strong>Launch & Support</h3> -->
-						<!-- 	<br> -->
-						<!-- 	<p>Peace of mind is delivered with the final project in the form of available ongoing -->
-						<!-- 		support.</p> -->
-						<!-- </div> -->
-					</div>
+				<div class="flex flex-col items-center gap-8 mt-8">
+					<h2 class="text-2xl font-bold">What I Do</h2>
+					<p class="text-center text-lg sm:text-xl"
+						style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
+						I build reliable software for both businesses and developers. Whether it’s designing scalable web applications, creating automation tools, or exploring low-level systems like custom servers and interpreters, I focus on writing clean, efficient code that solves real problems.
+						<br /><br />
+						I build software to understand how things work and to create tools that make people more productive.
+					</p>
 				</div>
 
+				<section class="flex flex-col items-center gap-8 mt-16">
+					<h2 class="text-2xl font-bold">Get in Touch</h2>
+					<p class="text-center text-lg sm:text-xl"
+						style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
+						Looking to collaborate on a project or hire a developer? Let’s talk.
+					</p>
+					<a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com"
+						target="_blank">
+						Contact Me
+					</a>
+				</section>
 			</div>
 		</div>
 	</main>
