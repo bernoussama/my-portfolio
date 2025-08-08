@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.0",
+    "animejs": "^4.1.2",
     "astro": "^4.4.0",
     "franken-ui": "^0.0.8",
     "prettier": "^3.2.5",
