@@ -6,7 +6,11 @@
 <style>
   .hero-bg {
     position: absolute;
-    inset: 0;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 100vw; /* full-bleed */
+    height: 100%;
     pointer-events: none;
     z-index: 0;
 
@@ -20,6 +24,20 @@
     background-size: 40px 40px, 40px 40px, auto, auto, auto;
     background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
     animation: grid-drift 18s linear infinite, glow-pan 28s ease-in-out infinite alternate;
+
+    /* Fade into page background (top & bottom) for seamless blend */
+    -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 14%,
+      rgba(0,0,0,1) 86%,
+      rgba(0,0,0,0) 100%
+    );
+            mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 14%,
+      rgba(0,0,0,1) 86%,
+      rgba(0,0,0,0) 100%
+    );
   }
 
   .hero-bg::before,
@@ -30,7 +48,7 @@
     width: 60vmax;
     height: 60vmax;
     filter: blur(60px);
-    opacity: 0.45;
+    opacity: 0.40;
     transform: translate3d(0,0,0);
   }
 
