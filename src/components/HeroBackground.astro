@@ -1,0 +1,112 @@
+---
+---
+
+<div class="hero-bg" aria-hidden="true"></div>
+
+<style>
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%; /* full-bleed */
+    height: 100%;
+    overflow: hidden; /* prevent glow overflow from causing horizontal scroll */
+    pointer-events: none;
+    z-index: 0;
+
+    /* Subtle animated grid */
+    /* Light mode: use dark grid lines so they are visible on light backgrounds */
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px),
+      radial-gradient(800px 400px at 10% -10%, rgba(0, 200, 255, 0.20), transparent 60%),
+      radial-gradient(600px 300px at 110% 20%, rgba(180, 0, 255, 0.18), transparent 60%),
+      radial-gradient(500px 250px at 30% 120%, rgba(0, 255, 170, 0.18), transparent 60%);
+    background-size: 40px 40px, 40px 40px, auto, auto, auto;
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+    animation: grid-drift 18s linear infinite, glow-pan 28s ease-in-out infinite alternate;
+
+    /* Fade into page background (top & bottom) for seamless blend */
+    -webkit-mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 14%,
+      rgba(0,0,0,1) 86%,
+      rgba(0,0,0,0) 100%
+    );
+            mask-image: linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,1) 14%,
+      rgba(0,0,0,1) 86%,
+      rgba(0,0,0,0) 100%
+    );
+  }
+
+  .hero-bg::before,
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 60vmax;
+    height: 60vmax;
+    filter: blur(60px);
+    opacity: 0.40;
+    transform: translate3d(0,0,0);
+  }
+
+  /* Cyan glow */
+  .hero-bg::before {
+    left: -20vmax;
+    top: -10vmax;
+    background: radial-gradient(circle at 40% 40%, rgba(0, 200, 255, 0.35), transparent 55%);
+    animation: float-1 22s ease-in-out infinite;
+  }
+
+  /* Magenta glow */
+  .hero-bg::after {
+    right: -15vmax;
+    top: 10vmax;
+    background: radial-gradient(circle at 60% 60%, rgba(180, 0, 255, 0.35), transparent 55%);
+    animation: float-2 26s ease-in-out infinite;
+  }
+
+  @keyframes grid-drift {
+    from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+    to   { background-position: 80px 80px, 0 80px, -2% -1%, 1% 2%, -1% 1%; }
+  }
+
+  @keyframes glow-pan {
+    0%   { filter: hue-rotate(0deg) saturate(115%); }
+    100% { filter: hue-rotate(20deg) saturate(125%); }
+  }
+
+  @keyframes float-1 {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(3%, 2%, 0) scale(1.05); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes float-2 {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(-3%, -2%, 0) scale(1.05); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-bg,
+    .hero-bg::before,
+    .hero-bg::after { animation: none !important; }
+  }
+
+  /* Dark mode tune */
+  :global(.dark) .hero-bg {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.10) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px),
+      radial-gradient(800px 400px at 10% -10%, rgba(0, 200, 255, 0.25), transparent 60%),
+      radial-gradient(600px 300px at 110% 20%, rgba(180, 0, 255, 0.22), transparent 60%),
+      radial-gradient(500px 250px at 30% 120%, rgba(0, 255, 170, 0.22), transparent 60%);
+  }
+</style>
+
+

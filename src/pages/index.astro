@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import HeroBackground from '../components/HeroBackground.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import TechBadge from '../components/TechBadge.astro';
 // import Card from '../components/Card.astro';
@@ -52,7 +53,7 @@ const projects = [
 	},
 
 	{
-		src: "images/under-construction.webp",
+		src: "",
 		title: "Maze Game",
 		body: "A 3D maze game using raycasting, written in C with SDL2. Features smooth player movement, a minimap, and realistic textures.",
 		href: myGithubUrl + "/3D-maze-game",
@@ -60,7 +61,7 @@ const projects = [
 	},
 
 	{
-		src: "images/under-construction.webp",
+		src: "",
 		title: "ConText Tools (Chrome Extension)",
 		body: "Created a browser extension that integrates with the Gemini API to enhance writing directly in the browser via the right-click menu.",
 		href: myGithubUrl + "/context-tools",
@@ -78,16 +79,19 @@ const projects = [
 <Layout>
 	<main class="container">
 		<div class="mx-auto max-w-7xl">
-			<div class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
-				<h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-					From servers to interfaces – I enjoy building the layers that make software work.
-				</h1>
+            <div class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
+                    <HeroBackground />
+                <div class="relative w-full px-4 py-10 md:py-14 lg:py-20">
+                    <div class="relative z-10 flex flex-col items-center gap-2">
+                        <h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
+                            From servers to interfaces – I enjoy building the layers that make software work.
+                        </h1>
 
-				<p class="text-center text-lg sm:text-xl"
-					style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
-          Hi, I’m Oussama – a software developer who loves building everything from fast, low-level servers to intuitive web apps. I specialize in full-stack development with JavaScript/Typescript and Go, and I enjoy turning complex problems into practical solutions.
-				</p>
-				<div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
+                        <p class="text-center text-md sm:text-lg"
+                            style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
+              Hi, I’m Oussama – a software developer who loves building everything from fast, low-level servers to intuitive web apps. I specialize in full-stack development with JavaScript/Typescript and Go, and I enjoy turning complex problems into practical solutions.
+                        </p>
+                        <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
 					<a class="uk-button uk-button-primary gap-x-2" href={myGithubUrl}
 						target="_blank">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
@@ -110,8 +114,10 @@ const projects = [
 							<line fill="none" x1="6" y1="10.5" x2="14" y2="10.5"></line>
 						</svg>
 						Blog
-					</a>
-				</div>
+                    </a>
+                        </div>
+                    </div>
+                </div>
 				<section class="flex flex-col items-center gap-8 mt-16">
 					<h2 class="text-2xl font-bold">Skills</h2>
 					<div class="flex flex-wrap gap-2 items-center justify-center">
