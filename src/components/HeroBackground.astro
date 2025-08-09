@@ -6,11 +6,12 @@
 <style>
   .hero-bg {
     position: absolute;
-    left: 50%;
     top: 0;
-    transform: translateX(-50%);
-    width: 100vw; /* full-bleed */
+    left: 0;
+    right: 0;
+    width: 100%; /* full-bleed */
     height: 100%;
+    overflow: hidden; /* prevent glow overflow from causing horizontal scroll */
     pointer-events: none;
     z-index: 0;
 
