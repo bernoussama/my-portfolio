@@ -1,156 +1,113 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// import '../styles/sass/main.css';
+import HeroBackground from '../components/HeroBackground.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const services = [
+  {
+    title: 'Consultation',
+    desc: "It starts with a conversation to clarify goals, scope, and constraints.",
+  },
+  {
+    title: 'Proposal',
+    desc: 'A clear plan with timelines, deliverables, and a visual preview.',
+  },
+  {
+    title: 'Creation',
+    desc: 'Iterative development with regular updates and feedback loops.',
+  },
+  {
+    title: 'Launch & Support',
+    desc: 'Smooth release and ongoing support as needed.',
+  },
+];
+
+const samples = [
+  {
+    src: 'images/desktop-preview.webp',
+    title: 'Fylo - Responsive Landing Page',
+    body: 'A fully responsive landing page for a SaaS product.',
+    href: 'https://github.com/0ussamaBernou/fylo-landing-page',
+    demoUrl: 'https://fylo.oussamabernou.me/',
+    techs: ['HTML', 'CSS']
+  },
+  {
+    src: 'images/Source-project.webp',
+    title: 'Source - Responsive Template',
+    body: 'A multipurpose responsive landing page template.',
+    href: 'https://github.com/0ussamaBernou/source-layout',
+    demoUrl: 'https://source-layout.oussamabernou.me/',
+    techs: ['HTML', 'CSS']
+  },
+  {
+    src: 'images/random-user.gif',
+    title: 'Random User Generator',
+    body: 'Fetches and displays random user data with a clean UI.',
+    href: '#',
+    demoUrl: 'https://random-user.oussamabernou.me/',
+    techs: ['HTML', 'CSS', 'JS']
+  },
+  {
+    src: 'images/grocery.gif',
+    title: 'Mobile Grocery List',
+    body: 'A simple mobile-friendly grocery list with local storage.',
+    href: 'https://github.com/0ussamaBernou/grocery-list',
+    demoUrl: 'https://grocery-list.oussamabernou.me/',
+    techs: ['HTML', 'CSS', 'JS']
+  },
+];
 ---
 
 <Layout>
+  <main class="container">
+    <div class="mx-auto max-w-7xl">
+      <div class="relative w-full px-4 py-10 md:py-14 lg:py-20">
+        <HeroBackground />
+        <div class="relative z-10 flex flex-col items-center gap-3">
+          <h1 class="text-center text-3xl font-bold leading-tight tracking-tight md:text-5xl lg:leading-[1.1]">
+            Freelance Software Development
+          </h1>
+          <p class="text-center text-lg sm:text-xl max-w-[680px] text-neutral-600">
+            I help businesses and individuals build fast, reliable web experiences—from landing pages to full-stack apps.
+          </p>
+          <div class="flex w-full items-center justify-center space-x-4 py-4">
+            <a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com" target="_blank">Contact Me</a>
+            <a class="uk-button uk-button-default gap-x-2" href="/blog">Blog</a>
+          </div>
+        </div>
+      </div>
 
-				<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h1>Hi, I’m Oussama,
-								Your Next Software Developer</h1>
-							<p>Specialized in Full-stack/JavaScript Web Development</p>
-							<div class="main">
+      <section class="flex flex-col items-center gap-8 mt-6">
+        <h2 class="text-2xl font-bold">Services</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
+          {services.map((s, idx) => (
+            <div class="rounded-lg border border-neutral-200/60 bg-default p-6 shadow-sm">
+              <div class="text-sm mb-2 text-neutral-500">Step {idx + 1}</div>
+              <h3 class="text-lg font-semibold mb-2">{s.title}</h3>
+              <p class="text-neutral-600">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-						<span>A passionate Problem Solver, who chose Coding to help people and businesses achieve their goals
-							through
-							code.</span>
-						<br><br>
-						<span>It is my privilege to offer a chance to be seen on the web to small businesses and individuals
-							around
-							me.
-							Whether that be creating a website for you from the ground up, or updating an existing presence for the
-							mobile age. Providing a place for interested parties to find and learn about what you offer is what I
-							offer.
-							<br>
-							<br>
+      <section class="flex flex-col items-center gap-8 mt-16">
+        <h2 class="text-2xl font-bold">Recent Work</h2>
+        <div class="grid md:grid-cols-2 grid-flow-row gap-8 w-full">
+          {samples.map((p) => (
+            <ProjectCard src={p.src} title={p.title} body={p.body} href={p.href} demoUrl={p.demoUrl} techs={p.techs} />
+          ))}
+        </div>
+      </section>
 
-							How can I help you today?
-
-						</span>
-							</div>
-
-						</header>
-						<p></p>
-						<ul class="actions">
-							<li><a href="#" class="button big">Resume</a></li>
-						</ul>
-					</div>
-					<!-- <span class="image object"> -->
-					<!-- 	<img src="/images/MyPortrait.webp" alt="" style="max-height: 500px;" /> -->
-					<!-- </span> -->
-				</section>
-
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>My services</h2>
-					</header>
-					<div class="features">
-						<article>
-							<span class="icon solid fa-thumbtack"></span>
-							<div class="content">
-								<h3><strong>1. </strong>Consultation</h3>
-								<p>It all begins with a conversation where we'll pinpoint what this project is all about.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon solid fa-project-diagram"></span>
-							<div class="content">
-								<h3><strong>2. </strong>Proposal</h3>
-								<p>A detailed project proposal including a visual preview will be presented and a plan of action will be
-									decided.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon solid style3 major fa-code"></span>
-							<div class="content">
-								<h3><strong>3. </strong>Creation</h3>
-								<p>Clients receive regular updates regarding their project status while I create and test it.</p>
-							</div>
-						</article>
-						<article>
-							<span class="icon solid style4 major fa-rocket"></span>
-							<div class="content">
-								<h3><strong>4. </strong>Launch & Support</h3>
-								<p>Peace of mind is delivered with the final project in the form of available ongoing support.</p>
-							</div>
-						</article>
-					</div>
-				</section>
-
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>Latest Projects</h2>
-					</header>
-					<div class="posts">
-						<article>
-							<a href="https://fylo.oussamabernou.me/" class="image" target="_blank"><img
-									src="/images/desktop-preview.jpg" alt="" /></a>
-							<h3>Fylo - Responsive Landing Page</h3>
-							<p><strong>HTML5 & CSS3</strong> - A fully responsive landing page for a software product</p>
-							<ul class="actions">
-								<li><a href="https://github.com/0ussamaBernou/fylo-landing-page" class="button" target="_blank">More</a>
-								</li>
-							</ul>
-						</article>
-						<article>
-							<a href="https://source-layout.oussamabernou.me/" class="image" target="_blank"><img
-									src="/images/Source-project.jpeg" alt="" /></a>
-							<h3>Source - Responsive Template</h3>
-							<p><strong>HTML5 & CSS3</strong> - A fully responsive multi-purpose landing page template </p>
-							<ul class="actions">
-								<li><a href="https://github.com/0ussamaBernou/source-layout" class="button" target="_blank">More</a>
-								</li>
-							</ul>
-						</article>
-						<article>
-							<a href="https://random-user.oussamabernou.me/" class="image" target="_blank"><img
-									src="/images/random-user.gif" alt="" /></a>
-							<h3>Random user generator</h3>
-							<p>Front-end connected to random-user api</p>
-							<ul class="actions">
-								<li><a href="#" class="button" target="_blank">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="https://grocery-list.oussamabernou.me/" class="image"><img src="/images/grocery.gif"
-									alt="" /></a>
-							<h3>Mobile Grocery list</h3>
-							<p>A mobile grocery list using local storage to store grocery items.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/0ussamaBernou/grocery-list" class="button">More</a></li>
-							</ul>
-						</article>
-						<article>
-							<a href="https://cocktail-carousel.oussamabernou.me/" class="image"><img src="/images/cocktail.gif"
-									alt="" /></a>
-
-
-
-							<h3>Cocktail showcase</h3>
-							<p>Carousel of cocktails fetched from cocktailDB api</p>
-							<ul class="actions">
-								<li><a href="https://github.com/0ussamaBernou/thecocktaildb-showcase" class="button">More</a></li>
-							</ul>
-						</article>
-						<!-- <article>
-							<a href="#" class="image"><img src="images/pic06.jpg" alt="" /></a>
-
-
-
-
-							<h3>Amet varius aliquam</h3>
-							<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante
-								interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-							<ul class="actions">
-								<li><a href="#" class="button">More</a></li>
-							</ul>
-						</article>
-					</div> -->
-				</section>
-
+      <section class="flex flex-col items-center gap-6 mt-16">
+        <h2 class="text-2xl font-bold">Let’s work together</h2>
+        <p class="text-center text-md sm:text-lg max-w-[680px] text-neutral-600">
+          Have a project in mind or need help shipping your next feature? I’d love to help.
+        </p>
+        <a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com" target="_blank">Get in touch</a>
+      </section>
+    </div>
+  </main>
 </Layout>
+
+
