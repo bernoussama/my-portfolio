@@ -3,11 +3,12 @@ interface Props {
 iconLink?: string,
 name: string
 }
-const src="https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg"
 const { iconLink, name } = Astro.props
 ---
-<span class="tech-badge rounded-full mr-1 px-2.5 py-0.5 text-default text-sm font-semibold bg-muted border border-muted items-center gap-1 flex justify-between" data-animate="true">
-    <img src={iconLink} title={name} alt={name} width="20" height="20" />
+<span class="tech-badge rounded-full px-2.5 py-0.5 text-default text-sm font-semibold bg-muted border border-muted items-center gap-1 flex justify-between" data-animate="true">
+    {iconLink && (
+      <img src={iconLink} title={name} alt={name} width="20" height="20" />
+    )}
     <span>{name}</span>
 </span>
 
@@ -33,31 +34,4 @@ const { iconLink, name } = Astro.props
   }
 </style>
 
-<script is:inline>
-  (() => {
-    if (typeof window === 'undefined') return;
-    const w = window;
-    if (!('IntersectionObserver' in w)) {
-      document.querySelectorAll('.tech-badge[data-animate]')
-        .forEach((el) => el.classList.add('is-visible'));
-      return;
-    }
 
-    if (!w.__techBadgeIO) {
-      w.__techBadgeIO = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const delay = el.getAttribute('data-delay') || Math.floor(Math.random() * 220);
-            el.style.setProperty('--reveal-delay', `${delay}ms`);
-            el.classList.add('is-visible');
-            w.__techBadgeIO.unobserve(el);
-          }
-        }
-      }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
-    }
-
-    document.querySelectorAll('.tech-badge[data-animate]')
-      .forEach((el) => w.__techBadgeIO.observe(el));
-  })();
-</script>
