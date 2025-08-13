@@ -52,7 +52,7 @@ title: string;
 	</div>
 
 	<script is:inline>
-
+		// Theme toggle functionality
 		var themeToggleBtn = document.getElementById("theme-toggle");
 
 		themeToggleBtn.addEventListener("click", function () {
@@ -77,6 +77,45 @@ title: string;
 				}
 			}
 		});
+
+		// Tech badge animation functionality (runs once per page)
+		(() => {
+			if (typeof window === 'undefined') return;
+			const w = window;
+			
+			// Initialize immediately for badges already on the page
+			const initTechBadges = () => {
+				if (!('IntersectionObserver' in w)) {
+					document.querySelectorAll('.tech-badge[data-animate]')
+						.forEach((el) => el.classList.add('is-visible'));
+					return;
+				}
+
+				if (!w.__techBadgeIO) {
+					w.__techBadgeIO = new IntersectionObserver((entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								const el = entry.target;
+								const delay = el.getAttribute('data-delay') || Math.floor(Math.random() * 220);
+								el.style.setProperty('--reveal-delay', `${delay}ms`);
+								el.classList.add('is-visible');
+								w.__techBadgeIO.unobserve(el);
+							}
+						}
+					}, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+				}
+
+				document.querySelectorAll('.tech-badge[data-animate]')
+					.forEach((el) => w.__techBadgeIO.observe(el));
+			};
+
+			// Initialize on DOMContentLoaded
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initTechBadges);
+			} else {
+				initTechBadges();
+			}
+		})();
 	</script>
 </body>
 
