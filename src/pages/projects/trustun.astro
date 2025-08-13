@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import TechBadge from '../../components/TechBadge.astro';
+
+const project = {
+  title: "Trustun - User-Space VPN",
+  description: "A secure, high-performance user-space IP-over-UDP VPN implementation written in Rust using async I/O and modern cryptography.",
+  problem: "Traditional VPN solutions often rely on kernel modules which can be complex to deploy and maintain. Trustun solves this by implementing a VPN entirely in user-space, making it easier to deploy while maintaining security and performance.",
+  features: [
+    "High-performance async I/O using Rust's tokio runtime",
+    "Modern cryptography with ChaCha20-Poly1305 encryption",
+    "Lightweight and portable user-space implementation",
+    "Cross-platform compatibility",
+    "Minimal dependencies"
+  ],
+  techStack: ["Rust", "Tokio", "Cryptography", "Networking", "VPN", "UDP"],
+  liveDemo: "",
+  githubUrl: "https://github.com/bernoussama/trustun",
+  images: []
+};
+---
+
+<Layout title={project.title}>
+  <main class="container mx-auto px-4 py-8 max-w-4xl">
+    <div class="mb-8">
+      <a href="/" class="text-blue-600 hover:underline">&larr; Back to Home</a>
+    </div>
+    
+    <article class="bg-white rounded-lg shadow-md overflow-hidden dark:bg-gray-800">
+      <header class="p-6 border-b border-gray-200 dark:border-gray-700">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2 dark:text-white">{project.title}</h1>
+        <p class="text-gray-600 text-lg dark:text-gray-300">{project.description}</p>
+      </header>
+      
+      <div class="p-6">
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4 dark:text-white">The Problem</h2>
+          <p class="text-gray-700 dark:text-gray-300">{project.problem}</p>
+        </div>
+        
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4 dark:text-white">Solution</h2>
+          <p class="text-gray-700 mb-4 dark:text-gray-300">Trustun addresses this by providing a user-space VPN implementation that:</p>
+          <ul class="list-disc pl-6 space-y-2 text-gray-700 dark:text-gray-300">
+            {project.features.map((feature) => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+        </div>
+        
+        {/* Screenshots section would go here */}
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4 dark:text-white">Screenshots</h2>
+          <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64 flex items-center justify-center text-gray-500 dark:bg-gray-700 dark:border-gray-600">
+            Project screenshots coming soon
+          </div>
+        </div>
+        
+        <div class="mb-8">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-4 dark:text-white">Tech Stack</h2>
+          <div class="flex flex-wrap gap-2">
+            {project.techStack.map((tech) => (
+              <TechBadge name={tech} />
+            ))}
+          </div>
+        </div>
+        
+        <div class="flex flex-wrap gap-4">
+          <a 
+            href={project.githubUrl} 
+            target="_blank"
+            class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors dark:bg-gray-700 dark:hover:bg-gray-600"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+              <path d="M9 18c-4.51 2-5-2-7-2"></path>
+            </svg>
+            View on GitHub
+          </a>
+          
+          {project.liveDemo && (
+            <a 
+              href={project.liveDemo} 
+              target="_blank"
+              class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors dark:bg-blue-700 dark:hover:bg-blue-600"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              Live Demo
+            </a>
+          )}
+        </div>
+      </div>
+    </article>
+  </main>
+</Layout>

@@ -14,6 +14,7 @@ const projects = [
 		title: "Trustun - User-Space VPN",
 		body: "A secure, high-performance user-space IP-over-UDP VPN implementation written in Rust using async I/O and modern cryptography.",
 		href: myGithubUrl + "/trustun",
+		projectPage: "/projects/trustun",
 	techs: ["VPN", "Networking", "Rust", "Systems Programming"]
 	},
 	{
@@ -21,6 +22,7 @@ const projects = [
 		title: "DNS Server",
 		body: "Currently building a DNS server to deepen my understanding of protocols and bit manipulation, transitioning from Python prototypes to low-level Go for clarity and control.",
 		href: myGithubUrl + "/mercury",
+		projectPage: "/projects/dns-server",
 	techs: ["DNS", "Networking", "Python", "Go", "Systems Programming"]
 	},
 	{
@@ -28,6 +30,7 @@ const projects = [
 		title: "Multithreaded HTTP Server",
 		body: "Built a multithreaded HTTP server in C from scratch, with compression support in progress. Rewriting in Rust for improved memory safety and performance.",
 		href: myGithubUrl + "/httpr",
+		projectPage: "/projects/http-server",
 	techs: ["HTTP", "Networking", "C", "Rust", "Systems Programming"]
 	},
 	{
@@ -70,7 +73,7 @@ const projects = [
 	{
 		src: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2",
 		title: "More projects...",
-		href: myGithubUrl,
+		href: "/projects",
 		buttonText: "View More"
 	}
 ];
@@ -114,6 +117,16 @@ const projects = [
 							<line fill="none" x1="6" y1="10.5" x2="14" y2="10.5"></line>
 						</svg>
 						Blog
+                    </a>
+                    <a class="uk-button uk-button-default gap-2" href="/projects">
+						<svg width="16" height="16" viewBox="0 0 20 20" stroke="currentColor">
+                            <rect width="13" height="17" fill="none" x="3.5" y="1.5"></rect>
+                            <line fill="none" x1="6" y1="12.5" x2="12" y2="12.5"></line>
+                            <line fill="none" x1="6" y1="8.5" x2="14" y2="8.5"></line>
+                            <line fill="none" x1="6" y1="6.5" x2="14" y2="6.5"></line>
+                            <line fill="none" x1="6" y1="10.5" x2="14" y2="10.5"></line>
+                        </svg>
+						Projects
                     </a>
                         </div>
                     </div>
@@ -170,16 +183,17 @@ const projects = [
 				<section class="flex flex-col items-center gap-8 mt-16">
 					<h2 class="text-2xl font-bold">Latest Projects</h2>
 					<div class="grid md:grid-cols-2 grid-flow-row gap-8">
-						{projects.map((project) => (
-							<ProjectCard 
-								src={project.src}
-								title={project.title}
-								body={project.body}
-								href={project.href}
-								techs={project.techs}
-								buttonText={project.buttonText}
-							/>
-						))}
+					{projects.map((project) => (
+						<ProjectCard 
+							src={project.src}
+							title={project.title}
+							body={project.body}
+							href={project.href}
+							techs={project.techs}
+							buttonText={project.buttonText}
+							projectPage={project.projectPage}
+						/>
+					))}
 						<!-- <Project src="https://cocktail.bernoussama.com/" src="/images/cocktail.webm"> -->
 						<!-- 	<h3>Cocktail showcase</h3> -->
 						<!-- 	<p>Carousel of cocktails fetched from cocktailDB api</p> -->

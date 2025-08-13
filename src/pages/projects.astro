@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const githubUrl = "https://github.com"
+const myGithubUrl = githubUrl + "/bernoussama";
+
+const projects = [
+	{
+		src: "",
+		title: "Trustun - User-Space VPN",
+		body: "A secure, high-performance user-space IP-over-UDP VPN implementation written in Rust using async I/O and modern cryptography.",
+		href: myGithubUrl + "/trustun",
+		projectPage: "/projects/trustun",
+	techs: ["VPN", "Networking", "Rust", "Systems Programming"]
+	},
+	{
+		src: "images/dns-image.webp",
+		title: "DNS Server",
+		body: "Currently building a DNS server to deepen my understanding of protocols and bit manipulation, transitioning from Python prototypes to low-level Go for clarity and control.",
+		href: myGithubUrl + "/mercury",
+		projectPage: "/projects/dns-server",
+	techs: ["DNS", "Networking", "Python", "Go", "Systems Programming"]
+	},
+	{
+		src: "images/httpc-logo.webp",
+		title: "Multithreaded HTTP Server",
+		body: "Built a multithreaded HTTP server in C from scratch, with compression support in progress. Rewriting in Rust for improved memory safety and performance.",
+		href: myGithubUrl + "/httpr",
+		projectPage: "/projects/http-server",
+	techs: ["HTTP", "Networking", "C", "Rust", "Systems Programming"]
+	},
+	{
+		src: "images/lazyshell-demo.gif",
+		title: "LazyShell - AI CLI",
+		body: "A CLI tool that uses generative AI to generate shell commands",
+		href: myGithubUrl + "/lazyshell",
+	techs: ["AI", "CLI", "Typescript", "Node.js"]
+	},
+	{
+		src: "images/simplinvo-image.webp",
+		title: "Simplinvo - Invoicing App",
+		body: "Invoicing solution built with Remix, PocketBase and Tailwind",
+		href: myGithubUrl + "/simplinvo",
+    techs: [ "React", "Remix", "Tailwind", "PocketBase", "Go", "SPA"]
+	},
+	{
+		src: "images/yanc-image.webp",
+    title: "YANC - Yet Another Netflix Clone",
+		body: "YANC is yet another Netflix clone built with Next.js 15, Tailwind and TMDB API",
+		href: myGithubUrl + "/yanc",
+		techs: ["React", "Next.js", "Tailwind"]
+	},
+
+	{
+		src: "",
+		title: "Maze Game",
+		body: "A 3D maze game using raycasting, written in C with SDL2. Features smooth player movement, a minimap, and realistic textures.",
+		href: myGithubUrl + "/3D-maze-game",
+		techs: ["C", "SDL2", "Raycasting", "Game Development"]
+	},
+
+	{
+		src: "",
+		title: "ConText Tools (Chrome Extension)",
+		body: "Created a browser extension that integrates with the Gemini API to enhance writing directly in the browser via the right-click menu.",
+		href: myGithubUrl + "/context-tools",
+	techs: [ "Chrome Extension", "Gemini API", "JavaScript", "Web"]
+	},
+	{
+		src: "https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=720&dpr=2",
+		title: "More projects...",
+		href: myGithubUrl,
+		buttonText: "View More"
+	}
+];
+---
+
+<Layout title="All Projects">
+  <main class="container mx-auto px-4 py-8">
+    <div class="mb-8">
+      <a href="/" class="text-blue-600 hover:underline dark:text-blue-400">&larr; Back to Home</a>
+    </div>
+    
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold text-gray-900 mb-4 dark:text-white">My Projects</h1>
+      <p class="text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
+        Here's a collection of my projects, ranging from systems programming to web applications.
+        Each project reflects my passion for building efficient and practical software solutions.
+      </p>
+    </div>
+    
+    <section class="mb-12">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <ProjectCard 
+            src={project.src}
+            title={project.title}
+            body={project.body}
+            href={project.href}
+            techs={project.techs}
+            buttonText={project.buttonText}
+            projectPage={project.projectPage}
+          />
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
