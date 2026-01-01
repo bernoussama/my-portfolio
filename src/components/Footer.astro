@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
     <div class="flex flex-col gap-0 justify-around items-start">
 
         <p class="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">
-          &copy;{currentYear} Oussama Bernou
+          &copy;<span id="current-year">{currentYear}</span> Oussama Bernou
         </p>
         <div class="flex flex-col  justify-between gap-4 md:h-auto md:flex-row">
             <p class="text-balance text-left text-sm leading-loose text-muted-foreground md:text-left">
@@ -16,3 +16,14 @@ const currentYear = new Date().getFullYear();
 
     </div>
 </footer>
+
+<script>
+    function getFullYear() {
+        const currentYearSpan = document.getElementById('current-year');
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear().toString();
+        }
+    }
+
+    getFullYear();
+</script>
