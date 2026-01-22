@@ -5,7 +5,7 @@ name: string
 }
 const { iconLink, name } = Astro.props
 ---
-<span class="tech-badge rounded-full px-2.5 py-0.5 text-default text-sm font-semibold bg-muted border border-muted items-center gap-1 flex justify-between" data-animate="true">
+<span class="tech-badge glass-panel glass-relative rounded-full px-4 py-1.5 text-default text-sm font-semibold items-center gap-2 flex justify-between border-transparent" data-animate="true">
     {iconLink && (
       <img src={iconLink} title={name} alt={name} width="20" height="20" />
     )}

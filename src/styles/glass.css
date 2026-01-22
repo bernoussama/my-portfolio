@@ -1,0 +1,77 @@
+:root {
+  /* Light Mode Glass Variables */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-text: #1a1a1a;
+  --glass-blur: 16px;
+
+  /* Highlight/Glow for borders */
+  --glass-border-highlight: rgba(255, 255, 255, 0.4);
+}
+
+.dark {
+  /* Dark Mode Glass Variables - Liquid Glass / SwiftUI style */
+  --glass-bg: rgba(30, 30, 30, 0.60);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  --glass-text: #ffffff;
+
+  /* Subtle inner glow for that "thick glass" feel */
+  --glass-border-highlight: rgba(255, 255, 255, 0.15);
+}
+
+/* Base Glass Panel Class */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  color: var(--glass-text);
+
+  /* Smooth transition for theme switching */
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Optional: Add a subtle gradient overlay to enhance "liquid" feel */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    145deg,
+    var(--glass-border-highlight) 0%,
+    transparent 100%
+  );
+  opacity: 0.1;
+  z-index: 0;
+}
+
+/* Glass Button */
+.glass-btn {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.dark .glass-btn:hover {
+  background: rgba(60, 60, 60, 0.7);
+}
+
+/* Utility to ensure relative positioning for pseudo-elements */
+.glass-relative {
+  position: relative;
+  z-index: 1; /* Ensure text sits above the pseudo-element glow */
+}
