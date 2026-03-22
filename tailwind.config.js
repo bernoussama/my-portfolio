@@ -26,6 +26,30 @@ export default {
       maxWidth: {
         "8xl": "90rem",
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            code: {
+              fontWeight: "400",
+              fontFamily: theme("fontFamily.geist-mono").join(", "),
+              backgroundColor: "hsl(var(--muted))",
+              borderRadius: theme("borderRadius.md"),
+              padding: "0.125rem 0.375rem",
+            },
+          },
+        },
+        invert: {
+          css: {
+            code: {
+              fontWeight: "400",
+              fontFamily: theme("fontFamily.geist-mono").join(", "),
+              backgroundColor: "hsl(var(--muted))",
+              borderRadius: theme("borderRadius.md"),
+              padding: "0.125rem 0.375rem",
+            },
+          },
+        },
+      }),
     },
   },
   presets: [preset],
