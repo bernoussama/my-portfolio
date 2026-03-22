@@ -117,6 +117,30 @@ title: string;
 			}
 		})();
 	</script>
+
+	<style is:global>
+		/* Typography plugin adds decorative backticks on inline code; remove them (GitHub-style). */
+		.prose
+			:where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::before,
+		.prose
+			:where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::after {
+			content: none !important;
+		}
+
+		/*
+			Custom prose `code` styles use :not([class~=not-prose]…), which out-specifies
+			typography's `pre code` reset. Re-assert Shiki fenced-block code (astro-code).
+		*/
+		.prose pre.astro-code code {
+			background-color: transparent !important;
+			border-radius: 0 !important;
+			padding: 0 !important;
+			font-weight: inherit !important;
+			font-size: inherit !important;
+			font-family: inherit !important;
+			color: inherit !important;
+		}
+	</style>
 </body>
 
 </html>
