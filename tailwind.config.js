@@ -29,6 +29,15 @@ export default {
       typography: ({ theme }) => ({
         DEFAULT: {
           css: {
+            a: {
+              color: "hsl(var(--primary))",
+              textDecorationColor: "hsl(var(--primary) / 0.35)",
+              fontWeight: "500",
+              "&:hover": {
+                color: "hsl(var(--primary))",
+                textDecorationColor: "hsl(var(--primary))",
+              },
+            },
             code: {
               fontWeight: "400",
               fontFamily: theme("fontFamily.geist-mono").join(", "),
@@ -40,6 +49,15 @@ export default {
         },
         invert: {
           css: {
+            a: {
+              color: "hsl(var(--primary))",
+              textDecorationColor: "hsl(var(--primary) / 0.4)",
+              fontWeight: "500",
+              "&:hover": {
+                color: "hsl(var(--primary))",
+                textDecorationColor: "hsl(var(--primary))",
+              },
+            },
             code: {
               fontWeight: "400",
               fontFamily: theme("fontFamily.geist-mono").join(", "),
