@@ -1,67 +1,95 @@
 ---
 interface Props {
-src?: string;
-title: string;
-body?: string;
-href: string;
-demoUrl?: string;
-techs?: Array<string>;
-buttonText? : string;
-projectPage?: string;
-	}
+	src?: string;
+	title: string;
+	body?: string;
+	href: string;
+	demoUrl?: string;
+	techs?: Array<string>;
+	buttonText?: string;
+	projectPage?: string;
+}
 
-	const { src, title, href, body, demoUrl, techs, buttonText, projectPage} = Astro.props;
-	---
-	<div class="uk-card uk-card-default uk-card-hover flex flex-col justify-between rounded-lg overflow-hidden border border-border bg-card shadow-sm w-full transition-all hover:shadow-lg">
-		{projectPage ? (
-			<a href={projectPage} class="relative group">
-				{ src ?
-				(<div
-					class="border-transparent overflow-hidden md:h-[280px] max-sm:h-[240px] flex justify-center items-center bg-muted">
-					<img src=`${src}` class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
-				</div>): 
-				(<div class="md:h-[280px] max-sm:h-[240px] flex items-center justify-center bg-muted">
+const { src, title, href, body, demoUrl, techs, buttonText, projectPage } = Astro.props;
+
+const githubLink = href.startsWith("https://github.com") ? href : undefined;
+const internalCard = href.startsWith("/") && !href.startsWith("//");
+const showMultiCta = !internalCard && (githubLink || projectPage || demoUrl);
+---
+
+<div class="uk-card uk-card-default uk-card-hover flex flex-col justify-between rounded-lg overflow-hidden border border-border bg-card shadow-sm w-full transition-all hover:shadow-lg">
+	{projectPage ? (
+		<a href={projectPage} class="relative group">
+			{src ? (
+				<div class="border-transparent overflow-hidden md:h-[280px] max-sm:h-[240px] flex justify-center items-center bg-muted">
+					<img src={src} class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
+				</div>
+			) : (
+				<div class="md:h-[280px] max-sm:h-[240px] flex items-center justify-center bg-muted">
 					<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
-						<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-						<circle cx="9" cy="9" r="2"/>
-						<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+						<rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+						<circle cx="9" cy="9" r="2" />
+						<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
 					</svg>
-				</div>)
-				}
+				</div>
+			)}
+		</a>
+	) : (
+		<a href={demoUrl ? demoUrl : href} target={demoUrl || !internalCard ? "_blank" : undefined} rel={demoUrl || !internalCard ? "noopener noreferrer" : undefined} class="relative group">
+			{src ? (
+				<div class="border-transparent overflow-hidden md:h-[280px] max-sm:h-[240px] flex justify-center items-center bg-muted">
+					<img src={src} class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
+				</div>
+			) : (
+				<div class="md:h-[280px] max-sm:h-[240px] flex items-center justify-center bg-muted">
+					<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
+						<rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+						<circle cx="9" cy="9" r="2" />
+						<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
+					</svg>
+				</div>
+			)}
+		</a>
+	)}
+	<div class="p-6 flex flex-col items-start flex-grow w-full">
+		<h3 class="mb-2 text-lg font-semibold leading-tight tracking-tight text-foreground">{title}</h3>
+		<div class="mb-3 flex flex-wrap gap-1">
+			{techs && techs.map((tech) => <span class="uk-badge rounded-full px-2.5 py-0.5 text-xs font-medium bg-muted text-muted-foreground border border-border">{tech}</span>)}
+		</div>
+		<p class="mb-5 text-sm text-muted-foreground flex-grow">{body}</p>
+		{internalCard ? (
+			<a href={href} class="uk-button uk-button-primary w-full justify-center">
+				{buttonText ?? "View more"}
 			</a>
+		) : showMultiCta ? (
+			<div class="flex flex-col gap-2 w-full mt-auto">
+				{demoUrl && (
+					<a href={demoUrl} target="_blank" rel="noopener noreferrer" class="uk-button uk-button-primary w-full justify-center">
+						Live demo
+					</a>
+				)}
+				<div class="flex flex-col sm:flex-row gap-2 w-full">
+					{githubLink && (
+						<a href={githubLink} target="_blank" rel="noopener noreferrer" class="uk-button uk-button-default flex-1 justify-center">
+							GitHub
+						</a>
+					)}
+					{projectPage && (
+						<a href={projectPage} class="uk-button uk-button-default flex-1 justify-center">
+							Case study
+						</a>
+					)}
+				</div>
+				{!demoUrl && !githubLink && !projectPage && (
+					<a href={href} target="_blank" rel="noopener noreferrer" class="uk-button uk-button-primary w-full justify-center">
+						{buttonText ?? "See project"}
+					</a>
+				)}
+			</div>
 		) : (
-			<a href={demoUrl ? demoUrl : href} target="_blank" class="relative group">
-				{ src ?
-				(<div
-					class="border-transparent overflow-hidden md:h-[280px] max-sm:h-[240px] flex justify-center items-center bg-muted">
-					<img src=`${src}` class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
-				</div>): 
-				(<div class="md:h-[280px] max-sm:h-[240px] flex items-center justify-center bg-muted">
-					<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
-						<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
-						<circle cx="9" cy="9" r="2"/>
-						<path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-					</svg>
-				</div>)
-				}
+			<a href={href} target="_blank" rel="noopener noreferrer" class="uk-button uk-button-primary w-full justify-center">
+				{buttonText ?? "See Project Source"}
 			</a>
 		)}
-		<div class="p-6 flex flex-col items-start flex-grow">
-			<h3 class="mb-2 text-lg font-semibold leading-tight tracking-tight text-foreground">{title}</h3>
-			<div class="mb-3 flex flex-wrap gap-1">
-				{techs &&
-				techs.map((tech) => <span
-					class="uk-badge rounded-full px-2.5 py-0.5 text-xs font-medium bg-muted text-muted-foreground border border-border">{tech}</span>)}
-			</div>
-			<p class="mb-5 text-sm text-muted-foreground flex-grow">{body}</p>
-			{projectPage ? (
-				<a href={projectPage}
-					class="uk-button uk-button-primary w-full justify-center">
-					{buttonText ? buttonText : "View Project Details"}</a>
-			) : (
-				<a href={href} target="_blank"
-					class="uk-button uk-button-primary w-full justify-center">
-					{buttonText ? buttonText : "See Project Source"}</a>
-			)}
-		</div>
 	</div>
+</div>

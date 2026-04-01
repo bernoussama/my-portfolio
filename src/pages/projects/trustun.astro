@@ -54,12 +54,25 @@ const project = {
             </ul>
           </div>
           
-          {/* Screenshots section would go here */}
           <div class="mb-8">
-            <h2 class="text-2xl font-semibold text-foreground mb-4">Screenshots</h2>
-            <div class="bg-muted border-2 border-dashed border-border rounded-xl w-full h-64 flex items-center justify-center text-muted-foreground">
-              Project screenshots coming soon
-            </div>
+            <h2 class="text-2xl font-semibold text-foreground mb-4">Architecture & proof</h2>
+            <p class="text-muted-foreground mb-4">
+              High-level data path for the user-space VPN (IP over UDP). For runtime captures, benchmarks, and evolving screenshots, see the
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="text-primary underline-offset-2 hover:underline">GitHub repository</a>
+              README and issues.
+            </p>
+            <pre class="bg-muted border border-border rounded-xl p-4 text-xs sm:text-sm text-muted-foreground overflow-x-auto font-mono leading-relaxed" role="img" aria-label="Trustun architecture diagram">{`  [ App / TUN user-space ]
+           │
+           ▼
+  ┌──────────────────────┐
+  │  Trustun (Rust)      │  ChaCha20-Poly1305, framing
+  │  encrypt / decrypt   │  async I/O (tokio)
+  └──────────┬───────────┘
+             │ UDP datagrams
+             ▼
+  ┌──────────────────────┐
+  │  Network / peer      │
+  └──────────────────────┘`}</pre>
           </div>
           
           <div class="mb-8">
