@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: "Automate Your local VM workflow"
+title: "Automate Your Local VM Workflow"
 pubDate: 2022-07-06
 description: "Provision a Kali Linux VM with Vagrant and Ansible"
 author: "Oussama Bernou"

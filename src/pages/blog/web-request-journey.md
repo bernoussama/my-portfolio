@@ -1,6 +1,6 @@
 ---
-title: "The journey of an HTTP request"
-description: "What happens when you type https://www.google.com and press enter?"
+title: "The Journey of an HTTP Request"
+description: "What happens between entering a URL and loading a web page?"
 layout: "../../layouts/PostLayout.astro"
 ---
 ## DNS request

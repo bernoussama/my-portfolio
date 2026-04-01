@@ -9,17 +9,17 @@ import { featuredProjects } from '../data/projects';
 const strengthGroups = [
 	{
 		title: "Full-stack product development",
-		description: "Shipping practical software across the frontend, backend, and data flow instead of treating them as separate concerns.",
+		description: "Building user-facing features, backend logic, and data flows as one product surface instead of treating them as separate tracks.",
 		items: ['TypeScript', 'React', 'Node.js', 'Remix', 'Tailwind'],
 	},
 	{
 		title: 'AI integrations and workflow tooling',
-		description: 'Using LLM APIs and automation patterns to make real workflows faster for developers and teams.',
+		description: 'Using LLM APIs and automation patterns to make developer and team workflows faster, safer, and easier to use.',
 		items: ['LLM Integrations', 'Gemini API', 'CLI Tooling', 'Automation'],
 	},
 	{
 		title: 'Backend and systems engineering',
-		description: 'Building APIs and low-level services with enough systems depth to reason about networking, performance, and reliability.',
+		description: 'Building APIs and low-level services with enough systems depth to reason about networking, performance, and reliability under the hood.',
 		items: ['Go', 'Rust', 'Hono', 'REST APIs', 'Linux'],
 	},
 	{
@@ -33,19 +33,19 @@ const featuredWriting = [
 	{
 		url: '/blog/go-embed',
 		title: 'How to Seamlessly Embed a Remix SPA into Your Go Backend',
-		description: 'Embedding a Remix SPA in a Go Backend: A true Full-Stack Solution',
+		description: 'Embedding a Remix SPA into a Go backend for a simpler full-stack deployment model.',
 		pubDate: '2025-01-28',
 	},
 	{
 		url: '/blog/rust-http-server-1',
-		title: 'Rewriting a C HTTP Server in Rust from scratch - part 1',
-		description: 'Building a Rust HTTP Server from a C Foundation',
+		title: 'Rewriting a C HTTP Server in Rust from Scratch, Part 1',
+		description: 'Rebuilding a C HTTP server in Rust to improve safety and maintainability.',
 		pubDate: '2025-03-09',
 	},
 	{
 		url: '/blog/web-request-journey',
-		title: 'The journey of an HTTP request',
-		description: 'What happens when you type https://www.google.com and press enter?',
+		title: 'The Journey of an HTTP Request',
+		description: 'What happens between entering a URL and loading a web page?',
 	},
 ];
 ---
@@ -56,18 +56,18 @@ const featuredWriting = [
             <div class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
                     <HeroBackground />
                 <div class="relative w-full px-4 py-10 md:py-14 lg:py-20">
-                    <div class="relative z-10 flex flex-col items-center gap-3">
-                        <p class="text-center text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-                            Full-stack engineer
-                        </p>
-                        <h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-                            Full-stack engineer building AI-powered products, developer tools, and backend systems.
-                        </h1>
+					<div class="relative z-10 flex flex-col items-center gap-3">
+						<p class="text-center text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+							Full-stack engineer
+						</p>
+						<h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
+							Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.
+						</h1>
 
-                        <p class="text-center text-md sm:text-lg text-muted-foreground"
-                            style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
-              I work across React, TypeScript, Node.js, Go, and Rust to build software that is practical, fast, and grounded in real workflows, from web apps and APIs to CLI tools and network services.
-                        </p>
+						<p class="text-center text-md sm:text-lg text-muted-foreground"
+							style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
+	              I build end-to-end software across React, TypeScript, Node.js, Go, and Rust, from user-facing features and APIs to developer tooling, automation, and systems-heavy projects.
+						</p>
                         <div class="flex w-full items-center justify-center space-x-4 py-4 md:pb-10">
 					<a class="uk-button uk-button-primary gap-2" href="/projects">
 						<svg width="16" height="16" viewBox="0 0 20 20" stroke="currentColor">
@@ -99,7 +99,7 @@ const featuredWriting = [
 					<div class="flex flex-col items-center gap-3 text-center">
 						<h2 class="text-2xl font-bold">What I&apos;m strongest at</h2>
 						<p class="max-w-2xl text-muted-foreground">
-							You should be able to map me quickly: I build full-stack products, integrate AI into practical workflows, and bring systems depth to application work.
+							My strongest work sits where product engineering, practical AI workflows, and backend depth overlap.
 						</p>
 					</div>
 					<div class="mt-8 grid gap-6 md:grid-cols-2">
@@ -119,7 +119,7 @@ const featuredWriting = [
 					<div class="flex flex-col items-center gap-3 text-center">
 						<h2 class="text-2xl font-bold">Featured Projects</h2>
 						<p class="max-w-2xl text-muted-foreground">
-							The strongest signal for hiring is the work itself: product-focused projects first, then the systems work that makes those product decisions stronger.
+							Selected work that shows product thinking, technical range, and end-to-end ownership across frontend, backend, and systems-heavy projects.
 						</p>
 					</div>
 					<div class="grid w-full md:grid-cols-2 grid-flow-row gap-8">
@@ -142,7 +142,7 @@ const featuredWriting = [
 					<div class="flex flex-col items-center gap-3 text-center">
 						<h2 class="text-2xl font-bold">Selected Writing</h2>
 						<p class="max-w-2xl text-muted-foreground">
-							The blog is part of the hiring story too. It shows low-level curiosity, full-stack problem solving, and the ability to communicate engineering tradeoffs clearly.
+							Writing that shows how I think through systems, tradeoffs, and implementation details across full-stack and low-level work.
 						</p>
 					</div>
 					<div class="mt-8 grid gap-4">
@@ -158,7 +158,7 @@ const featuredWriting = [
 				<section class="flex flex-col items-center gap-6 mt-16 px-4 text-center">
 					<h2 class="text-2xl font-bold">Let&apos;s build something useful</h2>
 					<p class="max-w-2xl text-muted-foreground">
-						If you need someone who can own features across frontend, backend, automation, and the underlying engineering details, I&apos;d be glad to talk.
+						If you&apos;re hiring for someone who can own product work across frontend, backend, automation, and the engineering details underneath it, I&apos;d be glad to talk.
 					</p>
 					<div class="flex flex-wrap items-center justify-center gap-3">
 						<a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com">Contact Me</a>

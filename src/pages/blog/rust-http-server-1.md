@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: "Rewriting a C HTTP Server in Rust from scratch - part 1"
+title: "Rewriting a C HTTP Server in Rust from Scratch, Part 1"
 pubDate: 2025-03-09
-description: "Building a Rust HTTP Server from a C Foundation"
+description: "Rebuilding a C HTTP server in Rust to improve safety and maintainability."
 author: "Oussama Bernou"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"

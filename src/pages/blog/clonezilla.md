@@ -2,7 +2,7 @@
 layout: ../../layouts/PostLayout.astro
 title: "How to Clone a Disk Using Clonezilla: A Step-by-Step Guide"
 pubDate: 2022-08-02
-description: "Effortlessly Clone Your Hard Drive with Clonezilla: A Detailed Guide"
+description: "A practical step-by-step guide to cloning a disk with Clonezilla."
 author: "Oussama Bernou"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"

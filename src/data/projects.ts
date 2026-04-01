@@ -22,7 +22,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'Simplinvo - Invoicing App',
 		body:
-			'Full-stack invoicing app designed for real business workflows, covering client-facing UI, forms, data handling, and backend business logic with Remix, PocketBase, and Tailwind.',
+			'Full-stack invoicing app built around real business workflows, covering customer-facing UI, billing flows, data handling, and backend logic in one product.',
 		src: '/images/simplinvo-image.webp',
 		techs: ['TypeScript', 'Remix', 'Tailwind', 'PocketBase', 'Go'],
 		actions: [
@@ -34,7 +34,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'LazyShell - AI CLI',
 		body:
-			'AI CLI for turning natural-language requests into shell commands, with interactive confirmation and a workflow built to make terminal automation faster and safer.',
+			'AI-assisted CLI that turns natural-language requests into shell commands with confirmation and guardrails, making terminal workflows faster without giving up control.',
 		src: '/images/lazyshell-demo.gif',
 		techs: ['TypeScript', 'Node.js', 'AI', 'CLI'],
 		actions: [
@@ -45,7 +45,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'ConText Tools',
 		body:
-			'Browser writing assistant that brings Gemini-powered editing into the right-click menu, helping users rewrite and refine text without leaving their workflow.',
+			'Browser extension that brings Gemini-powered rewriting into the context menu, reducing friction for editing and refining text inside existing workflows.',
 		techs: ['Chrome Extension', 'Gemini API', 'JavaScript', 'Web'],
 		actions: [
 			{ label: 'GitHub', href: `${githubProfile}/context-tools`, external: true, variant: 'primary' },
@@ -55,7 +55,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'ClankerOverflow',
 		body:
-			'Closed-source product in development for capturing, searching, and reusing practical engineering solutions with a Hono and PostgreSQL backend.',
+			'Closed-source developer tool for capturing, searching, and reusing practical engineering solutions, backed by Hono and PostgreSQL.',
 		techs: ['TypeScript', 'Hono', 'PostgreSQL', 'Developer Tools'],
 		statusLabel: 'Closed source - coming soon',
 		featured: true,
@@ -63,7 +63,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'Trustun - User-Space VPN',
 		body:
-			'User-space VPN in Rust focused on secure packet transport, async I/O, and low-level networking without relying on kernel modules.',
+			'User-space VPN in Rust that exercises secure packet transport, async I/O, and low-level networking without relying on kernel modules.',
 		techs: ['VPN', 'Networking', 'Rust', 'Systems Programming'],
 		projectPage: '/projects/trustun',
 		actions: [
@@ -75,7 +75,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'DNS Server',
 		body:
-			'DNS server project built to understand protocol design, parsing, and bit-level networking concerns through a from-scratch implementation in Go.',
+			'From-scratch DNS server in Go that demonstrates protocol parsing, resolution flow, and packet-level debugging in networked systems.',
 		src: '/images/dns-image.webp',
 		techs: ['DNS', 'Networking', 'Python', 'Go', 'Systems Programming'],
 		projectPage: '/projects/dns-server',
@@ -88,7 +88,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'Multithreaded HTTP Server',
 		body:
-			'HTTP server built from scratch in C and then reworked in Rust to deepen understanding of concurrency, protocol handling, and systems-level backend fundamentals.',
+			'HTTP server built from scratch in C and then reworked in Rust to explore concurrency, protocol handling, and memory-safe systems programming.',
 		src: '/images/httpc-logo.webp',
 		techs: ['HTTP', 'Networking', 'C', 'Rust', 'Systems Programming'],
 		projectPage: '/projects/http-server',
@@ -101,7 +101,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'YANC - Yet Another Netflix Clone',
 		body:
-			'Next.js streaming UI project built around TMDB data, focused on polished browsing flows, reusable components, and responsive frontend work.',
+			'Streaming UI project built on TMDB data to showcase polished browsing flows, reusable components, and responsive frontend implementation.',
 		src: '/images/yanc-image.webp',
 		techs: ['React', 'Next.js', 'Tailwind'],
 		actions: [
@@ -112,7 +112,7 @@ export const allProjects: PortfolioProject[] = [
 	{
 		title: 'Maze Game',
 		body:
-			'3D maze game using raycasting in C with SDL2, built to explore low-level rendering, player movement, and game loop fundamentals.',
+			'3D maze game using raycasting in C with SDL2, demonstrating low-level rendering, player movement, and core game loop fundamentals.',
 		techs: ['C', 'SDL2', 'Raycasting', 'Game Development'],
 		actions: [
 			{ label: 'GitHub', href: `${githubProfile}/3D-maze-game`, external: true, variant: 'primary' },
