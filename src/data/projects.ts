@@ -14,7 +14,7 @@ export const myGithubUrl = githubUrl + "/bernoussama";
 
 export const projects: ProjectEntry[] = [
 	{
-		src: "/images/simplinvo-image.webp",
+		src: "/images/simplinvo-image.png",
 		title: "Simplinvo – Invoicing App",
 		body: "Full-stack invoicing app for real business workflows: UI, forms, validation, and backend-driven business logic. Built with Remix and PocketBase so data rules stay close to the product.",
 		href: myGithubUrl + "/simplinvo",
