@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import HeroBackground from '../components/HeroBackground.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import TechBadge from '../components/TechBadge.astro';
 import { projects } from '../data/projects';
 
 const engineeringNotes = [
@@ -123,6 +124,41 @@ const engineeringNotes = [
 								Full-stack or backend-leaning product engineering (TypeScript/React/Node or Go), platform or developer-tools teams, and teams shipping AI features where reliability and UX both matter.
 							</p>
 						</div>
+					</div>
+				</section>
+
+				<section class="flex w-full flex-col items-center gap-6 mt-16 px-4 max-w-4xl mx-auto">
+					<h2 class="text-2xl font-bold text-center">Tools & technologies</h2>
+					<p class="text-center text-sm text-muted-foreground max-w-xl">
+						Broader toolkit behind the stack above—same skills, shown visually.
+					</p>
+					<div class="flex flex-wrap gap-2 items-center justify-center">
+						<TechBadge name="Linux" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" />
+						<TechBadge name="Neovim" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/neovim/neovim-original.svg" />
+						<TechBadge name="Vim" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/vim/vim-original.svg" />
+						<TechBadge name="bash" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/bash/bash-original.svg" />
+						<TechBadge name="Python" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" />
+						<TechBadge name="C" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" />
+						<TechBadge name="Powershell" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/powershell/powershell-original.svg" />
+						<TechBadge name="JavaScript" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" />
+						<TechBadge name="Go" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original-wordmark.svg" />
+						<TechBadge name="arduino" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg" />
+						<TechBadge name="Typescript" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" />
+						<TechBadge name="Astro" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/astro/astro-original.svg" />
+						<TechBadge name="Tailwind" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" />
+						<TechBadge name="HTML5" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" />
+						<TechBadge name="CSS3" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" />
+						<TechBadge name="Git" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" />
+						<TechBadge name="GitHub" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/github/github-original.svg" />
+						<TechBadge name="React" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" />
+						<TechBadge name="NodeJs" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" />
+						<TechBadge name="Rust" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/rust/rust-original.svg" />
+						<TechBadge name="Docker" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" />
+						<TechBadge name="Figma" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/figma/figma-original.svg" />
+						<TechBadge name="Nginx" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" />
+						<TechBadge name="MongoDB" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" />
+						<TechBadge name="PostgreSQL" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" />
+						<TechBadge name="MySQL" iconLink="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" />
 					</div>
 				</section>
 
