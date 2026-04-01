@@ -54,11 +54,14 @@ const project = {
             </ul>
           </div>
           
-          {/* Screenshots section would go here */}
           <div class="mb-8">
-            <h2 class="text-2xl font-semibold text-foreground mb-4">Screenshots</h2>
-            <div class="bg-muted border-2 border-dashed border-border rounded-xl w-full h-64 flex items-center justify-center text-muted-foreground">
-              Project screenshots coming soon
+            <h2 class="text-2xl font-semibold text-foreground mb-4">Engineering Highlights</h2>
+            <div class="rounded-xl border border-border bg-muted/40 p-6">
+              <ul class="list-disc pl-6 space-y-3 text-muted-foreground">
+                <li>User-space architecture keeps deployment simpler while still exercising low-level packet and transport concerns.</li>
+                <li>Async I/O in Rust keeps the implementation focused on performance-sensitive networking without dropping safety.</li>
+                <li>The project is intentionally systems-heavy, which makes it a strong proof point for debugging, protocol reasoning, and ownership of complex backend behavior.</li>
+              </ul>
             </div>
           </div>
           
