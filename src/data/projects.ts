@@ -23,7 +23,7 @@ export const allProjects: PortfolioProject[] = [
 		title: 'Simplinvo - Invoicing App',
 		body:
 			'Full-stack invoicing app built around real business workflows, covering customer-facing UI, billing flows, data handling, and backend logic in one product.',
-		src: '/images/simplinvo-image.webp',
+		src: '/images/simplinvo-landing.webp',
 		techs: ['TypeScript', 'Remix', 'Tailwind', 'PocketBase', 'Go'],
 		actions: [
 			{ label: 'Live Demo', href: 'https://simplinvo.com', external: true, variant: 'primary' },
