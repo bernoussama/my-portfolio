@@ -4,14 +4,14 @@ import TechBadge from '../../components/TechBadge.astro';
 
 const project = {
   title: "Trustun - User-Space VPN",
-  description: "A secure, high-performance user-space IP-over-UDP VPN implementation written in Rust using async I/O and modern cryptography.",
-  problem: "Traditional VPN solutions often rely on kernel modules which can be complex to deploy and maintain. Trustun solves this by implementing a VPN entirely in user-space, making it easier to deploy while maintaining security and performance.",
+  description: "User-space VPN in Rust exploring secure packet transport, async I/O, and systems-level network programming without kernel modules.",
+  problem: "The project explores how to move IP traffic securely in user space while keeping deployment simpler than kernel-module-based VPNs. It is a systems-heavy exercise in packet handling, transport design, and performance-sensitive networking.",
   features: [
-    "High-performance async I/O using Rust's tokio runtime",
-    "Modern cryptography with ChaCha20-Poly1305 encryption",
-    "Lightweight and portable user-space implementation",
-    "Cross-platform compatibility",
-    "Minimal dependencies"
+    "User-space packet transport over UDP",
+    "Async networking architecture in Rust with Tokio",
+    "Authenticated encryption with ChaCha20-Poly1305",
+    "Cross-platform design with minimal runtime assumptions",
+    "Codebase suited for protocol-level debugging and reasoning"
   ],
   techStack: ["Rust", "Tokio", "Cryptography", "Networking", "VPN", "UDP"],
   liveDemo: "",
@@ -46,7 +46,7 @@ const project = {
           
           <div class="mb-8">
             <h2 class="text-2xl font-semibold text-foreground mb-4">Solution</h2>
-            <p class="text-muted-foreground mb-4">Trustun addresses this by providing a user-space VPN implementation that:</p>
+            <p class="text-muted-foreground mb-4">Trustun addresses this with a user-space architecture that emphasizes:</p>
             <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
               {project.features.map((feature) => (
                 <li>{feature}</li>
@@ -54,11 +54,14 @@ const project = {
             </ul>
           </div>
           
-          {/* Screenshots section would go here */}
           <div class="mb-8">
-            <h2 class="text-2xl font-semibold text-foreground mb-4">Screenshots</h2>
-            <div class="bg-muted border-2 border-dashed border-border rounded-xl w-full h-64 flex items-center justify-center text-muted-foreground">
-              Project screenshots coming soon
+            <h2 class="text-2xl font-semibold text-foreground mb-4">Engineering Highlights</h2>
+            <div class="rounded-xl border border-border bg-muted/40 p-6">
+              <ul class="list-disc pl-6 space-y-3 text-muted-foreground">
+                <li>User-space architecture keeps deployment simpler while still exercising low-level packet and transport concerns.</li>
+                <li>Async I/O in Rust keeps the implementation focused on performance-sensitive networking without dropping safety.</li>
+                <li>The project is intentionally systems-heavy, which makes it a strong proof point for debugging, protocol reasoning, and ownership of complex backend behavior.</li>
+              </ul>
             </div>
           </div>
           

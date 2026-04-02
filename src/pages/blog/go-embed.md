@@ -2,7 +2,7 @@
 layout: ../../layouts/PostLayout.astro
 title: "How to Seamlessly Embed a Remix SPA into Your Go Backend"
 pubDate: 2025-01-28
-description: "Embedding a Remix SPA in a Go Backend: A true Full-Stack Solution"
+description: "Embedding a Remix SPA into a Go backend for a simpler full-stack deployment model."
 author: "Oussama Bernou"
 image:
   url: "https://docs.astro.build/assets/full-logo-light.png"
@@ -198,4 +198,3 @@ Visit `http://localhost:8080/` to see your application in action!
 ![api response](https://cdn.hashnode.com/res/hashnode/image/upload/v1738113972526/ac67e8bf-8583-4f99-b2c9-0df2606e684c.png)
 
 Congrats, now your Go backend server is serving an embedded React SPA, from a single, deployable binary that serves both your frontend and backend.
-

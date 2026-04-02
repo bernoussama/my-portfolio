@@ -4,15 +4,15 @@ import TechBadge from '../../components/TechBadge.astro';
 
 const project = {
   title: "DNS Server",
-  description: "Currently building a DNS server to deepen my understanding of protocols and bit manipulation, transitioning from Python prototypes to low-level Go for clarity and control.",
-  problem: "Understanding how DNS works at a low level is crucial for network programming. This project aims to build a functional DNS server from scratch to gain deeper insights into protocol implementation and bit manipulation.",
+  description: "From-scratch DNS server that moves from Python prototyping to a lower-level Go implementation to exercise protocol parsing, resolution flow, and packet handling.",
+  problem: "DNS is foundational to networked systems, but most application work hides it behind libraries and infrastructure. This project goes down a layer to implement record parsing, resolution logic, and server behavior directly.",
   features: [
-    "Recursive and iterative DNS resolution",
-    "Support for common DNS record types (A, AAAA, CNAME, MX, etc.)",
-    "Caching mechanism for improved performance",
-    "Python prototype for initial development and testing",
-    "Low-level Go implementation for performance and control",
-    "Modular architecture for extensibility"
+    "DNS message parsing and serialization",
+    "Recursive and iterative resolution paths",
+    "Support for common record types",
+    "Caching to reduce repeated upstream lookups",
+    "Python prototype to validate behavior before the Go implementation",
+    "Modular structure for extending records and resolver logic"
   ],
   techStack: ["Python", "Go", "DNS", "Networking", "Protocols", "Bit Manipulation"],
   liveDemo: "",
@@ -47,7 +47,7 @@ const project = {
           
           <div class="mb-8">
             <h2 class="text-2xl font-semibold text-foreground mb-4">Solution</h2>
-            <p class="text-muted-foreground mb-4">This DNS server implementation provides:</p>
+            <p class="text-muted-foreground mb-4">The implementation focuses on:</p>
             <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
               {project.features.map((feature) => (
                 <li>{feature}</li>

@@ -1,24 +1,62 @@
 ---
 interface Props {
-src?: string;
-title: string;
-body?: string;
-href: string;
-demoUrl?: string;
-techs?: Array<string>;
-buttonText? : string;
-projectPage?: string;
+	src?: string;
+	title: string;
+	body?: string;
+	href?: string;
+	demoUrl?: string;
+	techs?: Array<string>;
+	buttonText? : string;
+	projectPage?: string;
+	actions?: Array<{
+		label: string;
+		href: string;
+		external?: boolean;
+		variant?: 'primary' | 'default';
+	}>;
+	statusLabel?: string;
+}
+
+	const { src, title, href, body, demoUrl, techs, buttonText, projectPage, actions, statusLabel }: Props = Astro.props;
+
+	const validHref = href && href !== '#' ? href : undefined;
+	const validDemoUrl = demoUrl && demoUrl !== '#' ? demoUrl : undefined;
+
+	const fallbackActions: NonNullable<Props['actions']> = [];
+
+	if (projectPage) {
+		if (validDemoUrl) {
+			fallbackActions.push({ label: 'Live Demo', href: validDemoUrl, external: true, variant: 'primary' });
+		}
+		if (validHref) {
+			fallbackActions.push({ label: 'GitHub', href: validHref, external: true, variant: 'default' });
+		}
+		fallbackActions.push({ label: buttonText ? buttonText : 'Details', href: projectPage, external: false, variant: 'primary' });
+	} else {
+		if (validDemoUrl) {
+			fallbackActions.push({ label: 'Live Demo', href: validDemoUrl, external: true, variant: 'primary' });
+		}
+		if (validHref) {
+			fallbackActions.push({
+				label: validDemoUrl ? 'GitHub' : buttonText ? buttonText : 'See Project Source',
+				href: validHref,
+				external: true,
+				variant: validDemoUrl ? 'default' : 'primary',
+			});
+		}
 	}
 
-	const { src, title, href, body, demoUrl, techs, buttonText, projectPage} = Astro.props;
+	const normalizedActions = actions ?? fallbackActions;
+	const imageHref = projectPage ?? normalizedActions[0]?.href;
+	const imageExternal = projectPage ? false : normalizedActions[0]?.external;
 	---
 	<div class="uk-card uk-card-default uk-card-hover flex flex-col justify-between rounded-lg overflow-hidden border border-border bg-card shadow-sm w-full transition-all hover:shadow-lg">
-		{projectPage ? (
-			<a href={projectPage} class="relative group">
+		{imageHref ? (
+			<a href={imageHref} class="relative group" target={imageExternal ? '_blank' : undefined} rel={imageExternal ? 'noreferrer' : undefined}>
 				{ src ?
 				(<div
 					class="border-transparent overflow-hidden md:h-[280px] max-sm:h-[240px] flex justify-center items-center bg-muted">
-					<img src=`${src}` class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
+					<img src={src} class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
 				</div>): 
 				(<div class="md:h-[280px] max-sm:h-[240px] flex items-center justify-center bg-muted">
 					<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
@@ -30,11 +68,11 @@ projectPage?: string;
 				}
 			</a>
 		) : (
-			<a href={demoUrl ? demoUrl : href} target="_blank" class="relative group">
+			<div class="relative group">
 				{ src ?
 				(<div
 					class="border-transparent overflow-hidden md:h-[280px] max-sm:h-[240px] flex justify-center items-center bg-muted">
-					<img src=`${src}` class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
+					<img src={src} class="object-cover h-full w-full transition-transform duration-300 group-hover:scale-105" loading="lazy" alt={title} />
 				</div>): 
 				(<div class="md:h-[280px] max-sm:h-[240px] flex items-center justify-center bg-muted">
 					<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground">
@@ -44,7 +82,7 @@ projectPage?: string;
 					</svg>
 				</div>)
 				}
-			</a>
+			</div>
 		)}
 		<div class="p-6 flex flex-col items-start flex-grow">
 			<h3 class="mb-2 text-lg font-semibold leading-tight tracking-tight text-foreground">{title}</h3>
@@ -54,14 +92,20 @@ projectPage?: string;
 					class="uk-badge rounded-full px-2.5 py-0.5 text-xs font-medium bg-muted text-muted-foreground border border-border">{tech}</span>)}
 			</div>
 			<p class="mb-5 text-sm text-muted-foreground flex-grow">{body}</p>
-			{projectPage ? (
-				<a href={projectPage}
-					class="uk-button uk-button-primary w-full justify-center">
-					{buttonText ? buttonText : "View Project Details"}</a>
-			) : (
-				<a href={href} target="_blank"
-					class="uk-button uk-button-primary w-full justify-center">
-					{buttonText ? buttonText : "See Project Source"}</a>
+			{normalizedActions.length > 0 && (
+				<div class="mt-auto flex w-full flex-wrap gap-2">
+					{normalizedActions.map((action) => (
+						<a
+							href={action.href}
+							target={action.external ? '_blank' : undefined}
+							rel={action.external ? 'noreferrer' : undefined}
+							class={`uk-button ${action.variant === 'default' ? 'uk-button-default' : 'uk-button-primary'} flex-1 justify-center`}
+						>
+							{action.label}
+						</a>
+					))}
+				</div>
 			)}
+			{statusLabel && <p class="mt-4 text-sm font-medium text-muted-foreground">{statusLabel}</p>}
 		</div>
 	</div>

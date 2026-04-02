@@ -4,16 +4,15 @@ import TechBadge from '../../components/TechBadge.astro';
 
 const project = {
   title: "Multithreaded HTTP Server",
-  description: "Built a multithreaded HTTP server in C from scratch, with compression support in progress. Rewriting in Rust for improved memory safety and performance.",
-  problem: "Understanding how web servers work at a low level is fundamental for backend development. This project builds an HTTP server from scratch to learn about networking, concurrency, and protocol implementation.",
+  description: "HTTP server built from scratch in C and then reworked in Rust to explore concurrency, protocol handling, and memory-safe systems programming.",
+  problem: "Web servers sit at the core of backend systems. This project rebuilds one from first principles to work through request parsing, connection handling, concurrency, and response generation without framework abstractions.",
   features: [
-    "Full HTTP/1.1 compliance",
-    "Multithreading for concurrent request handling",
-    "Static file serving",
-    "Basic routing capabilities",
-    "Header parsing and response generation",
-    "Gzip compression support (in progress)",
-    "Rewriting in Rust for memory safety and performance"
+    "HTTP/1.1 request parsing and response generation",
+    "Multithreaded request handling in C",
+    "Static file serving and basic routing",
+    "Compression support under active development",
+    "Rust rewrite to compare ergonomics, safety, and performance tradeoffs",
+    "Good foundation for benchmarking and low-level debugging"
   ],
   techStack: ["C", "Rust", "HTTP", "Networking", "Multithreading", "Systems Programming"],
   liveDemo: "",
@@ -48,7 +47,7 @@ const project = {
           
           <div class="mb-8">
             <h2 class="text-2xl font-semibold text-foreground mb-4">Solution</h2>
-            <p class="text-muted-foreground mb-4">This HTTP server implementation provides:</p>
+            <p class="text-muted-foreground mb-4">The implementation focuses on:</p>
             <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
               {project.features.map((feature) => (
                 <li>{feature}</li>

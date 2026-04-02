@@ -5,20 +5,20 @@ import ProjectCard from '../components/ProjectCard.astro';
 
 const services = [
   {
-    title: 'Consultation',
-    desc: "It starts with a conversation to clarify goals, scope, and constraints.",
+    title: 'Scoping',
+    desc: 'Start by clarifying the problem, constraints, and what a successful delivery should look like.',
   },
   {
-    title: 'Proposal',
-    desc: 'A clear plan with timelines, deliverables, and a visual preview.',
+    title: 'Plan',
+    desc: 'Turn the scope into a concrete implementation plan with milestones, tradeoffs, and deliverables.',
   },
   {
-    title: 'Creation',
-    desc: 'Iterative development with regular updates and feedback loops.',
+    title: 'Build',
+    desc: 'Deliver iteratively with regular updates, working software, and room for feedback as the project takes shape.',
   },
   {
-    title: 'Launch & Support',
-    desc: 'Smooth release and ongoing support as needed.',
+    title: 'Ship & Support',
+    desc: 'Handle launch cleanly and stay available for follow-up improvements, fixes, or handoff support.',
   },
 ];
 
@@ -27,7 +27,7 @@ const samples = [
     src: 'images/desktop-preview.webp',
     title: 'Fylo - Responsive Landing Page',
     body: 'A fully responsive landing page for a SaaS product.',
-    href: 'https://github.com/0ussamaBernou/fylo-landing-page',
+    href: 'https://github.com/bernoussama/fylo-landing-page',
     demoUrl: 'https://fylo.oussamabernou.me/',
     techs: ['HTML', 'CSS']
   },
@@ -35,7 +35,7 @@ const samples = [
     src: 'images/Source-project.webp',
     title: 'Source - Responsive Template',
     body: 'A multipurpose responsive landing page template.',
-    href: 'https://github.com/0ussamaBernou/source-layout',
+    href: 'https://github.com/bernoussama/source-layout',
     demoUrl: 'https://source-layout.oussamabernou.me/',
     techs: ['HTML', 'CSS']
   },
@@ -51,7 +51,7 @@ const samples = [
     src: 'images/grocery.gif',
     title: 'Mobile Grocery List',
     body: 'A simple mobile-friendly grocery list with local storage.',
-    href: 'https://github.com/0ussamaBernou/grocery-list',
+    href: 'https://github.com/bernoussama/grocery-list',
     demoUrl: 'https://grocery-list.oussamabernou.me/',
     techs: ['HTML', 'CSS', 'JS']
   },
@@ -65,10 +65,10 @@ const samples = [
         <HeroBackground />
         <div class="relative z-10 flex flex-col items-center gap-3">
           <h1 class="text-center text-3xl font-bold leading-tight tracking-tight md:text-5xl lg:leading-[1.1]">
-            Freelance Software Development
+            Selective Consulting and Contract Work
           </h1>
           <p class="text-center text-lg sm:text-xl max-w-[680px] text-neutral-600">
-            I help businesses and individuals build fast, reliable web experiences—from landing pages to full-stack apps.
+            I occasionally take on short-term product engineering, AI workflow, and backend-heavy consulting work alongside my core full-time search.
           </p>
           <div class="flex w-full items-center justify-center space-x-4 py-4">
             <a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com" target="_blank">Contact Me</a>
@@ -78,7 +78,7 @@ const samples = [
       </div>
 
       <section class="flex flex-col items-center gap-8 mt-6">
-        <h2 class="text-2xl font-bold">Services</h2>
+        <h2 class="text-2xl font-bold">How I Work</h2>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
           {services.map((s, idx) => (
             <div class="rounded-lg border border-neutral-200/60 bg-default p-6 shadow-sm">
@@ -91,7 +91,7 @@ const samples = [
       </section>
 
       <section class="flex flex-col items-center gap-8 mt-16">
-        <h2 class="text-2xl font-bold">Recent Work</h2>
+        <h2 class="text-2xl font-bold">Selected Work Samples</h2>
         <div class="grid md:grid-cols-2 grid-flow-row gap-8 w-full">
           {samples.map((p) => (
             <ProjectCard src={p.src} title={p.title} body={p.body} href={p.href} demoUrl={p.demoUrl} techs={p.techs} />
@@ -100,14 +100,12 @@ const samples = [
       </section>
 
       <section class="flex flex-col items-center gap-6 mt-16">
-        <h2 class="text-2xl font-bold">Let’s work together</h2>
+        <h2 class="text-2xl font-bold">Interested in Working Together?</h2>
         <p class="text-center text-md sm:text-lg max-w-[680px] text-neutral-600">
-          Have a project in mind or need help shipping your next feature? I’d love to help.
+          If you need help shipping a product feature, building an internal tool, or tightening up a backend workflow, feel free to reach out.
         </p>
         <a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com" target="_blank">Get in touch</a>
       </section>
     </div>
   </main>
 </Layout>
-
-
