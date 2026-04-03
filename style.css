@@ -26,6 +26,10 @@ body {
 .grid-border-l { border-left: 1px solid var(--color-grid-border); }
 .grid-border-r { border-right: 1px solid var(--color-grid-border); }
 
+@media (min-width: 1024px) {
+	.lg-grid-border-r { border-right: 1px solid var(--color-grid-border); }
+}
+
 .technical-lettering {
 	font-family: var(--font-mono);
 	letter-spacing: var(--technical-letter-spacing);

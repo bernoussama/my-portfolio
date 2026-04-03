@@ -74,7 +74,7 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 
 	<section class="grid grid-cols-1 lg:grid-cols-2 grid-border-b">
 		{primaryProjects.map((project, index) => (
-			<article class={`p-8 md:p-12 relative group hover:bg-surface-high transition-colors ${index === 0 ? 'lg:grid-border-r' : ''} grid-border-b lg:border-b-0`}>
+			<article class={`p-8 md:p-12 relative group hover:bg-surface-high transition-colors ${index === 0 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0`}>
 				<span class="absolute top-8 right-8 font-mono text-[10px] text-on-surface-variant/40 border border-outline-variant/20 px-2 py-0.5">0{index + 1}</span>
 				<h3 class="text-3xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
 				<p class="text-on-surface-variant mb-8 max-w-md leading-relaxed">{project.body}</p>
@@ -105,7 +105,7 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 
 	<section class="grid grid-cols-12 grid-border-b">
 		{secondaryProjects.map((project, index) => (
-			<article class={`col-span-12 lg:col-span-4 p-8 md:p-12 relative flex flex-col justify-between min-h-[320px] ${index < secondaryProjects.length - 1 ? 'lg:grid-border-r' : ''} grid-border-b lg:border-b-0 ${index === 1 ? 'bg-surface-low' : ''}`}>
+			<article class={`col-span-12 lg:col-span-4 p-8 md:p-12 relative flex flex-col justify-between min-h-[320px] ${index < secondaryProjects.length - 1 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0 ${index === 1 ? 'bg-surface-low' : ''}`}>
 				<div>
 					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/50 mb-4">0{index + 3}</p>
 					<h3 class="text-2xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
