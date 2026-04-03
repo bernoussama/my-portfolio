@@ -7,6 +7,7 @@ const navLinks = [
 	{ href: '/resume', label: 'Resume' },
 	{ href: '/freelance', label: 'Freelance' },
 ];
+const themeToggleClass = 'theme-toggle flex items-center justify-center gap-2 text-on-surface-variant hover:text-primary hover:bg-surface transition-colors';
 ---
 
 <header class="grid grid-cols-12 w-full grid-border-b sticky top-0 z-50 bg-surface-highest">
@@ -23,14 +24,60 @@ const navLinks = [
 			</a>
 		))}
 	</nav>
-	<div class="col-span-4 md:col-span-2 flex items-center justify-end md:justify-stretch min-h-16 md:min-h-0">
+	<div class="col-span-4 md:col-span-2 flex items-stretch justify-end md:justify-stretch min-h-16 md:min-h-0">
+		<button
+			type="button"
+			data-theme-toggle
+			class={`${themeToggleClass} hidden md:flex min-h-16 md:min-h-0 md:h-full px-4 grid-border-r uppercase text-[10px] font-bold tracking-[0.18em]`}
+			aria-label="Activate light theme"
+			aria-pressed="false"
+		>
+			<svg data-theme-icon-light xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="4"></circle>
+				<path d="M12 2v2"></path>
+				<path d="M12 20v2"></path>
+				<path d="m4.93 4.93 1.41 1.41"></path>
+				<path d="m17.66 17.66 1.41 1.41"></path>
+				<path d="M2 12h2"></path>
+				<path d="M20 12h2"></path>
+				<path d="m6.34 17.66-1.41 1.41"></path>
+				<path d="m19.07 4.93-1.41 1.41"></path>
+			</svg>
+			<svg data-theme-icon-dark class="hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M12 3a6 6 0 1 0 9 9 9 9 0 1 1-9-9"></path>
+			</svg>
+			<span data-theme-label>Light</span>
+		</button>
 		<a
 			href="/contact"
-			class="hidden md:flex w-full min-h-16 md:min-h-0 md:h-full bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest py-4 items-center justify-center transition-colors"
+			class="hidden md:flex flex-1 min-h-16 md:min-h-0 md:h-full bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest py-4 items-center justify-center transition-colors"
 		>
 			Connect
 		</a>
-		<button id="mobile-menu-toggle" type="button" class="md:hidden p-4 text-on-surface-variant hover:text-primary transition-colors" aria-label="Open menu">
+		<button
+			type="button"
+			data-theme-toggle
+			class={`${themeToggleClass} md:hidden px-4 grid-border-l`}
+			aria-label="Activate light theme"
+			aria-pressed="false"
+		>
+			<svg data-theme-icon-light xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="12" cy="12" r="4"></circle>
+				<path d="M12 2v2"></path>
+				<path d="M12 20v2"></path>
+				<path d="m4.93 4.93 1.41 1.41"></path>
+				<path d="m17.66 17.66 1.41 1.41"></path>
+				<path d="M2 12h2"></path>
+				<path d="M20 12h2"></path>
+				<path d="m6.34 17.66-1.41 1.41"></path>
+				<path d="m19.07 4.93-1.41 1.41"></path>
+			</svg>
+			<svg data-theme-icon-dark class="hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M12 3a6 6 0 1 0 9 9 9 9 0 1 1-9-9"></path>
+			</svg>
+			<span class="sr-only" data-theme-label>Light</span>
+		</button>
+		<button id="mobile-menu-toggle" type="button" class="md:hidden p-4 text-on-surface-variant hover:text-primary transition-colors grid-border-l" aria-label="Open menu">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="4" x2="20" y1="6" y2="6"></line>
 				<line x1="4" x2="20" y1="12" y2="12"></line>
@@ -43,12 +90,37 @@ const navLinks = [
 <div id="mobile-menu" class="fixed inset-0 z-[100] bg-surface hidden flex-col">
 	<div class="flex justify-between items-center p-6 grid-border-b">
 		<span class="font-black text-2xl tracking-tighter">OB—01</span>
-		<button id="mobile-menu-close" class="text-on-surface-variant hover:text-primary transition-colors">
-			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<line x1="18" y1="6" x2="6" y2="18"></line>
-				<line x1="6" y1="6" x2="18" y2="18"></line>
-			</svg>
-		</button>
+		<div class="flex items-center gap-2">
+			<button
+				type="button"
+				data-theme-toggle
+				class={`${themeToggleClass} p-2`}
+				aria-label="Activate light theme"
+				aria-pressed="false"
+			>
+				<svg data-theme-icon-light xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<circle cx="12" cy="12" r="4"></circle>
+					<path d="M12 2v2"></path>
+					<path d="M12 20v2"></path>
+					<path d="m4.93 4.93 1.41 1.41"></path>
+					<path d="m17.66 17.66 1.41 1.41"></path>
+					<path d="M2 12h2"></path>
+					<path d="M20 12h2"></path>
+					<path d="m6.34 17.66-1.41 1.41"></path>
+					<path d="m19.07 4.93-1.41 1.41"></path>
+				</svg>
+				<svg data-theme-icon-dark class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M12 3a6 6 0 1 0 9 9 9 9 0 1 1-9-9"></path>
+				</svg>
+				<span class="sr-only" data-theme-label>Light</span>
+			</button>
+			<button id="mobile-menu-close" class="text-on-surface-variant hover:text-primary transition-colors">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+		</div>
 	</div>
 	<nav class="flex flex-col p-6 gap-6">
 		{navLinks.map((link) => (
@@ -73,6 +145,45 @@ const navLinks = [
 		const toggle = document.getElementById('mobile-menu-toggle');
 		const menu = document.getElementById('mobile-menu');
 		const close = document.getElementById('mobile-menu-close');
+		const themeButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+		const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		const themeStorageKey = 'theme';
+
+		const syncThemeControls = (theme) => {
+			const nextTheme = theme === 'dark' ? 'light' : 'dark';
+			themeButtons.forEach((button) => {
+				button.setAttribute('aria-label', `Activate ${nextTheme} theme`);
+				button.setAttribute('aria-pressed', String(theme === 'light'));
+
+				const label = button.querySelector('[data-theme-label]');
+				if (label) label.textContent = nextTheme.charAt(0).toUpperCase() + nextTheme.slice(1);
+
+				const lightIcon = button.querySelector('[data-theme-icon-light]');
+				const darkIcon = button.querySelector('[data-theme-icon-dark]');
+				lightIcon?.classList.toggle('hidden', nextTheme !== 'light');
+				darkIcon?.classList.toggle('hidden', nextTheme !== 'dark');
+			});
+		};
+
+		const currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+		syncThemeControls(currentTheme);
+
+		themeButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+				document.documentElement.dataset.theme = nextTheme;
+				localStorage.setItem('theme', nextTheme);
+				syncThemeControls(nextTheme);
+			});
+		});
+
+		themeMediaQuery.addEventListener('change', (event) => {
+			if (localStorage.getItem(themeStorageKey)) return;
+			const nextTheme = event.matches ? 'dark' : 'light';
+			document.documentElement.dataset.theme = nextTheme;
+			syncThemeControls(nextTheme);
+		});
+
 		if (!toggle || !menu || !close) return;
 		toggle.addEventListener('click', () => {
 			menu.classList.remove('hidden');
