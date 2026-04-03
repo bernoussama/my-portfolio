@@ -58,10 +58,13 @@ test('desktop header layout switches at the large breakpoint to match split page
 	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden p-4/);
 });
 
-test('header and footer share the same surface background token', () => {
+test('header matches the footer only in light mode while keeping the dark header surface', () => {
 	const headerSource = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
 	const footerSource = readFileSync(new URL('../src/components/Footer.astro', import.meta.url), 'utf8');
+	const styles = readFileSync(new URL('../style.css', import.meta.url), 'utf8');
 
-	assert.match(headerSource, /<header class="[^"]*bg-surface-lowest[^"]*">/);
+	assert.match(headerSource, /<header class="[^"]*header-surface[^"]*">/);
 	assert.match(footerSource, /<footer class="[^"]*bg-surface-lowest[^"]*">/);
+	assert.match(styles, /\.header-surface\s*\{[\s\S]*background-color:\s*rgb\(var\(--color-surface-highest\)\);/);
+	assert.match(styles, /\[data-theme='light'\]\s+\.header-surface\s*\{[\s\S]*background-color:\s*rgb\(var\(--color-surface-lowest\)\);/);
 });
