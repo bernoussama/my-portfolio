@@ -48,7 +48,7 @@ const counterUrl = `https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=${e
   }
 </style>
 
-<script define:vars={{ counterUrl }}>
+<script is:inline define:vars={{ counterUrl }}>
   function animateNumber(start, end, duration, element) {
     const startTime = performance.now();
     const startNumber = parseInt(start);

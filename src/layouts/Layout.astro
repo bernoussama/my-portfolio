@@ -1,15 +1,9 @@
 ---
 import NavBar from '../components/NavBar.astro';
 import Footer from '../components/Footer.astro';
-/* interface Props {
-title: string;
-} */
-
-// const { title } = Astro.props;
 ---
 
 <!doctype html>
-
 <html lang="en">
 
 <head>
@@ -17,78 +11,26 @@ title: string;
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<meta name="description" content="Portfolio of Oussama Bernou, a full-stack engineer focused on product engineering, AI-powered tooling, and backend systems." />
-	<script is:inline>
-		const storedTheme = localStorage.getItem("color-theme");
-		const isDark =
-			storedTheme === "dark" ||
-			(!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches);
-
-		document.documentElement.classList.toggle("dark", isDark);
-		document.documentElement.style.colorScheme = isDark ? "dark" : "light";
-		document.documentElement.style.backgroundColor = isDark ? "hsl(240 10% 3.9%)" : "hsl(0 0% 100%)";
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit.min.js" defer></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.19.2/dist/js/uikit-icons.min.js"></script> -->
-	<link rel="preload" href="/fonts/geist-font/fonts/GeistVariableVF.woff2" as="font" type="font/woff2" crossorigin />
-	<link rel="preload" href="/fonts/geist-font/fonts/GeistMonoVariableVF.woff2" as="font" type="font/woff2"
-		crossorigin />
-	<link rel="stylesheet" href="/fonts/geist-font/style.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link rel="icon" href="/images/favicon.png">
+	<link rel="stylesheet" href="/style.css" />
 </head>
 
-<body class="bg-background font-geist-sans text-foreground antialiased pt-0 overflow-x-hidden">
-
-	<div class="flex min-h-screen flex-col pt-0">
-		<div class="flex-1 pt-0">
-			<NavBar />
-			<slot></slot>
-		</div>
-
-		<div class="flex-none border-t-muted border-t">
-			<Footer />
-		</div>
-
+<body class="bg-surface font-sans text-on-surface antialiased overflow-x-hidden">
+	<div class="flex min-h-screen flex-col">
+		<NavBar />
+		<main class="flex-1">
+			<slot />
+		</main>
+		<Footer />
 	</div>
 
 	<script is:inline>
-		// Theme toggle functionality
-		var themeToggleBtn = document.getElementById("theme-toggle");
-		var root = document.documentElement;
-		var applyTheme = function (isDark) {
-			root.classList.toggle("dark", isDark);
-			root.style.colorScheme = isDark ? "dark" : "light";
-			root.style.backgroundColor = isDark ? "hsl(240 10% 3.9%)" : "hsl(0 0% 100%)";
-		};
-
-		themeToggleBtn.addEventListener("click", function () {
-			// if set via local storage previously
-			if (localStorage.getItem("color-theme")) {
-				if (localStorage.getItem("color-theme") === "light") {
-					applyTheme(true);
-					localStorage.setItem("color-theme", "dark");
-				} else {
-					applyTheme(false);
-					localStorage.setItem("color-theme", "light");
-				}
-
-				// if NOT set via local storage previously
-			} else {
-				if (root.classList.contains("dark")) {
-					applyTheme(false);
-					localStorage.setItem("color-theme", "light");
-				} else {
-					applyTheme(true);
-					localStorage.setItem("color-theme", "dark");
-				}
-			}
-		});
-
-		// Tech badge animation functionality (runs once per page)
 		(() => {
 			if (typeof window === 'undefined') return;
 			const w = window;
-			
-			// Initialize immediately for badges already on the page
+
 			const initTechBadges = () => {
 				if (!('IntersectionObserver' in w)) {
 					document.querySelectorAll('.tech-badge[data-animate]')
@@ -114,7 +56,6 @@ title: string;
 					.forEach((el) => w.__techBadgeIO.observe(el));
 			};
 
-			// Initialize on DOMContentLoaded
 			if (document.readyState === 'loading') {
 				document.addEventListener('DOMContentLoaded', initTechBadges);
 			} else {
@@ -124,18 +65,11 @@ title: string;
 	</script>
 
 	<style is:global>
-		/* Typography plugin adds decorative backticks on inline code; remove them (GitHub-style). */
-		.prose
-			:where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::before,
-		.prose
-			:where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::after {
+		.prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::before,
+		.prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *))::after {
 			content: none !important;
 		}
 
-		/*
-			Custom prose `code` styles use :not([class~=not-prose]…), which out-specifies
-			typography's `pre code` reset. Re-assert Shiki fenced-block code (astro-code).
-		*/
 		.prose pre.astro-code code {
 			background-color: transparent !important;
 			border-radius: 0 !important;
@@ -144,6 +78,12 @@ title: string;
 			font-size: inherit !important;
 			font-family: inherit !important;
 			color: inherit !important;
+		}
+
+		.prose pre.astro-code {
+			border-left: 1px solid #90abff;
+			background-color: #000000 !important;
+			border-radius: 0 !important;
 		}
 	</style>
 </body>
