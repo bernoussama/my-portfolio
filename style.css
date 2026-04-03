@@ -70,6 +70,14 @@ body {
 	background-color: rgb(var(--color-surface-lowest));
 }
 
+.post-article-surface {
+	background-color: rgb(var(--color-surface-highest));
+}
+
+[data-theme='light'] .post-article-surface {
+	background-color: rgb(var(--color-surface));
+}
+
 .grid-border { border: 1px solid rgb(var(--color-grid-border)); }
 .grid-border-t { border-top: 1px solid rgb(var(--color-grid-border)); }
 .grid-border-b { border-bottom: 1px solid rgb(var(--color-grid-border)); }

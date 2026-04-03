@@ -25,7 +25,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
       <p class="mt-4 text-on-surface-variant">{frontmatter.description}</p>
     </div>
   </section>
-  <article class="max-w-4xl mx-auto px-6 md:px-12 py-12">
+  <article class="post-article-surface max-w-4xl mx-auto px-6 md:px-12 py-12">
     <div class="post-content prose max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight-display prose-headings:text-on-surface prose-p:text-on-surface-variant prose-strong:text-on-surface prose-li:text-on-surface-variant prose-blockquote:text-on-surface-variant prose-code:text-on-surface prose-code:bg-surface-lowest prose-code:px-1 prose-code:py-0.5 prose-code:rounded-sm prose-hr:border-outline-variant prose-th:text-on-surface prose-td:text-on-surface-variant">
       <slot />
     </div>
