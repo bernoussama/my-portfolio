@@ -40,7 +40,7 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 			</p>
 		</section>
 		<aside class="col-span-12 lg:col-span-4 flex flex-col">
-			<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b">
+			<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b bg-surface-highest">
 				<div class="font-mono text-[10px] text-on-surface-variant/60 space-y-1 uppercase tracking-wider">
 					<p>Status: Open to opportunities</p>
 					<p>Focus: Product / Systems / AI Tooling</p>
@@ -59,16 +59,13 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 	</main>
 
 	<section class="grid grid-cols-12 grid-border-t grid-border-b">
-		<div class="col-span-12 lg:col-span-6 grid-border-r overflow-hidden h-[360px] md:h-[500px] bg-surface-lowest">
-			<img
-				src="/images/simplinvo-landing.webp"
-				alt="Simplinvo interface"
-				class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
-				loading="lazy"
-			/>
+		<div class="col-span-12 lg:col-span-6 grid-border-r h-[360px] md:h-[500px] bg-surface-lowest p-8 md:p-12 lg:p-16 flex items-center">
+			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight-display leading-none">
+				Featured<br />Projects
+			</h2>
 		</div>
-		<div class="col-span-12 lg:col-span-6 p-8 md:p-12 flex items-center justify-center bg-surface-lowest">
-			<div class="w-full max-w-2xl terminal-block">
+		<div class="col-span-12 lg:col-span-6 p-8 md:p-12 flex items-center justify-center bg-surface-highest">
+			<div class="w-full max-w-2xl terminal-block bg-surface-lowest">
 				<span class="text-primary mr-2">$</span>
 				<span>build product --stack react,node,go,rust --mode direct</span>
 			</div>
@@ -159,5 +156,27 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 				</div>
 			</a>
 		))}
+	</section>
+
+	<section class="grid grid-cols-12 grid-border-b bg-surface-highest">
+		<div class="col-span-12 px-8 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
+			<div class="mx-auto max-w-4xl text-center">
+				<p class="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-primary/80">Open to product engineering roles</p>
+				<h2 class="text-4xl md:text-6xl font-black tracking-tight-display leading-[0.95] mb-6">
+					Let&apos;s build something useful
+				</h2>
+				<p class="mx-auto max-w-3xl text-base md:text-xl leading-relaxed text-on-surface-variant">
+					If you're hiring for someone who can own product work across frontend, backend, automation, and the engineering details underneath it, I'd be glad to talk.
+				</p>
+				<div class="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row">
+					<a href="mailto:contact@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors text-center">
+						Contact Me
+					</a>
+					<a href="/resume" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary transition-colors text-center">
+						Read Resume
+					</a>
+				</div>
+			</div>
+		</div>
 	</section>
 </Layout>
