@@ -57,3 +57,11 @@ test('desktop header layout switches at the large breakpoint to match split page
 	assert.match(source, /data-theme-toggle[\s\S]*class={`\$\{themeToggleClass\} lg:hidden px-4 grid-border-l`}/);
 	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden p-4/);
 });
+
+test('header and footer share the same surface background token', () => {
+	const headerSource = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
+	const footerSource = readFileSync(new URL('../src/components/Footer.astro', import.meta.url), 'utf8');
+
+	assert.match(headerSource, /<header class="[^"]*bg-surface-lowest[^"]*">/);
+	assert.match(footerSource, /<footer class="[^"]*bg-surface-lowest[^"]*">/);
+});
