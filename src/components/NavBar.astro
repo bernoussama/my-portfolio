@@ -10,11 +10,9 @@ const navLinks = [
 ---
 
 <header class="grid grid-cols-12 w-full grid-border-b sticky top-0 z-50 bg-surface-highest">
-	<div class="col-span-8 md:col-span-2 px-4 py-3 md:px-6 md:py-4 flex items-center md:justify-center grid-border-r transition-colors hover:bg-surface">
-		<a href="/" class="font-black text-xl md:text-2xl tracking-tighter text-on-surface hover:text-primary transition-colors">
-			OB—01
-		</a>
-	</div>
+	<a href="/" class="col-span-8 md:col-span-2 px-4 py-3 md:px-6 md:py-4 flex items-center md:justify-center grid-border-r transition-colors hover:bg-surface text-on-surface hover:text-primary font-black text-xl md:text-2xl tracking-tighter">
+		OB—01
+	</a>
 	<nav class="hidden md:grid col-span-8 md:grid-cols-4 uppercase text-xs font-bold tracking-widest grid-border-r">
 		{navLinks.map((link) => (
 			<a
