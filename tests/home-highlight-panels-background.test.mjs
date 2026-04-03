@@ -16,4 +16,10 @@ test('homepage status panel matches the header and the command block stays black
 		/<div class="[^"]*items-center[^"]*justify-center[^"]*bg-surface-highest[^"]*">[\s\S]*<div class="[^"]*terminal-block[^"]*bg-surface-lowest[^"]*">[\s\S]*build product --stack react,node,go,rust --mode direct[\s\S]*<\/div>[\s\S]*<\/div>/,
 		'expected the command panel to match the header while the inner terminal block explicitly uses the black surface background',
 	);
+
+	assert.match(
+		source,
+		/<a class="[^"]*bg-surface-lowest[^"]*group[^"]*hover:bg-surface-high[^"]*" href="\/projects">[\s\S]*View Portfolio[\s\S]*<\/a>/,
+		'expected the View Portfolio panel to share the featured-projects band background in light mode',
+	);
 });
