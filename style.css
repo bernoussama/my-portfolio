@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-	--color-brand-rgb: 144 171 255;
-	--color-surface: #0e0e0e;
-	--color-canvas: var(--color-surface);
+	--color-brand-rgb: 37 99 235;
+	--color-surface: #000000;
+	--color-canvas: #000000;
 	--color-terminal: #121212;
 	--color-fg: #ffffff;
 	--color-grid-border: #222222;
 	--font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 	--font-mono: "JetBrains Mono", ui-monospace, monospace;
-	--font-grotesk: "Space Grotesk", ui-sans-serif, sans-serif;
-	--technical-letter-spacing: 0.1em;
-	--technical-font-size: 0.75rem;
+	--technical-letter-spacing: 0.15em;
+	--technical-font-size: 0.7rem;
 }
 
 body {
@@ -28,22 +27,22 @@ body {
 .grid-border-r { border-right: 1px solid var(--color-grid-border); }
 
 .technical-lettering {
-	font-family: var(--font-grotesk);
+	font-family: var(--font-mono);
 	letter-spacing: var(--technical-letter-spacing);
 	text-transform: uppercase;
 	font-size: var(--technical-font-size);
 }
 
 .label-md {
-	font-family: var(--font-grotesk);
-	font-size: 0.75rem;
-	letter-spacing: 0.1em;
+	font-family: var(--font-mono);
+	font-size: var(--technical-font-size);
+	letter-spacing: var(--technical-letter-spacing);
 	text-transform: uppercase;
 }
 
 .terminal-block {
 	background-color: #000000;
-	border-left: 1px solid #90abff;
+	border-left: 1px solid rgb(var(--color-brand-rgb));
 	padding: 1rem 1.5rem;
 	font-family: var(--font-mono);
 	font-size: 0.875rem;
@@ -51,7 +50,7 @@ body {
 }
 
 ::selection {
-	background-color: rgba(144, 171, 255, 0.3);
+	background-color: rgba(37, 99, 235, 0.3);
 	color: #ffffff;
 }
 
@@ -60,7 +59,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	background: #0e0e0e;
+	background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {

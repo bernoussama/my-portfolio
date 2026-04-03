@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroBackground from '../components/HeroBackground.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import BlogPost from '../components/BlogPost.astro';
 import TechBadge from '../components/TechBadge.astro';
@@ -52,9 +51,8 @@ const featuredWriting = [
 
 <Layout>
 	<!-- Hero Section -->
-	<main class="grid grid-cols-12 min-h-[80vh] relative">
-		<HeroBackground />
-		<section class="col-span-12 md:col-span-8 p-8 md:p-16 lg:p-24 flex flex-col justify-center relative z-10">
+	<main class="grid grid-cols-12 min-h-[80vh] bg-surface">
+		<section class="col-span-12 md:col-span-8 p-8 md:p-16 lg:p-24 flex flex-col justify-center">
 			<h2 class="text-primary font-mono text-xs uppercase tracking-[0.3em] mb-4">Full-Stack Engineer</h2>
 			<h1 class="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-tight-display uppercase max-w-3xl">
 				Product Eng.<br/>AI Tooling.<br/>Systems.
@@ -63,7 +61,7 @@ const featuredWriting = [
 				Building end-to-end software across React, TypeScript, Node.js, Go, and Rust. From user-facing features and APIs to developer tooling, automation, and systems-heavy projects.
 			</p>
 		</section>
-		<aside class="col-span-12 md:col-span-4 flex flex-col relative z-10 grid-border-t md:border-t-0 md:grid-border-l">
+		<aside class="col-span-12 md:col-span-4 flex flex-col grid-border-t md:border-t-0 md:grid-border-l">
 			<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b">
 				<div class="font-mono text-[10px] text-on-surface-variant/60 space-y-1 uppercase tracking-wider">
 					<p>Status: Open to opportunities</p>
