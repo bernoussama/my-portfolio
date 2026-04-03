@@ -46,3 +46,14 @@ test('terminal block uses the lowest surface token for its background', () => {
 
 	assert.match(styles, /\.terminal-block \{[\s\S]*background-color: rgb\(var\(--color-surface-lowest\)\);/);
 });
+
+test('desktop header layout switches at the large breakpoint to match split page sections', () => {
+	const source = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
+
+	assert.match(source, /desktopNavLinkClass = 'hidden lg:flex lg:col-span-2/);
+	assert.match(source, /{navLinks\.map\(\(link\) => \([\s\S]*class=\{`\$\{desktopNavLinkClass\}/);
+	assert.match(source, /class="col-span-4 lg:col-span-2 flex items-stretch justify-end lg:justify-stretch/);
+	assert.match(source, /hidden lg:flex min-h-16/);
+	assert.match(source, /data-theme-toggle[\s\S]*class={`\$\{themeToggleClass\} lg:hidden px-4 grid-border-l`}/);
+	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden p-4/);
+});

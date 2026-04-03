@@ -8,27 +8,26 @@ const navLinks = [
 	{ href: '/freelance', label: 'Freelance' },
 ];
 const themeToggleClass = 'theme-toggle flex items-center justify-center gap-2 text-on-surface-variant hover:text-primary hover:bg-surface transition-colors';
+const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center justify-center px-4 grid-border-r uppercase text-xs font-bold tracking-widest hover:bg-surface hover:text-primary transition-colors';
 ---
 
 <header class="grid grid-cols-12 w-full grid-border-b sticky top-0 z-50 bg-surface-highest">
-	<a href="/" class="col-span-8 md:col-span-2 px-4 py-3 md:px-6 md:py-4 flex items-center md:justify-center grid-border-r transition-colors hover:bg-surface text-on-surface hover:text-primary font-black text-xl md:text-2xl tracking-tighter">
+	<a href="/" class="col-span-8 lg:col-span-2 px-4 py-3 md:px-6 md:py-4 flex items-center lg:justify-center grid-border-r transition-colors hover:bg-surface text-on-surface hover:text-primary font-black text-xl md:text-2xl tracking-tighter">
 		OB—01
 	</a>
-	<nav class="hidden md:grid col-span-8 md:grid-cols-4 uppercase text-xs font-bold tracking-widest grid-border-r">
-		{navLinks.map((link) => (
-			<a
-				class={`flex h-full items-center justify-center px-4 grid-border-r last:border-r-0 hover:bg-surface hover:text-primary transition-colors ${pathname === link.href ? 'text-primary' : 'text-on-surface-variant'}`}
-				href={link.href}
-			>
-				{link.label}
-			</a>
-		))}
-	</nav>
-	<div class="col-span-4 md:col-span-2 flex items-stretch justify-end md:justify-stretch min-h-16 md:min-h-0">
+	{navLinks.map((link) => (
+		<a
+			class={`${desktopNavLinkClass} ${pathname === link.href ? 'text-primary' : 'text-on-surface-variant'}`}
+			href={link.href}
+		>
+			{link.label}
+		</a>
+	))}
+	<div class="col-span-4 lg:col-span-2 flex items-stretch justify-end lg:justify-stretch min-h-16 lg:min-h-0">
 		<button
 			type="button"
 			data-theme-toggle
-			class={`${themeToggleClass} hidden md:flex min-h-16 md:min-h-0 md:h-full px-4 grid-border-r uppercase text-[10px] font-bold tracking-[0.18em]`}
+			class={`${themeToggleClass} hidden lg:flex min-h-16 lg:min-h-0 lg:h-full px-4 grid-border-r uppercase text-[10px] font-bold tracking-[0.18em]`}
 			aria-label="Activate light theme"
 			aria-pressed="false"
 		>
@@ -50,14 +49,14 @@ const themeToggleClass = 'theme-toggle flex items-center justify-center gap-2 te
 		</button>
 		<a
 			href="/contact"
-			class="hidden md:flex flex-1 min-h-16 md:min-h-0 md:h-full bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest py-4 items-center justify-center transition-colors"
+			class="hidden lg:flex flex-1 min-h-16 lg:min-h-0 lg:h-full bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest py-4 items-center justify-center transition-colors"
 		>
 			Connect
 		</a>
 		<button
 			type="button"
 			data-theme-toggle
-			class={`${themeToggleClass} md:hidden px-4 grid-border-l`}
+			class={`${themeToggleClass} lg:hidden px-4 grid-border-l`}
 			aria-label="Activate light theme"
 			aria-pressed="false"
 		>
@@ -77,7 +76,7 @@ const themeToggleClass = 'theme-toggle flex items-center justify-center gap-2 te
 			</svg>
 			<span class="sr-only" data-theme-label>Light</span>
 		</button>
-		<button id="mobile-menu-toggle" type="button" class="md:hidden p-4 text-on-surface-variant hover:text-primary transition-colors grid-border-l" aria-label="Open menu">
+		<button id="mobile-menu-toggle" type="button" class="lg:hidden p-4 text-on-surface-variant hover:text-primary transition-colors grid-border-l" aria-label="Open menu">
 			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 				<line x1="4" x2="20" y1="6" y2="6"></line>
 				<line x1="4" x2="20" y1="12" y2="12"></line>
