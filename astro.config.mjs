@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   markdown: {
     shikiConfig: {
-      experimentalThemes: {
+      themes: {
         light: 'github-light',
         dark: 'github-dark',
       },
