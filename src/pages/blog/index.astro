@@ -1,11 +1,25 @@
 ---
-const allPosts = (await Astro.glob('./*.md')).sort((a, b) => {
-    const dateA = a.frontmatter.pubDate ? new Date(a.frontmatter.pubDate).getTime() : 0;
-    const dateB = b.frontmatter.pubDate ? new Date(b.frontmatter.pubDate).getTime() : 0;
-    return dateB - dateA;
-});
 import BlogPost from '../../components/BlogPost.astro';
 import Layout from '../../layouts/Layout.astro';
+
+interface BlogFrontmatter {
+	title: string;
+	description: string;
+	pubDate?: string;
+}
+
+const allPosts = Object.entries(
+	import.meta.glob<BlogFrontmatter>('./*.md', { eager: true, import: 'frontmatter' }),
+)
+	.map(([path, frontmatter]) => ({
+		url: path.replace('./', '/blog/').replace(/\.md$/, ''),
+		...frontmatter,
+	}))
+	.sort((a, b) => {
+		const dateA = a.pubDate ? new Date(a.pubDate).getTime() : 0;
+		const dateB = b.pubDate ? new Date(b.pubDate).getTime() : 0;
+		return dateB - dateA;
+	});
 ---
 
 <Layout>
@@ -15,11 +29,11 @@ import Layout from '../../layouts/Layout.astro';
       <p class="mt-4 text-on-surface-variant max-w-xl">Thinking through systems, tradeoffs, and implementation details across full-stack and low-level work.</p>
     </div>
   </section>
-  <section class="grid-border-b">
-    <div class="grid-border-t">
-      {allPosts.map((post) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} />
-      ))}
-    </div>
-  </section>
+	<section class="grid-border-b">
+		<div class="grid-border-t">
+			{allPosts.map((post) => (
+				<BlogPost url={post.url} title={post.title} description={post.description} pubDate={post.pubDate} />
+			))}
+		</div>
+	</section>
 </Layout>
