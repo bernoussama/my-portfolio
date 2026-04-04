@@ -4,8 +4,7 @@ const { pathname } = Astro.url;
 const navLinks = [
 	{ href: '/projects', label: 'Projects' },
 	{ href: '/blog', label: 'Writing' },
-	{ href: '/resume', label: 'Resume' },
-	{ href: '/freelance', label: 'Freelance' },
+	{ href: '/resume', label: 'About' },
 ];
 const themeToggleClass = 'theme-toggle flex items-center justify-center gap-2 text-on-surface-variant hover:text-primary hover:bg-surface transition-colors';
 const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center justify-center px-4 grid-border-r uppercase text-xs font-bold tracking-widest hover:bg-surface hover:text-primary transition-colors';
@@ -23,11 +22,11 @@ const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center ju
 			{link.label}
 		</a>
 	))}
-	<div class="col-span-4 lg:col-span-2 flex items-stretch justify-end lg:justify-stretch min-h-16 lg:min-h-0">
+	<div class="col-span-4 lg:col-span-4 flex items-stretch justify-end lg:justify-stretch min-h-16 lg:min-h-0 lg:grid lg:grid-cols-2">
 		<button
 			type="button"
 			data-theme-toggle
-			class={`${themeToggleClass} hidden lg:flex min-h-16 lg:min-h-0 lg:h-full px-4 grid-border-r uppercase text-[10px] font-bold tracking-[0.18em]`}
+			class={`${themeToggleClass} hidden lg:flex lg:w-full min-h-16 lg:min-h-0 lg:h-full px-4 grid-border-r uppercase text-[10px] font-bold tracking-[0.18em]`}
 			aria-label="Activate light theme"
 			aria-pressed="false"
 		>
@@ -49,7 +48,7 @@ const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center ju
 		</button>
 		<a
 			href="/contact"
-			class="hidden lg:flex flex-1 min-h-16 lg:min-h-0 lg:h-full bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest py-4 items-center justify-center transition-colors"
+			class="hidden lg:flex lg:w-full min-h-16 lg:min-h-0 lg:h-full bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest py-4 items-center justify-center transition-colors"
 		>
 			Connect
 		</a>

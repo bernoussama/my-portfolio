@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
 
+const oldEmail = 'contact@bernoussama.com';
+const newEmail = 'hello@bernoussama.com';
+
 test('layout initializes the document theme before the app renders', () => {
 	const source = readFileSync(new URL('../src/layouts/Layout.astro', import.meta.url), 'utf8');
 
@@ -17,6 +20,36 @@ test('navbar exposes theme toggles and updates the theme state', () => {
 	assert.match(source, /aria-label="Activate light theme"/);
 	assert.match(source, /localStorage\.setItem\('theme', nextTheme\)/);
 	assert.match(source, /document\.documentElement\.dataset\.theme = nextTheme/);
+});
+
+test('navbar omits the freelance link from the header navigation', () => {
+	const source = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
+
+	assert.doesNotMatch(source, /href:\s*'\/freelance'/);
+	assert.doesNotMatch(source, /label:\s*'Freelance'/);
+});
+
+test('navbar labels the resume route as about', () => {
+	const source = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
+
+	assert.match(source, /href:\s*'\/resume', label:\s*'About'/);
+	assert.doesNotMatch(source, /href:\s*'\/resume', label:\s*'Resume'/);
+});
+
+test('site contact entry points use the hello email address', () => {
+	const filePaths = [
+		'../src/components/Nav.astro',
+		'../src/pages/index.astro',
+		'../src/pages/contact.astro',
+		'../src/pages/resume.astro',
+		'../src/pages/freelance.astro',
+	];
+
+	for (const filePath of filePaths) {
+		const source = readFileSync(new URL(filePath, import.meta.url), 'utf8');
+		assert.doesNotMatch(source, new RegExp(oldEmail.replace('.', '\\.')));
+		assert.match(source, new RegExp(newEmail.replace('.', '\\.')));
+	}
 });
 
 test('design tokens support both dark and light themes', () => {
@@ -47,13 +80,14 @@ test('terminal block uses the lowest surface token for its background', () => {
 	assert.match(styles, /\.terminal-block \{[\s\S]*background-color: rgb\(var\(--color-surface-lowest\)\);/);
 });
 
-test('desktop header layout switches at the large breakpoint to match split page sections', () => {
+test('desktop header layout fills the full header width after removing the freelance link', () => {
 	const source = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
 
 	assert.match(source, /desktopNavLinkClass = 'hidden lg:flex lg:col-span-2/);
 	assert.match(source, /{navLinks\.map\(\(link\) => \([\s\S]*class=\{`\$\{desktopNavLinkClass\}/);
-	assert.match(source, /class="col-span-4 lg:col-span-2 flex items-stretch justify-end lg:justify-stretch/);
-	assert.match(source, /hidden lg:flex min-h-16/);
+	assert.match(source, /class="col-span-4 lg:col-span-4 flex items-stretch justify-end lg:justify-stretch min-h-16 lg:min-h-0 lg:grid lg:grid-cols-2/);
+	assert.match(source, /hidden lg:flex lg:w-full min-h-16/);
+	assert.match(source, /class="hidden lg:flex lg:w-full min-h-16 lg:min-h-0 lg:h-full bg-primary/);
 	assert.match(source, /data-theme-toggle[\s\S]*class={`\$\{themeToggleClass\} lg:hidden px-4 grid-border-l`}/);
 	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden p-4/);
 });
