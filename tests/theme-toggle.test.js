@@ -11,6 +11,7 @@ test('layout initializes the document theme before the app renders', () => {
 	assert.match(source, /document\.documentElement\.dataset\.theme/);
 	assert.match(source, /localStorage\.getItem\('theme'\)/);
 	assert.match(source, /matchMedia\('\(prefers-color-scheme: dark\)'\)/);
+	assert.doesNotMatch(source, /user-scalable\s*=\s*no/);
 });
 
 test('navbar exposes theme toggles and updates the theme state', () => {
@@ -60,8 +61,33 @@ test('design tokens support both dark and light themes', () => {
 	assert.match(styles, /\[data-theme='light'\]\s*\{/);
 	assert.match(styles, /--color-surface:\s*255 255 255/);
 	assert.match(styles, /--color-surface:\s*0 0 0/);
+	assert.match(styles, /@font-face\s*\{[\s\S]*font-family:\s*'Inter'/);
+	assert.match(styles, /@font-face\s*\{[\s\S]*font-family:\s*'JetBrains Mono'/);
+	assert.match(styles, /url\('\/fonts\/inter\/inter-latin-400\.woff2'\)/);
+	assert.match(styles, /url\('\/fonts\/jetbrains-mono\/jetbrains-mono-latin-400\.woff2'\)/);
+	assert.doesNotMatch(styles, /fonts\.googleapis\.com/);
 	assert.match(tailwindConfig, /surface: 'rgb\(var\(--color-surface\) \/ <alpha-value>\)'/);
 	assert.match(tailwindConfig, /'on-surface': 'rgb\(var\(--color-fg\) \/ <alpha-value>\)'/);
+});
+
+test('shared layouts no longer preconnect to remote font providers', () => {
+	const layoutSource = readFileSync(new URL('../src/layouts/Layout.astro', import.meta.url), 'utf8');
+	const notFoundSource = readFileSync(new URL('../src/pages/404.astro', import.meta.url), 'utf8');
+
+	assert.doesNotMatch(layoutSource, /fonts\.googleapis\.com/);
+	assert.doesNotMatch(layoutSource, /fonts\.gstatic\.com/);
+	assert.doesNotMatch(notFoundSource, /fonts\.googleapis\.com/);
+	assert.doesNotMatch(notFoundSource, /fonts\.gstatic\.com/);
+});
+
+test('home and shared cards avoid the lowest-contrast text utility variants', () => {
+	const homepageSource = readFileSync(new URL('../src/pages/index.astro', import.meta.url), 'utf8');
+	const footerSource = readFileSync(new URL('../src/components/Footer.astro', import.meta.url), 'utf8');
+	const cardSource = readFileSync(new URL('../src/components/ProjectCard.astro', import.meta.url), 'utf8');
+
+	assert.doesNotMatch(homepageSource, /text-on-surface-variant\/(40|50|60)|text-primary\/80/);
+	assert.doesNotMatch(footerSource, /text-on-surface-variant\/(40|50|60)|text-primary\/80/);
+	assert.doesNotMatch(cardSource, /text-on-surface-variant\/(40|50|60)|text-primary\/80/);
 });
 
 test('astro pages import the shared stylesheet instead of linking to a missing public asset', () => {

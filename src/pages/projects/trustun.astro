@@ -20,7 +20,7 @@ const project = {
 <Layout>
   <section class="grid-border-b">
     <div class="p-8 md:p-16">
-      <a href="/projects" class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-2 mb-8">
+      <a href="/projects" class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary inline-flex items-center gap-2 mb-8">
         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
         Back to Projects
       </a>
@@ -43,12 +43,12 @@ const project = {
         </ul>
       </div>
       <div class="p-8 md:p-12">
-        <h3 class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 mb-4">Tech Stack</h3>
+        <h3 class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-4">Tech Stack</h3>
         <div class="flex flex-wrap gap-2">
           {project.techStack.map((tech) => <TechBadge name={tech} />)}
         </div>
         <div class="mt-8">
-          <a href={project.githubUrl} target="_blank" rel="noreferrer" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary transition-colors inline-block">View on GitHub</a>
+          <a href={project.githubUrl} target="_blank" rel="noreferrer" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary inline-block">View on GitHub</a>
         </div>
       </div>
     </div>

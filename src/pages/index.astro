@@ -41,13 +41,13 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 		</section>
 		<aside class="col-span-12 lg:col-span-4 flex flex-col">
 			<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b bg-surface-highest">
-				<div class="font-mono text-[11px] text-on-surface-variant/60 space-y-1 uppercase tracking-wider">
+				<div class="font-mono text-[11px] text-on-surface-variant space-y-1 uppercase tracking-wider">
 					<p>Status: Open to opportunities</p>
 					<p>Focus: Product / Systems / AI Tooling</p>
 					<p>Stack: TypeScript / Go / Rust</p>
 				</div>
 			</div>
-			<a class="p-8 md:p-12 bg-surface-lowest group hover:bg-surface-high transition-colors" href="/projects">
+			<a class="p-8 md:p-12 bg-surface-lowest group hover:bg-surface-high" href="/projects">
 				<div class="mb-4">
 					<svg class="w-8 h-8 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -74,13 +74,13 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 
 	<section class="grid grid-cols-1 lg:grid-cols-2 grid-border-b">
 		{primaryProjects.map((project, index) => (
-			<article class={`p-8 md:p-12 relative group hover:bg-surface-high transition-colors ${index === 0 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0`}>
-				<span class="absolute top-8 right-8 font-mono text-[10px] text-on-surface-variant/40 border border-outline-variant/20 px-2 py-0.5">0{index + 1}</span>
+			<article class={`p-8 md:p-12 relative group hover:bg-surface-high ${index === 0 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0`}>
+				<span class="absolute top-8 right-8 font-mono text-[10px] text-on-surface-variant border border-outline-variant/30 px-2 py-0.5">0{index + 1}</span>
 				<h3 class="text-3xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
 				<p class="text-on-surface-variant mb-8 max-w-md leading-relaxed">{project.body}</p>
 				<div class="flex flex-wrap gap-3 mb-8">
 					{project.techs.slice(0, 4).map((tech) => (
-						<span class="font-mono text-[9px] border border-outline-variant/30 px-2 py-1 uppercase tracking-[0.15em] text-on-surface-variant/60">{tech}</span>
+						<span class="font-mono text-[9px] border border-outline-variant/30 px-2 py-1 uppercase tracking-[0.15em] text-on-surface-variant">{tech}</span>
 					))}
 				</div>
 				{project.actions && project.actions.length > 0 && (
@@ -91,8 +91,8 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 								target={action.external ? '_blank' : undefined}
 								rel={action.external ? 'noreferrer' : undefined}
 								class={action.variant === 'default'
-									? 'border border-primary/40 text-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary hover:text-on-primary transition-colors'
-									: 'bg-primary text-on-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary-dim transition-colors'}
+									? 'border border-primary/40 text-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary hover:text-on-primary'
+									: 'bg-primary text-on-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary-dim'}
 							>
 								{action.label}
 							</a>
@@ -107,7 +107,7 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 		{secondaryProjects.map((project, index) => (
 			<article class={`col-span-12 lg:col-span-4 p-8 md:p-12 relative flex flex-col justify-between min-h-[320px] ${index < secondaryProjects.length - 1 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0 ${index === 1 ? 'bg-surface-low' : ''}`}>
 				<div>
-					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/50 mb-4">0{index + 3}</p>
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant mb-4">0{index + 3}</p>
 					<h3 class="text-2xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
 					<p class="text-on-surface-variant text-sm leading-relaxed mb-8">
 						{project.body}
@@ -115,13 +115,13 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 				</div>
 				<div>
 					{project.statusLabel ? (
-						<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/50">{project.statusLabel}</span>
+						<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant">{project.statusLabel}</span>
 					) : project.actions?.[0] ? (
 						<a
 							href={project.actions[0].href}
 							target={project.actions[0].external ? '_blank' : undefined}
 							rel={project.actions[0].external ? 'noreferrer' : undefined}
-							class="font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-8 decoration-primary hover:text-primary transition-colors"
+							class="font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-8 decoration-primary hover:text-primary"
 						>
 							{project.actions[0].label}
 						</a>
@@ -138,7 +138,7 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 			</h2>
 		</div>
 		<div class="col-span-12 md:col-span-3 flex md:justify-end mt-6 md:mt-0">
-			<a href="/blog" class="bg-primary hover:bg-primary-dim text-on-primary font-bold py-4 px-10 text-xs uppercase tracking-widest transition-colors inline-block">
+			<a href="/blog" class="bg-primary hover:bg-primary-dim text-on-primary font-bold py-4 px-10 text-xs uppercase tracking-widest inline-block">
 				Read the Blog
 			</a>
 		</div>
@@ -146,13 +146,13 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 
 	<section class="grid grid-cols-1 grid-border-b">
 		{featuredWriting.map((post) => (
-			<a href={post.url} class="p-6 md:p-8 grid-border-b last:border-b-0 hover:bg-surface-high transition-colors group">
+			<a href={post.url} class="p-6 md:p-8 grid-border-b last:border-b-0 hover:bg-surface-high group">
 				<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
 					<div>
-						<h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">{post.title}</h3>
+						<h3 class="text-xl font-bold tracking-tight group-hover:text-primary">{post.title}</h3>
 						<p class="mt-2 text-sm text-on-surface-variant max-w-3xl">{post.description}</p>
 					</div>
-					{post.pubDate && <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant/50">{post.pubDate}</span>}
+					{post.pubDate && <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant">{post.pubDate}</span>}
 				</div>
 			</a>
 		))}
@@ -161,7 +161,7 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 	<section class="grid grid-cols-12 grid-border-b bg-surface-highest">
 		<div class="col-span-12 px-8 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
 			<div class="mx-auto max-w-4xl text-center">
-				<p class="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-primary/80">Open to product engineering roles</p>
+				<p class="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-on-surface-variant">Open to product engineering roles</p>
 				<h2 class="text-4xl md:text-6xl font-black tracking-tight-display leading-[0.95] mb-6">
 					Let&apos;s build something useful
 				</h2>
@@ -169,10 +169,10 @@ const secondaryProjects = featuredProjects.slice(2, 5);
 					If you're hiring for someone who can own product work across frontend, backend, automation, and the engineering details underneath it, I'd be glad to talk.
 				</p>
 				<div class="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row">
-					<a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors text-center">
+					<a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 text-center">
 						Contact Me
 					</a>
-					<a href="/resume" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary transition-colors text-center">
+					<a href="/resume" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary text-center">
 						Read Resume
 					</a>
 				</div>
