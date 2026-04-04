@@ -102,12 +102,13 @@ import '../../style.css';
 			border-left: 2px solid rgb(var(--color-on-surface-variant)) !important;
 		}
 
-		[data-theme='light'] .prose pre.astro-code {
+		/* Only recolor blocks that ship both light and dark shiki themes. */
+		[data-theme='light'] .prose pre.astro-code.astro-code-themes {
 			background-color: rgb(var(--color-surface-lowest)) !important;
 		}
 
-		[data-theme='dark'] .prose pre.astro-code,
-		[data-theme='dark'] .prose pre.astro-code span {
+		[data-theme='dark'] .prose pre.astro-code.astro-code-themes,
+		[data-theme='dark'] .prose pre.astro-code.astro-code-themes span {
 			color: var(--shiki-dark) !important;
 			background-color: var(--shiki-dark-bg) !important;
 			font-style: var(--shiki-dark-font-style) !important;
