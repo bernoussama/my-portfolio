@@ -1,8 +1,8 @@
 ---
 const allPosts = (await Astro.glob('./*.md')).sort((a, b) => {
-    const dateA = new Date(a.frontmatter.pubDate);
-    const dateB = new Date(b.frontmatter.pubDate);
-    return Number(dateB) - Number(dateA);
+    const dateA = a.frontmatter.pubDate ? new Date(a.frontmatter.pubDate).getTime() : 0;
+    const dateB = b.frontmatter.pubDate ? new Date(b.frontmatter.pubDate).getTime() : 0;
+    return dateB - dateA;
 });
 import BlogPost from '../../components/BlogPost.astro';
 import Layout from '../../layouts/Layout.astro';
