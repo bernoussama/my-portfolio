@@ -19,7 +19,7 @@ test('blog summaries use design-system CTA styling', async () => {
 
   assert.match(
     source,
-    /border border-outline-variant\/30 text-on-surface-variant\/40 group-hover:border-primary\/40 group-hover:text-primary/,
+    /border border-outline-variant\/30 text-on-surface-variant group-hover:translate-x-1 transition-transform/,
     'expected the summary arrow affordance to use the shared outlined interaction treatment',
   );
 });

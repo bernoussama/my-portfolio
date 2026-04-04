@@ -8,8 +8,7 @@ const { pathname } = Astro.url;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>404 | Oussama Bernou</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preload" href="/fonts/inter/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin />
 	</head>
 	<body class="bg-surface text-on-surface font-sans antialiased">
 		<main class="min-h-screen grid grid-cols-12">
@@ -22,13 +21,13 @@ const { pathname } = Astro.url;
 					The requested page does not exist or has moved to a different path.
 				</p>
 				<div class="mt-8 flex flex-wrap gap-3">
-					<a href="/" class="bg-primary text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary-dim transition-colors">Return Home</a>
-					<a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary transition-colors">View Projects</a>
+					<a href="/" class="bg-primary text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary-dim">Return Home</a>
+					<a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary">View Projects</a>
 				</div>
 			</section>
 			<aside class="col-span-12 md:col-span-4 flex flex-col">
 				<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b md:grid-border-b-0">
-					<div class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/60 space-y-2">
+				<div class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant space-y-2">
 						<p>Status: Missing route</p>
 						<p>Path: {pathname}</p>
 					</div>

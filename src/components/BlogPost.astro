@@ -6,22 +6,22 @@ const formattedDate = pubDate ? new Date(pubDate).toLocaleDateString('en-US', {
     day: 'numeric'
 }) : null;
 ---
-<a href={url} class="block w-full px-6 py-6 md:px-8 md:py-8 grid-border-b hover:bg-surface-high transition-colors group">
+<a href={url} class="block w-full px-6 py-6 md:px-8 md:py-8 grid-border-b hover:bg-surface-high group">
     <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
         <div class="flex-1 max-w-3xl">
             <div class="flex flex-wrap items-center gap-3 mb-3">
-                <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary/80">Article</span>
+                <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">Article</span>
                 {formattedDate && (
-                    <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant/60 border border-outline-variant/30 px-2 py-1">{formattedDate}</span>
+                    <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant border border-outline-variant/30 px-2 py-1">{formattedDate}</span>
                 )}
             </div>
-            <h5 class="text-xl md:text-2xl font-black tracking-tight-display leading-tight group-hover:text-primary transition-colors">{title}</h5>
+            <h5 class="text-xl md:text-2xl font-black tracking-tight-display leading-tight group-hover:text-primary">{title}</h5>
             <p class="mt-3 text-sm text-on-surface-variant leading-relaxed max-w-2xl">{description}</p>
-            <span class="mt-5 inline-flex items-center gap-3 border border-primary/40 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
+            <span class="mt-5 inline-flex items-center gap-3 border border-primary/40 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-primary group-hover:bg-primary group-hover:text-on-primary">
                 Read Article
             </span>
         </div>
-        <span class="inline-flex h-10 w-10 items-center justify-center border border-outline-variant/30 text-on-surface-variant/40 group-hover:border-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0">
+        <span class="inline-flex h-10 w-10 items-center justify-center border border-outline-variant/30 text-on-surface-variant group-hover:translate-x-1 transition-transform flex-shrink-0">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>

@@ -35,12 +35,12 @@ const selectedWriting = [
         <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">
           hello@bernoussama.com
         </span>
-        <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">github.com/bernoussama</a>
-        <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">linkedin.com/in/oussama-bernou</a>
+        <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">github.com/bernoussama</a>
+        <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">linkedin.com/in/oussama-bernou</a>
       </div>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3 transition-colors">Contact</a>
-        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary transition-colors">View Projects</a>
+        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3">Contact</a>
+        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary">View Projects</a>
       </div>
     </div>
   </section>
@@ -74,13 +74,13 @@ const selectedWriting = [
     <div class="p-8 md:p-12">
       <div class="flex items-end justify-between gap-4 mb-8">
         <h2 class="text-2xl font-black uppercase tracking-tight-display">Selected Projects</h2>
-        <a href="/projects" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">See all</a>
+        <a href="/projects" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">See all</a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-0 grid-border-t grid-border-l">
         {featuredProjects.slice(0, 4).map((project) => (
-          <div class="p-6 grid-border-r grid-border-b hover:bg-surface-high transition-colors">
+          <div class="p-6 grid-border-r grid-border-b hover:bg-surface-high">
             <h3 class="text-lg font-bold tracking-tight">{project.title}</h3>
-            {project.statusLabel && <span class="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant/60">{project.statusLabel}</span>}
+            {project.statusLabel && <span class="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant">{project.statusLabel}</span>}
             <p class="mt-2 text-sm text-on-surface-variant">{project.body}</p>
           </div>
         ))}
@@ -92,11 +92,11 @@ const selectedWriting = [
     <div class="p-8 md:p-12">
       <div class="flex items-end justify-between gap-4 mb-8">
         <h2 class="text-2xl font-black uppercase tracking-tight-display">Selected Writing</h2>
-        <a href="/blog" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">Read the blog</a>
+        <a href="/blog" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">Read the blog</a>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-0 grid-border-t grid-border-l">
         {selectedWriting.map((post) => (
-          <a href={post.href} class="p-6 grid-border-r grid-border-b hover:bg-surface-high transition-colors">
+          <a href={post.href} class="p-6 grid-border-r grid-border-b hover:bg-surface-high">
             <h3 class="text-sm font-bold tracking-tight">{post.title}</h3>
           </a>
         ))}

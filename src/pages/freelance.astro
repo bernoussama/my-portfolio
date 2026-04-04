@@ -23,8 +23,8 @@ const samples = [
       <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight-display">Selective Consulting</h1>
       <p class="mt-4 text-on-surface-variant max-w-xl mx-auto">Short-term product engineering, AI workflow, and backend-heavy consulting work.</p>
       <div class="mt-8 flex justify-center gap-4">
-        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3 transition-colors">Contact Me</a>
-        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary transition-colors">View Projects</a>
+        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3">Contact Me</a>
+        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary">View Projects</a>
       </div>
     </div>
   </section>
@@ -35,7 +35,7 @@ const samples = [
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 grid-border-t grid-border-l">
         {services.map((s, idx) => (
           <div class="p-6 grid-border-r grid-border-b">
-            <span class="font-mono text-[10px] text-on-surface-variant/60 uppercase tracking-wider">Step {idx + 1}</span>
+            <span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider">Step {idx + 1}</span>
             <h3 class="text-lg font-bold mt-2 mb-2">{s.title}</h3>
             <p class="text-sm text-on-surface-variant">{s.desc}</p>
           </div>
@@ -58,6 +58,6 @@ const samples = [
   <section class="p-8 md:p-16 text-center grid-border-b">
     <h2 class="text-3xl font-black uppercase tracking-tight-display">Interested in Working Together?</h2>
     <p class="mt-4 text-on-surface-variant max-w-xl mx-auto">If you need help shipping a product feature, building an internal tool, or tightening up a backend workflow, reach out.</p>
-    <a href="mailto:hello@bernoussama.com" class="mt-6 inline-block bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors">Get in Touch</a>
+    <a href="mailto:hello@bernoussama.com" class="mt-6 inline-block bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4">Get in Touch</a>
   </section>
 </Layout>
