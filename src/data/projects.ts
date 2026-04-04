@@ -56,6 +56,7 @@ export const allProjects: PortfolioProject[] = [
 		title: 'ClankerOverflow',
 		body:
 			'Closed-source developer tool for capturing, searching, and reusing practical engineering solutions, backed by Hono and PostgreSQL.',
+		src: '/images/clankeroverflow-landing.webp',
 		techs: ['TypeScript', 'Hono', 'PostgreSQL', 'Developer Tools'],
 		statusLabel: 'Closed source - coming soon',
 		featured: true,

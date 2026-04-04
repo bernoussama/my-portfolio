@@ -1,33 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroBackground from '../components/HeroBackground.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import BlogPost from '../components/BlogPost.astro';
-import TechBadge from '../components/TechBadge.astro';
 import { featuredProjects } from '../data/projects';
-
-const strengthGroups = [
-	{
-		title: "Full-stack product development",
-		description: "Building user-facing features, backend logic, and data flows as one product surface instead of treating them as separate tracks.",
-		items: ['TypeScript', 'React', 'Node.js', 'Remix', 'Tailwind'],
-	},
-	{
-		title: 'AI integrations and workflow tooling',
-		description: 'Using LLM APIs and automation patterns to make developer and team workflows faster, safer, and easier to use.',
-		items: ['LLM Integrations', 'Gemini API', 'CLI Tooling', 'Automation'],
-	},
-	{
-		title: 'Backend and systems engineering',
-		description: 'Building APIs and low-level services with enough systems depth to reason about networking, performance, and reliability under the hood.',
-		items: ['Go', 'Rust', 'Hono', 'REST APIs', 'Linux'],
-	},
-	{
-		title: 'Data and platform fundamentals',
-		description: 'Working comfortably with application data, deployment-minded architectures, and the operational details behind shipped software.',
-		items: ['PostgreSQL', 'MySQL', 'MongoDB', 'PocketBase'],
-	},
-];
 
 const featuredWriting = [
 	{
@@ -48,124 +21,162 @@ const featuredWriting = [
 		description: 'What happens between entering a URL and loading a web page?',
 	},
 ];
+
+const primaryProjects = featuredProjects.slice(0, 2);
+const secondaryProjects = featuredProjects.slice(2, 5);
 ---
 
 <Layout>
-	<main class="container">
-		<div class="mx-auto max-w-7xl">
-            <div class="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
-                    <HeroBackground />
-                <div class="relative w-full px-4 py-10 md:py-14 lg:py-20">
-					<div class="relative z-10 flex flex-col items-center gap-3">
-						<p class="text-center text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
-							Full-stack engineer
-						</p>
-						<h1 class="text-center text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-							Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.
-						</h1>
+	<main class="grid grid-cols-12 min-h-[calc(100svh-4.5rem)] md:min-h-[calc(100svh-5.75rem)] bg-surface">
+		<section class="col-span-12 lg:col-span-8 px-8 py-10 md:px-16 md:py-12 lg:px-24 lg:py-14 flex flex-col justify-center grid-border-r">
+			<div class="mb-8">
+				<p class="text-primary font-mono text-xs uppercase tracking-[0.3em] mb-4">High Performance Software Systems</p>
+				<h1 class="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight-display uppercase max-w-4xl">
+					Product<br />Engineering.
+				</h1>
+			</div>
+			<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
+				Building end-to-end software across React, TypeScript, Node.js, Go, and Rust. Direct, efficient, and focused on product systems that ship cleanly.
+			</p>
+		</section>
+		<aside class="col-span-12 lg:col-span-4 flex flex-col">
+			<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b bg-surface-highest">
+				<div class="font-mono text-[10px] text-on-surface-variant/60 space-y-1 uppercase tracking-wider">
+					<p>Status: Open to opportunities</p>
+					<p>Focus: Product / Systems / AI Tooling</p>
+					<p>Stack: TypeScript / Go / Rust</p>
+				</div>
+			</div>
+			<a class="p-8 md:p-12 bg-surface-lowest group hover:bg-surface-high transition-colors" href="/projects">
+				<div class="mb-4">
+					<svg class="w-8 h-8 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+					</svg>
+				</div>
+				<span class="text-2xl font-black uppercase tracking-tight block">View Portfolio</span>
+			</a>
+		</aside>
+	</main>
 
-						<p class="text-center text-md sm:text-lg text-muted-foreground"
-							style="display: inline-block; vertical-align: top; text-decoration: inherit; max-width: 568px;">
-	              I build end-to-end software across React, TypeScript, Node.js, Go, and Rust, from user-facing features and APIs to developer tooling, automation, and systems-heavy projects.
-						</p>
-                        <div class="flex w-full flex-col items-stretch justify-center gap-3 py-4 sm:flex-row sm:items-center sm:gap-4 md:pb-10">
-					<a class="uk-button uk-button-primary w-full justify-center gap-2 sm:w-auto" href="/projects">
-						<svg width="16" height="16" viewBox="0 0 20 20" stroke="currentColor">
-							<rect width="13" height="17" fill="none" x="3.5" y="1.5"></rect>
-							<line fill="none" x1="6" y1="12.5" x2="12" y2="12.5"></line>
-							<line fill="none" x1="6" y1="8.5" x2="14" y2="8.5"></line>
-							<line fill="none" x1="6" y1="6.5" x2="14" y2="6.5"></line>
-							<line fill="none" x1="6" y1="10.5" x2="14" y2="10.5"></line>
-						</svg>
-						View Projects
-	                    </a>
-	                    <a class="uk-button uk-button-default w-full justify-center gap-2 sm:w-auto" href="/resume">
-						<svg width="16" height="16" viewBox="0 0 20 20" stroke="currentColor">
-                            <rect width="13" height="17" fill="none" x="3.5" y="1.5"></rect>
-                            <line fill="none" x1="6" y1="12.5" x2="12" y2="12.5"></line>
-                            <line fill="none" x1="6" y1="8.5" x2="14" y2="8.5"></line>
-                            <line fill="none" x1="6" y1="6.5" x2="14" y2="6.5"></line>
-                            <line fill="none" x1="6" y1="10.5" x2="14" y2="10.5"></line>
-                        </svg>
-						Read Resume
-	                    </a>
-	                    <a class="uk-button uk-button-default w-full justify-center gap-2 sm:w-auto" href="mailto:contact@bernoussama.com">
-						Contact Me
-	                    </a>
-                        </div>
-                    </div>
-                </div>
-				<section class="mt-16 w-full px-4">
-					<div class="flex flex-col items-center gap-3 text-center">
-						<h2 class="text-2xl font-bold">What I&apos;m strongest at</h2>
-						<p class="max-w-2xl text-muted-foreground">
-							My strongest work sits where product engineering, practical AI workflows, and backend depth overlap.
-						</p>
-					</div>
-					<div class="mt-8 grid gap-6 md:grid-cols-2">
-						{strengthGroups.map((group) => (
-							<div class="rounded-xl border border-border bg-card p-6 shadow-sm">
-								<h3 class="text-lg font-semibold">{group.title}</h3>
-								<p class="mt-2 text-sm text-muted-foreground">{group.description}</p>
-								<div class="mt-4 flex flex-wrap gap-2">
-									{group.items.map((item) => <TechBadge name={item} />)}
-								</div>
-							</div>
-						))}
-					</div>
-				</section>
-				<!-- Section -->
-				<section class="flex w-full flex-col items-center gap-8 mt-16 px-4">
-					<div class="flex flex-col items-center gap-3 text-center">
-						<h2 class="text-2xl font-bold">Featured Projects</h2>
-						<p class="max-w-2xl text-muted-foreground">
-							Selected work that shows product thinking, technical range, and end-to-end ownership across frontend, backend, and systems-heavy projects.
-						</p>
-					</div>
-					<div class="grid w-full md:grid-cols-2 grid-flow-row gap-8">
-					{featuredProjects.map((project) => (
-						<ProjectCard 
-							src={project.src}
-							title={project.title}
-							body={project.body}
-							techs={project.techs}
-							projectPage={project.projectPage}
-							actions={project.actions}
-							statusLabel={project.statusLabel}
-						/>
-					))}
-					</div>
-					<a class="uk-button uk-button-default" href="/projects">See All Projects</a>
-				</section>
-
-				<section class="mt-16 w-full px-4">
-					<div class="flex flex-col items-center gap-3 text-center">
-						<h2 class="text-2xl font-bold">Selected Writing</h2>
-						<p class="max-w-2xl text-muted-foreground">
-							Writing that shows how I think through systems, tradeoffs, and implementation details across full-stack and low-level work.
-						</p>
-					</div>
-					<div class="mt-8 grid gap-4">
-						{featuredWriting.map((post) => (
-							<BlogPost url={post.url} title={post.title} description={post.description} pubDate={post.pubDate} />
-						))}
-					</div>
-					<div class="mt-4 flex justify-center">
-						<a class="uk-button uk-button-default" href="/blog">Read More Writing</a>
-					</div>
-				</section>
-
-				<section class="flex flex-col items-center gap-6 mt-16 px-4 text-center">
-					<h2 class="text-2xl font-bold">Let&apos;s build something useful</h2>
-					<p class="max-w-2xl text-muted-foreground">
-						If you&apos;re hiring for someone who can own product work across frontend, backend, automation, and the engineering details underneath it, I&apos;d be glad to talk.
-					</p>
-					<div class="flex flex-wrap items-center justify-center gap-3">
-						<a class="uk-button uk-button-primary gap-x-2" href="mailto:contact@bernoussama.com">Contact Me</a>
-						<a class="uk-button uk-button-default gap-x-2" href="/resume">Read Resume</a>
-					</div>
-				</section>
+	<section class="grid grid-cols-12 grid-border-t grid-border-b">
+		<div class="col-span-12 lg:col-span-6 grid-border-r h-[360px] md:h-[500px] bg-surface-lowest p-8 md:p-12 lg:p-16 flex items-center">
+			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight-display leading-none">
+				Featured<br />Projects
+			</h2>
+		</div>
+		<div class="col-span-12 lg:col-span-6 p-8 md:p-12 flex items-center justify-center bg-surface-highest">
+			<div class="w-full max-w-2xl terminal-block bg-surface-lowest">
+				<span class="text-primary mr-2">$</span>
+				<span>build product --stack react,node,go,rust --mode direct</span>
 			</div>
 		</div>
-	</main>
+	</section>
+
+	<section class="grid grid-cols-1 lg:grid-cols-2 grid-border-b">
+		{primaryProjects.map((project, index) => (
+			<article class={`p-8 md:p-12 relative group hover:bg-surface-high transition-colors ${index === 0 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0`}>
+				<span class="absolute top-8 right-8 font-mono text-[10px] text-on-surface-variant/40 border border-outline-variant/20 px-2 py-0.5">0{index + 1}</span>
+				<h3 class="text-3xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
+				<p class="text-on-surface-variant mb-8 max-w-md leading-relaxed">{project.body}</p>
+				<div class="flex flex-wrap gap-3 mb-8">
+					{project.techs.slice(0, 4).map((tech) => (
+						<span class="font-mono text-[9px] border border-outline-variant/30 px-2 py-1 uppercase tracking-[0.15em] text-on-surface-variant/60">{tech}</span>
+					))}
+				</div>
+				{project.actions && project.actions.length > 0 && (
+					<div class="flex flex-wrap gap-3">
+						{project.actions.slice(0, 2).map((action) => (
+							<a
+								href={action.href}
+								target={action.external ? '_blank' : undefined}
+								rel={action.external ? 'noreferrer' : undefined}
+								class={action.variant === 'default'
+									? 'border border-primary/40 text-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary hover:text-on-primary transition-colors'
+									: 'bg-primary text-on-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary-dim transition-colors'}
+							>
+								{action.label}
+							</a>
+						))}
+					</div>
+				)}
+			</article>
+		))}
+	</section>
+
+	<section class="grid grid-cols-12 grid-border-b">
+		{secondaryProjects.map((project, index) => (
+			<article class={`col-span-12 lg:col-span-4 p-8 md:p-12 relative flex flex-col justify-between min-h-[320px] ${index < secondaryProjects.length - 1 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0 ${index === 1 ? 'bg-surface-low' : ''}`}>
+				<div>
+					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/50 mb-4">0{index + 3}</p>
+					<h3 class="text-2xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
+					<p class="text-on-surface-variant text-sm leading-relaxed mb-8">
+						{project.body}
+					</p>
+				</div>
+				<div>
+					{project.statusLabel ? (
+						<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/50">{project.statusLabel}</span>
+					) : project.actions?.[0] ? (
+						<a
+							href={project.actions[0].href}
+							target={project.actions[0].external ? '_blank' : undefined}
+							rel={project.actions[0].external ? 'noreferrer' : undefined}
+							class="font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-8 decoration-primary hover:text-primary transition-colors"
+						>
+							{project.actions[0].label}
+						</a>
+					) : null}
+				</div>
+			</article>
+		))}
+	</section>
+
+	<section class="p-8 md:p-16 lg:p-24 grid grid-cols-12 items-end grid-border-b">
+		<div class="col-span-12 md:col-span-9">
+			<h2 class="text-5xl md:text-8xl font-black uppercase tracking-tight-display leading-none">
+				Selected<br />Writing
+			</h2>
+		</div>
+		<div class="col-span-12 md:col-span-3 flex md:justify-end mt-6 md:mt-0">
+			<a href="/blog" class="bg-primary hover:bg-primary-dim text-on-primary font-bold py-4 px-10 text-xs uppercase tracking-widest transition-colors inline-block">
+				Read the Blog
+			</a>
+		</div>
+	</section>
+
+	<section class="grid grid-cols-1 grid-border-b">
+		{featuredWriting.map((post) => (
+			<a href={post.url} class="p-6 md:p-8 grid-border-b last:border-b-0 hover:bg-surface-high transition-colors group">
+				<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+					<div>
+						<h3 class="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">{post.title}</h3>
+						<p class="mt-2 text-sm text-on-surface-variant max-w-3xl">{post.description}</p>
+					</div>
+					{post.pubDate && <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant/50">{post.pubDate}</span>}
+				</div>
+			</a>
+		))}
+	</section>
+
+	<section class="grid grid-cols-12 grid-border-b bg-surface-highest">
+		<div class="col-span-12 px-8 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
+			<div class="mx-auto max-w-4xl text-center">
+				<p class="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-primary/80">Open to product engineering roles</p>
+				<h2 class="text-4xl md:text-6xl font-black tracking-tight-display leading-[0.95] mb-6">
+					Let&apos;s build something useful
+				</h2>
+				<p class="mx-auto max-w-3xl text-base md:text-xl leading-relaxed text-on-surface-variant">
+					If you're hiring for someone who can own product work across frontend, backend, automation, and the engineering details underneath it, I'd be glad to talk.
+				</p>
+				<div class="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row">
+					<a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors text-center">
+						Contact Me
+					</a>
+					<a href="/resume" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary transition-colors text-center">
+						Read Resume
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>

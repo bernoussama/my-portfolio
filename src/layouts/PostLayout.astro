@@ -1,8 +1,7 @@
 ---
 import Layout from './Layout.astro';
+import PageViews from '../components/PageViews.astro';
 const {frontmatter} = Astro.props;
-import PageViews from "../components/PageViews.astro";
-
 const pageUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
 const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', {
   year: 'numeric',
@@ -11,23 +10,40 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 });
 ---
 <Layout>
-	<div class="container mt-8 mb-8 flex flex-col items-center text-left">
-
-		<h1 class="text-3xl text-center font-bold mb-8">{frontmatter.title}</h1>
-		<div class="uk-divider-small my-2"></div>
-		<div class="flex items-center gap-4">
-			<span class="">{formattedDate}</span>
-      <span class="text-gray-600">|</span>
-    <PageViews url={pageUrl} />
-		</div>
-		<!-- <h2 class="">Post author: {frontmatter.author}</h2> -->
-		<div class="uk-divider-small my-2 mb-8"></div>
-		<p class="mt-2">{frontmatter.description}</p>
-
-		<div
-			class="container prose dark:prose-invert prose-h1:font-bold prose-h1:text-xl prose-p:text-justify prose-img:rounded-xl prose-headings:underline mt-8">
-			<slot /> <!-- Markdown content is injected here -->
-		</div>
-
-	</div>
+  <section class="grid-border-b">
+    <div class="py-8 px-6 md:py-16 md:px-12 max-w-4xl mx-auto">
+      <a href="/blog" class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-2 mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        Back to Writing
+      </a>
+      <h1 class="text-3xl md:text-5xl font-black tracking-tight-display leading-tight">{frontmatter.title}</h1>
+      <div class="mt-4 flex items-center gap-4">
+        <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant/60">{formattedDate}</span>
+        <span class="text-on-surface-variant/20">|</span>
+        <PageViews url={pageUrl} />
+      </div>
+      <p class="mt-4 text-on-surface-variant">{frontmatter.description}</p>
+    </div>
+  </section>
+  <article class="post-article-surface max-w-4xl mx-auto px-6 md:px-12 py-12">
+    <div class="post-content prose max-w-none prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight-display prose-headings:text-on-surface prose-p:text-on-surface-variant prose-strong:text-on-surface prose-li:text-on-surface-variant prose-blockquote:text-on-surface-variant prose-code:text-on-surface prose-code:bg-surface-lowest prose-code:px-1 prose-code:py-0.5 prose-code:rounded-sm prose-hr:border-outline-variant prose-th:text-on-surface prose-td:text-on-surface-variant">
+      <slot />
+    </div>
+  </article>
 </Layout>
+
+<style is:global>
+  .post-content :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    color: rgb(var(--color-fg));
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgb(var(--color-primary) / 0.6);
+    text-underline-offset: 4px;
+    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .post-content :where(a:hover):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+    color: rgb(var(--color-primary));
+    text-decoration-color: rgb(var(--color-primary));
+  }
+</style>

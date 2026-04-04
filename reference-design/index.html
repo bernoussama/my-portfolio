@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Oussama Bernou | Pure System Design</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: 'rgb(var(--color-brand-rgb) / <alpha-value>)',
+            terminal: 'var(--color-terminal)',
+          },
+          fontFamily: {
+            sans: ['var(--font-sans)'],
+            mono: ['var(--font-mono)'],
+          },
+        }
+      }
+    }
+  </script>
+<link href="index.css" rel="stylesheet"/>
+</head>
+<body class="font-sans">
+<!-- BEGIN: MainHeader -->
+<header class="grid grid-cols-12 w-full grid-border-b">
+<div class="col-span-2 p-6 flex items-center justify-center grid-border-r">
+<span class="font-black text-2xl tracking-tighter">AF—01</span>
+</div>
+<nav class="col-span-8 flex justify-between items-center px-12 uppercase text-xs font-bold tracking-widest">
+<a class="hover:text-brand transition-colors" href="#">About</a>
+<a class="hover:text-brand transition-colors" href="#">Works</a>
+<a class="hover:text-brand transition-colors" href="#">Screencasting</a>
+<a class="hover:text-brand transition-colors" href="#">Writing</a>
+</nav>
+<div class="col-span-2">
+<button class="w-full h-full bg-brand hover:bg-blue-700 text-white font-bold text-xs uppercase tracking-widest py-6 transition-colors">
+        Connect
+      </button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<main class="grid grid-cols-12 min-h-screen">
+<!-- Hero Text Area -->
+<section class="col-span-8 p-12 lg:p-24 flex flex-col justify-center grid-border-r">
+<div class="mb-8">
+<svg class="w-8 h-8 text-white mb-6" fill="currentColor" viewbox="0 0 24 24">
+<path d="M12 2L2 12l10 10 10-10L12 2zm0 16.5L5.5 12 12 5.5 18.5 12 12 18.5z"></path>
+<rect height="3" width="3" x="10.5" y="10.5"></rect>
+</svg>
+<h2 class="text-brand font-mono text-xs uppercase tracking-[0.3em] mb-4">High Performance Technical Media</h2>
+<h1 class="text-7xl lg:text-9xl font-black leading-[0.9] tracking-tighter uppercase max-w-2xl">
+          Pure System <br/> Design.
+        </h1>
+</div>
+<p class="text-xl text-gray-400 max-w-xl leading-relaxed mt-4">
+        Engineering complex software systems. Producing cinema-grade technical education. Direct, efficient, and high-output.
+      </p>
+</section>
+<!-- Side Stats/Status -->
+<aside class="col-span-4 flex flex-col">
+<div class="flex-grow p-12 flex flex-col justify-end grid-border-b">
+<div class="font-mono text-[10px] text-gray-500 space-y-1 uppercase tracking-wider">
+<p>Status: Building Sidecar</p>
+<p>Location: Dallas, TX</p>
+<p>Stack: Laravel / AWS / SQLite</p>
+</div>
+</div>
+<a class="p-12 group hover:bg-zinc-900 transition-all duration-300" href="#">
+<div class="mb-4">
+<svg class="w-8 h-8 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-2xl font-black uppercase tracking-tight block">View Portfolio</span>
+</a>
+</aside>
+</main>
+<!-- END: HeroSection -->
+<!-- BEGIN: SecondaryGrid -->
+<section class="grid grid-cols-12 grid-border-t">
+<!-- Visual Image Placeholder -->
+<div class="col-span-6 grid-border-r overflow-hidden h-[500px]">
+<img alt="Technical Setup" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0uj8J1ycRjOKCr5ECnGPcBueRaan6IZ4Ybz2Y0q3b4V-4SgZt-jT3eM9V97WD_-z7xbmTRoZUXQxp9jMNtQ5kprnUW_LmlF0WJaWvlj6uoBxB2-lL9juehfG5DciZkv09Kjp82CIsqdZJ--zhQATMscOq8_wiJrL-IBopM5FRVKBOOnh_pS0bkqoMAxk9EEXE-xKADHFif1V2aLDUr5oolPQo4vYso2rSts7mYT9cRLMQTAk2nv_Hwn1Y_grDLTMuttMX5o-8pT3Jw"/>
+</div>
+<!-- Code Block CTA -->
+<div class="col-span-6 p-12 flex items-center justify-center bg-black">
+<div class="w-full max-w-lg p-8 border border-brand/40 rounded-sm font-mono text-sm bg-brand/5">
+<span class="text-brand mr-2">$</span>
+<span class="text-gray-300">composer require torchlight/torchlight-laravel</span>
+</div>
+</div>
+</section>
+<!-- END: SecondaryGrid -->
+<!-- BEGIN: ProjectGrid -->
+<section class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 grid-border-t">
+<!-- Project 01: Sidecar -->
+<article class="p-12 grid-border-r grid-border-b relative group hover:bg-zinc-900 transition-colors">
+<span class="absolute top-8 right-8 font-mono text-[10px] text-gray-600 border border-gray-800 px-2 py-0.5">01</span>
+<h3 class="text-3xl font-black uppercase tracking-tighter mb-6">Sidecar</h3>
+<p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+        Execute AWS Lambda functions directly from Laravel. Seamless serverless integration for PHP environments.
+      </p>
+<div class="flex space-x-3">
+<span class="font-mono text-[9px] border border-zinc-700 px-2 py-1 uppercase text-gray-500">Laravel</span>
+<span class="font-mono text-[9px] border border-zinc-700 px-2 py-1 uppercase text-gray-500">AWS</span>
+</div>
+</article>
+<!-- Project 02: Torchlight -->
+<article class="p-12 grid-border-b relative group hover:bg-zinc-900 transition-colors">
+<span class="absolute top-8 right-8 font-mono text-[10px] text-gray-600 border border-gray-800 px-2 py-0.5">02</span>
+<h3 class="text-3xl font-black uppercase tracking-tighter mb-6">Torchlight</h3>
+<p class="text-gray-400 mb-8 max-w-md leading-relaxed">
+        Professional-grade syntax highlighting. Powered by the VS Code engine. Zero client-side overhead.
+      </p>
+<div class="flex space-x-3">
+<span class="font-mono text-[9px] border border-zinc-700 px-2 py-1 uppercase text-gray-500">API</span>
+<span class="font-mono text-[9px] border border-zinc-700 px-2 py-1 uppercase text-gray-500">Open Source</span>
+</div>
+</article>
+</section>
+<!-- BEGIN: LowerGrid -->
+<section class="grid grid-cols-12 grid-border-b">
+<!-- Mastering Screencasting -->
+<article class="col-span-4 p-12 grid-border-r relative flex flex-col justify-between min-h-[350px]">
+<div>
+<h3 class="text-2xl font-black uppercase tracking-tighter mb-6">Mastering<br/>Screencasting</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+          Definitive curriculum on high-fidelity technical video production. Logic over aesthetics.
+        </p>
+</div>
+<a class="inline-block border border-brand text-brand font-mono text-[10px] uppercase tracking-widest px-4 py-2 w-fit hover:bg-brand hover:text-white transition-colors" href="#">
+        Enrollment Open
+      </a>
+</article>
+<!-- High Perf SQLite -->
+<article class="col-span-4 p-12 grid-border-r relative flex flex-col justify-between min-h-[350px] bg-zinc-950">
+<div>
+<div class="flex items-center space-x-2 mb-6">
+<svg class="w-4 h-4 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L2 12l10 10 10-10L12 2z"></path></svg>
+<h3 class="text-2xl font-black uppercase tracking-tighter">High Perf SQLite</h3>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+          Architecting production-ready database systems using the world's most ubiquitous engine.
+        </p>
+</div>
+<span class="font-mono text-[10px] text-gray-600 uppercase tracking-widest">In Production</span>
+</article>
+<!-- Technical Strategy -->
+<article class="col-span-4 p-12 relative flex flex-col justify-between min-h-[350px]">
+<div>
+<h3 class="text-2xl font-black uppercase tracking-tighter mb-6">Technical Strategy</h3>
+<p class="text-gray-400 text-sm leading-relaxed mb-8">
+          Advisory for high-growth engineering teams focused on developer experience and education.
+        </p>
+</div>
+<a class="inline-block font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-8 decoration-brand hover:text-brand transition-colors" href="#">
+        Inquire
+      </a>
+</article>
+</section>
+<!-- END: LowerGrid -->
+<!-- BEGIN: AudioSection -->
+<section class="p-12 lg:p-24 grid grid-cols-12 items-end">
+<div class="col-span-9">
+<h2 class="text-6xl lg:text-9xl font-black uppercase tracking-tighter leading-none">
+        Audio <br/> Transmissions
+      </h2>
+</div>
+<div class="col-span-3 flex justify-end pb-4">
+<button class="bg-brand hover:bg-blue-700 text-white font-bold py-4 px-10 text-xs uppercase tracking-widest transition-all">
+        Listen on Spotify
+      </button>
+</div>
+</section>
+<!-- END: AudioSection -->
+<!-- BEGIN: FooterSpacer -->
+<footer class="grid-border-t bg-black">
+<div class="container mx-auto px-12 py-20 flex flex-col md:flex-row justify-between items-end gap-12">
+<div class="flex flex-col gap-8">
+<h2 class="text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none">Oussama Bernou</h2>
+<nav class="flex flex-wrap gap-8 font-mono text-[10px] uppercase tracking-[0.2em] text-gray-400">
+<a class="hover:text-white transition-colors" href="#">X.com</a>
+<a class="hover:text-white transition-colors" href="#">Github</a>
+<a class="hover:text-white transition-colors" href="#">Linkedin</a>
+<a class="hover:text-white transition-colors" href="#">RSS</a>
+</nav>
+</div>
+<div class="text-right font-mono text-[9px] uppercase tracking-widest text-gray-600 leading-relaxed">
+<p>© 2024 / Designed with brutalist principles</p>
+<p>All rights reserved / No tracking</p>
+</div>
+</div>
+</footer>
+<!-- END: FooterSpacer -->
+</body></html>

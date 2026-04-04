@@ -1,25 +1,25 @@
 ---
 const allPosts = (await Astro.glob('./*.md')).sort((a, b) => {
-    const dateA = new Date(a.frontmatter.pubDate);
-    const dateB = new Date(b.frontmatter.pubDate);
-    return Number(dateB) - Number(dateA); // Sort in descending order (newest first)
+    const dateA = a.frontmatter.pubDate ? new Date(a.frontmatter.pubDate).getTime() : 0;
+    const dateB = b.frontmatter.pubDate ? new Date(b.frontmatter.pubDate).getTime() : 0;
+    return dateB - dateA;
 });
 import BlogPost from '../../components/BlogPost.astro';
 import Layout from '../../layouts/Layout.astro';
-
 ---
 
 <Layout>
-
-	<!-- Banner -->
-	<!-- <div class="container mt-8"> -->
-
-	<section class="container flex flex-col w-full gap-4 mt-8">
-			<h1 class="text-3xl font-bold">Writing</h1>
-		  <ul class="flex flex-col text-left gap-2">
-      {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} />)}
-		  </ul>
-	</section>
-
-	<!-- </div> -->
+  <section class="grid-border-b">
+    <div class="p-8 md:p-16">
+      <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight-display">Writing</h1>
+      <p class="mt-4 text-on-surface-variant max-w-xl">Thinking through systems, tradeoffs, and implementation details across full-stack and low-level work.</p>
+    </div>
+  </section>
+  <section class="grid-border-b">
+    <div class="grid-border-t">
+      {allPosts.map((post) => (
+        <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} pubDate={post.frontmatter.pubDate} />
+      ))}
+    </div>
+  </section>
 </Layout>

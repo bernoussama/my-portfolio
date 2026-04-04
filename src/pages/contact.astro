@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const contactMethods = [
+  {
+    label: 'Email',
+    value: 'hello@bernoussama.com',
+    href: 'mailto:hello@bernoussama.com',
+    note: 'Best for hiring, consulting, and product conversations.',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/oussama-bernou',
+    href: 'https://linkedin.com/in/oussama-bernou',
+    note: 'Professional background, recommendations, and recent work.',
+  },
+  {
+    label: 'GitHub',
+    value: 'github.com/bernoussama',
+    href: 'https://github.com/bernoussama',
+    note: 'Code samples, experiments, and systems work.',
+  },
+  {
+    label: 'X',
+    value: 'x.com/bernoussama',
+    href: 'https://x.com/bernoussama',
+    note: 'Short-form writing and engineering notes.',
+  },
+];
+---
+
+<Layout>
+  <section class="grid grid-cols-12 min-h-[calc(100svh-4.5rem)] md:min-h-[calc(100svh-5.75rem)] grid-border-b bg-surface">
+    <div class="col-span-12 lg:col-span-8 px-8 py-12 md:px-16 md:py-16 lg:px-24 lg:py-20 flex flex-col justify-center grid-border-r">
+      <p class="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-primary">Open Line</p>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight-display leading-[0.92]">Contact</h1>
+      <p class="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-on-surface-variant">
+        Reach out for product engineering roles, selective consulting, or backend-heavy builds that need clear ownership from idea to shipped system.
+      </p>
+      <div class="mt-10 flex flex-col items-stretch gap-4 sm:flex-row">
+        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors text-center">
+          Email Me
+        </a>
+        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary transition-colors text-center">
+          View Projects
+        </a>
+      </div>
+    </div>
+    <aside class="col-span-12 lg:col-span-4 flex flex-col bg-surface-highest">
+      <div class="grid-border-b p-8 md:p-12">
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/60">Availability</p>
+        <p class="mt-3 text-2xl font-black uppercase tracking-tight-display">Open to product engineering conversations</p>
+      </div>
+      <div class="flex-1 p-8 md:p-12 flex items-end">
+        <div class="space-y-2 font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/60">
+          <p>Location: Remote / Hybrid</p>
+          <p>Focus: Product / Systems / AI Tooling</p>
+          <p>Response: Usually within 48 hours</p>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="grid grid-cols-1 md:grid-cols-2 grid-border-b">
+    {contactMethods.map((method, index) => (
+      <a
+        href={method.href}
+        target={method.href.startsWith('http') ? '_blank' : undefined}
+        rel={method.href.startsWith('http') ? 'noreferrer' : undefined}
+        class={`group p-8 md:p-12 transition-colors hover:bg-surface-high ${index % 2 === 0 ? 'lg-grid-border-r' : ''} grid-border-b md:border-b-0 ${index < 2 ? 'md:grid-border-b' : ''}`}
+      >
+        <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant/50">{method.label}</p>
+        <h2 class="mt-4 text-2xl md:text-3xl font-black tracking-tight break-words group-hover:text-primary transition-colors">{method.value}</h2>
+        <p class="mt-4 max-w-xl text-sm leading-relaxed text-on-surface-variant">{method.note}</p>
+      </a>
+    ))}
+  </section>
+
+  <section class="grid grid-cols-12 grid-border-b bg-surface-highest">
+    <div class="col-span-12 px-8 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-primary/80">Best first message</p>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tight-display leading-[0.95] mb-6">
+          Share the problem, timeline, and where you need leverage.
+        </h2>
+        <p class="mx-auto max-w-3xl text-base md:text-xl leading-relaxed text-on-surface-variant">
+          A short note with the role, product stage, or technical challenge is enough to start a useful conversation.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -2,134 +2,105 @@
 import Layout from '../layouts/Layout.astro';
 import { featuredProjects } from '../data/projects';
 
-const selectedWriting = [
-	{
-		title: 'How to Seamlessly Embed a Remix SPA into Your Go Backend',
-		href: '/blog/go-embed',
-		description: 'Embedding a Remix SPA into a Go backend for a simpler full-stack deployment model.',
-	},
-	{
-		title: 'Rewriting a C HTTP Server in Rust from Scratch, Part 1',
-		href: '/blog/rust-http-server-1',
-		description: 'A systems-focused write-up on rebuilding an HTTP server with better safety and maintainability.',
-	},
-	{
-		title: 'The Journey of an HTTP Request',
-		href: '/blog/web-request-journey',
-		description: 'A clear walkthrough of the network and application layers behind a single web request.',
-	},
+const coreStrengths = [
+  'Full-stack product development across TypeScript, React, Node.js, and Go',
+  'Practical AI integrations and workflow tooling for developer productivity',
+  'Backend and systems work across APIs, networking, and low-level services',
+  'Ownership from user-facing product work through data flow and deployment-minded implementation',
 ];
 
-const coreStrengths = [
-	'Full-stack product development across TypeScript, React, Node.js, and Go',
-	'Practical AI integrations and workflow tooling for developer productivity',
-	'Backend and systems work across APIs, networking, and low-level services',
-	'Ownership from user-facing product work through data flow and deployment-minded implementation',
+const coreStack = [
+  { category: 'Frontend', items: 'TypeScript, React, Remix, Tailwind' },
+  { category: 'Backend', items: 'Node.js, Go, Hono, REST APIs, automation tooling' },
+  { category: 'Systems', items: 'Rust, C, Linux, networking, DNS, HTTP' },
+];
+
+const selectedWriting = [
+  { title: 'How to Seamlessly Embed a Remix SPA into Your Go Backend', href: '/blog/go-embed' },
+  { title: 'Rewriting a C HTTP Server in Rust from Scratch, Part 1', href: '/blog/rust-http-server-1' },
+  { title: 'The Journey of an HTTP Request', href: '/blog/web-request-journey' },
 ];
 ---
 
 <Layout>
-	<main class="container">
-		<div class="mx-auto max-w-5xl px-4 py-10 md:py-14">
-			<section class="rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
-				<div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
-					<div class="max-w-3xl space-y-4">
-						<p class="text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">Resume</p>
-						<div class="space-y-3">
-							<h1 class="text-3xl font-bold tracking-tight md:text-5xl">Oussama Bernou</h1>
-							<p class="text-xl text-foreground">Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.</p>
-							<p class="max-w-2xl text-base text-muted-foreground md:text-lg">
-								I build end-to-end software across frontend, backend, and systems-heavy work, with particular strength in product engineering, developer tooling, and practical AI integrations.
-							</p>
-						</div>
-						<div class="flex flex-wrap gap-3 text-sm text-muted-foreground">
-							<a href="mailto:contact@bernoussama.com" class="hover:text-foreground">contact@bernoussama.com</a>
-							<a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="hover:text-foreground">github.com/bernoussama</a>
-							<a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="hover:text-foreground">linkedin.com/in/oussama-bernou</a>
-						</div>
-					</div>
-					<div class="flex flex-wrap gap-3 md:justify-end">
-						<a class="uk-button uk-button-primary" href="mailto:contact@bernoussama.com">Contact</a>
-						<a class="uk-button uk-button-default" href="/projects">View Projects</a>
-						<span class="uk-button uk-button-default cursor-not-allowed opacity-60" aria-disabled="true" title="PDF resume can be provided on request">
-							PDF available on request
-						</span>
-					</div>
-				</div>
-			</section>
+  <section class="grid-border-b">
+    <div class="p-8 md:p-16">
+      <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-6">Resume</p>
+      <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight-display leading-none">Oussama Bernou</h1>
+      <p class="mt-4 text-xl text-on-surface-variant max-w-2xl">Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.</p>
+      <p class="mt-4 text-on-surface-variant max-w-2xl">
+        I build end-to-end software across frontend, backend, and systems-heavy work, with particular strength in product engineering, developer tooling, and practical AI integrations.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">
+          hello@bernoussama.com
+        </span>
+        <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">github.com/bernoussama</a>
+        <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">linkedin.com/in/oussama-bernou</a>
+      </div>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3 transition-colors">Contact</a>
+        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary transition-colors">View Projects</a>
+      </div>
+    </div>
+  </section>
 
-			<section class="mt-10 grid gap-6 lg:grid-cols-[1.1fr,0.9fr]">
-				<div class="rounded-2xl border border-border bg-card p-6 shadow-sm">
-					<h2 class="text-2xl font-semibold">What I&apos;m strongest at</h2>
-					<ul class="mt-4 space-y-3 text-muted-foreground">
-						{coreStrengths.map((strength) => (
-							<li class="flex gap-3">
-								<span class="mt-2 h-2 w-2 flex-none rounded-full bg-primary"></span>
-								<span>{strength}</span>
-							</li>
-						))}
-					</ul>
-				</div>
+  <section class="grid grid-cols-1 lg:grid-cols-2 grid-border-b">
+    <div class="p-8 md:p-12 grid-border-r grid-border-b lg:border-b-0">
+      <h2 class="text-2xl font-black uppercase tracking-tight-display mb-6">Core Strengths</h2>
+      <ul class="space-y-4">
+        {coreStrengths.map((strength) => (
+          <li class="flex gap-3 text-on-surface-variant">
+            <span class="mt-2 h-2 w-2 flex-none bg-primary"></span>
+            <span>{strength}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="p-8 md:p-12">
+      <h2 class="text-2xl font-black uppercase tracking-tight-display mb-6">Core Stack</h2>
+      <div class="space-y-4">
+        {coreStack.map((stack) => (
+          <div class="grid-border-b pb-4 last:border-0">
+            <p class="font-bold text-sm">{stack.category}</p>
+            <p class="text-sm text-on-surface-variant">{stack.items}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-				<div class="rounded-2xl border border-border bg-card p-6 shadow-sm">
-					<h2 class="text-2xl font-semibold">Core Stack</h2>
-					<div class="mt-4 space-y-4 text-sm text-muted-foreground">
-						<div>
-							<p class="font-semibold text-foreground">Frontend</p>
-							<p>TypeScript, React, Remix, Tailwind</p>
-						</div>
-						<div>
-							<p class="font-semibold text-foreground">Backend</p>
-							<p>Node.js, Go, Hono, REST APIs, automation tooling</p>
-						</div>
-						<div>
-							<p class="font-semibold text-foreground">Systems</p>
-							<p>Rust, C, Linux, networking, DNS, HTTP</p>
-						</div>
-					</div>
-				</div>
-			</section>
+  <section class="grid-border-b">
+    <div class="p-8 md:p-12">
+      <div class="flex items-end justify-between gap-4 mb-8">
+        <h2 class="text-2xl font-black uppercase tracking-tight-display">Selected Projects</h2>
+        <a href="/projects" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">See all</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-0 grid-border-t grid-border-l">
+        {featuredProjects.slice(0, 4).map((project) => (
+          <div class="p-6 grid-border-r grid-border-b hover:bg-surface-high transition-colors">
+            <h3 class="text-lg font-bold tracking-tight">{project.title}</h3>
+            {project.statusLabel && <span class="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant/60">{project.statusLabel}</span>}
+            <p class="mt-2 text-sm text-on-surface-variant">{project.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-			<section class="mt-10 rounded-2xl border border-border bg-card p-6 shadow-sm">
-				<div class="flex items-center justify-between gap-4">
-					<div>
-						<h2 class="text-2xl font-semibold">Selected Projects</h2>
-						<p class="mt-2 max-w-2xl text-muted-foreground">A mix of product, AI, and systems work that shows technical range, end-to-end ownership, and engineering judgment.</p>
-					</div>
-					<a href="/projects" class="text-sm font-medium text-primary hover:opacity-80">See all projects</a>
-				</div>
-
-				<div class="mt-6 grid gap-4 md:grid-cols-2">
-					{featuredProjects.slice(0, 4).map((project) => (
-						<div class="rounded-xl border border-border bg-background/60 p-4">
-							<div class="flex flex-wrap items-center gap-2">
-								<h3 class="text-lg font-semibold">{project.title}</h3>
-								{project.statusLabel && <span class="text-xs font-medium text-muted-foreground">{project.statusLabel}</span>}
-							</div>
-							<p class="mt-2 text-sm text-muted-foreground">{project.body}</p>
-						</div>
-					))}
-				</div>
-			</section>
-
-			<section class="mt-10 rounded-2xl border border-border bg-card p-6 shadow-sm">
-				<div class="flex items-center justify-between gap-4">
-					<div>
-						<h2 class="text-2xl font-semibold">Selected Writing</h2>
-						<p class="mt-2 max-w-2xl text-muted-foreground">Writing that shows how I reason about systems, tradeoffs, and implementation details.</p>
-					</div>
-					<a href="/blog" class="text-sm font-medium text-primary hover:opacity-80">Read the blog</a>
-				</div>
-
-				<div class="mt-6 grid gap-4 md:grid-cols-3">
-					{selectedWriting.map((post) => (
-						<a href={post.href} class="rounded-xl border border-border bg-background/60 p-4 transition-colors hover:bg-background">
-							<h3 class="text-lg font-semibold">{post.title}</h3>
-							<p class="mt-2 text-sm text-muted-foreground">{post.description}</p>
-						</a>
-					))}
-				</div>
-			</section>
-		</div>
-	</main>
+  <section class="grid-border-b">
+    <div class="p-8 md:p-12">
+      <div class="flex items-end justify-between gap-4 mb-8">
+        <h2 class="text-2xl font-black uppercase tracking-tight-display">Selected Writing</h2>
+        <a href="/blog" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim transition-colors">Read the blog</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 grid-border-t grid-border-l">
+        {selectedWriting.map((post) => (
+          <a href={post.href} class="p-6 grid-border-r grid-border-b hover:bg-surface-high transition-colors">
+            <h3 class="text-sm font-bold tracking-tight">{post.title}</h3>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
 </Layout>

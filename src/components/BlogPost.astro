@@ -1,44 +1,30 @@
 ---
 const { url, title, description, pubDate } = Astro.props;
-
-// Format the date if it exists
 const formattedDate = pubDate ? new Date(pubDate).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
 }) : null;
 ---
-<!-- <li class="text-xl"><a href={url}>{title}</a></li> -->
-<!-- <div> -->
-
-<!-- <a href={url} class="block relative"> -->
-    <div
-        class="w-full transition-colors border border-neutral-500 rounded-lg shadow-sm p-6 hover:!border-neutral-100/60 hover:bg-secondary hover:drop-shadow-lg hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] mb-3">
-        <a href={url} class="block mb-3">
-            <h5 class="text-xl font-bold leading-none tracking-tight text-primary">{title}</h5>
-        </a>
-        {formattedDate && (
-            <p class="text-sm text-neutral-400 mb-2 flex items-center gap-1">
-                <!-- calendare svg -->
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                </svg>
-                {formattedDate}
-            </p>
-        )}
-        <p class="mb-4 text-neutral-500">{description}</p>
-
-        <a href={url}>
-            <button
-                class="uk-button-primary inline-flex items-center justify-between w-auto h-10 px-4 py-2 text-sm font-medium transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none hover:opacity-90">
-                <span>Read</span>
-                <svg class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </button>
-        </a>
+<a href={url} class="block w-full px-6 py-6 md:px-8 md:py-8 grid-border-b hover:bg-surface-high transition-colors group">
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
+        <div class="flex-1 max-w-3xl">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+                <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary/80">Article</span>
+                {formattedDate && (
+                    <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant/60 border border-outline-variant/30 px-2 py-1">{formattedDate}</span>
+                )}
+            </div>
+            <h5 class="text-xl md:text-2xl font-black tracking-tight-display leading-tight group-hover:text-primary transition-colors">{title}</h5>
+            <p class="mt-3 text-sm text-on-surface-variant leading-relaxed max-w-2xl">{description}</p>
+            <span class="mt-5 inline-flex items-center gap-3 border border-primary/40 px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
+                Read Article
+            </span>
+        </div>
+        <span class="inline-flex h-10 w-10 items-center justify-center border border-outline-variant/30 text-on-surface-variant/40 group-hover:border-primary/40 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+        </span>
     </div>
-<!-- </a> -->
+</a>
