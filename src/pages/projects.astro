@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { allProjects } from '../data/projects';
+
+const projectCardPlaceholder = 'https://placehold.co/1200x800/111827/f3f4f6?text=Project+Preview';
 ---
 
 <Layout>
@@ -23,8 +25,8 @@ import { allProjects } from '../data/projects';
   <section class="grid-border-b">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 grid-border-t grid-border-l">
       {allProjects.map((project, i) => (
-        <ProjectCard 
-          src={project.src}
+       <ProjectCard 
+          src={project.src ?? projectCardPlaceholder}
           title={project.title}
           body={project.body}
           techs={project.techs}
