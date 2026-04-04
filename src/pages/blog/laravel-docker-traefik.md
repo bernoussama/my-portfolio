@@ -30,34 +30,33 @@ The key to secure, small containers is using multi-stage builds. In this setup, 
 ### Step 1: Install Composer dependencies
 
 ```dockerfile
-FROM composer:latest AS composer-builder
+FROM composer:2.8 AS composer-builder
 
 WORKDIR /app
 COPY composer.json composer.lock ./
-COPY . .
-RUN composer require laravel/octane --no-interaction --no-progress --no-scripts \
-    && composer install --no-dev --optimize-autoloader --no-interaction \
+RUN composer install --no-dev --optimize-autoloader --no-interaction \
     --no-progress --prefer-dist --no-scripts
+COPY . .
 ```
 
-This stage installs production-only PHP dependencies. I explicitly require `laravel/octane` because the app will run on FrankenPHP through Octane.
+This stage installs production-only PHP dependencies from the committed lock file. `laravel/octane` should already be part of your application dependencies, not something the image adds during the build.
+
+That keeps builds reproducible and avoids having the container silently mutate `composer.json` or `composer.lock` while it is being built.
 
 The `--no-scripts` flag is important here because it prevents Artisan commands from running before the full application is available inside the container.
 
 ### Step 2: Build frontend assets
 
 ```dockerfile
-FROM dunglas/frankenphp:latest AS assets-builder
-
-RUN apt-get update && apt-get install -y nodejs npm \
-    && npm install -g pnpm \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+FROM node:22-bookworm-slim AS assets-builder
 
 WORKDIR /app
+RUN corepack enable
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile
 COPY . .
 COPY --from=composer-builder /app/vendor /app/vendor
 
-RUN pnpm install
 RUN pnpm run build
 ```
 
@@ -100,6 +99,7 @@ ENTRYPOINT ["php", "artisan", "octane:frankenphp", "--host=0.0.0.0", "--port=808
 A few deliberate decisions here:
 
 * **Pinned FrankenPHP version**: I'm using `dunglas/frankenphp:1.11.2` instead of `latest` for reproducible builds.
+* **Pinned build images**: the Composer, Node, and FrankenPHP stages all use explicit base images instead of relying on `latest`.
 * **Only required PHP extensions**: no dev tooling, no Xdebug, only what the app actually needs.
 * **Build-time Laravel caching**: `route:cache` and `view:cache` reduce startup and runtime overhead.
 * **Octane entrypoint**: the container starts directly with `octane:frankenphp`, so PHP stays alive in memory and serves requests through persistent workers.
@@ -116,8 +116,8 @@ services:
             target: production
         container_name: laravel-app
         restart: unless-stopped
-        ports:
-            - '8081:8080'
+        expose:
+            - '8080'
         volumes:
             - example-storage:/app/storage
             - example-database:/app/database
@@ -138,7 +138,8 @@ services:
         labels:
             - 'traefik.enable=true'
             - 'traefik.http.routers.example.rule=Host(`example.com`) || HostRegexp(`{subdomain:[a-zA-Z0-9-]+}.example.com`)'
-            - 'traefik.http.routers.example.entrypoints=web'
+            - 'traefik.http.routers.example.entrypoints=websecure'
+            - 'traefik.http.routers.example.tls=true'
             - 'traefik.http.services.example.loadbalancer.server.port=8080'
             - 'traefik.http.services.example.loadbalancer.healthcheck.path=/up'
             - 'traefik.http.services.example.loadbalancer.healthcheck.interval=10s'
@@ -175,6 +176,8 @@ That means uploaded files and the SQLite database survive container rebuilds and
 
 Environment variables are injected at runtime through `env_file` and `environment`, not baked into the image. That keeps secrets and environment-specific settings out of the build artifact.
 
+I also use `expose` instead of publishing a host port in production. That keeps the app reachable through the Docker network for Traefik, while avoiding a second direct path to the container that could bypass the proxy.
+
 ### Migrations on startup
 
 You'll notice the Compose file overrides the image entrypoint:
@@ -195,6 +198,10 @@ Both Docker and Traefik check the `/up` endpoint. This gives two layers of healt
 
 * Docker can mark the container unhealthy
 * Traefik can stop routing traffic to it if needed
+
+### TLS and origin access
+
+In this example, Traefik serves the app through the `websecure` entrypoint instead of plain HTTP. If Cloudflare sits in front of the server, I still treat the origin as private infrastructure: use end-to-end TLS where possible, keep Cloudflare in Full (strict) mode, and lock the origin down so traffic reaches Traefik through Cloudflare rather than through a directly exposed app port.
 
 ## Deploy script
 
@@ -278,7 +285,7 @@ A few important exclusions here:
 
 In this setup:
 
-* **Cloudflare** handles DNS and SSL at the edge
+* **Cloudflare** handles DNS and can proxy HTTPS traffic to the origin
 * **Traefik** routes traffic to the correct container
 * **FrankenPHP + Octane** run Laravel with persistent workers
 * **Named volumes** preserve uploaded files and the SQLite database
