@@ -46,7 +46,7 @@ test('blog post layout leaves code block background and border to the syntax the
   );
 });
 
-test('layout keeps the code block frame and uses the header surface background in light mode', async () => {
+test('layout only applies theme overrides to dual-theme shiki code blocks', async () => {
   const source = await readFile(new URL('../src/layouts/Layout.astro', import.meta.url), 'utf8');
 
   assert.match(
@@ -54,14 +54,19 @@ test('layout keeps the code block frame and uses the header surface background i
     /\.prose pre\.astro-code\s*\{[\s\S]*border-radius:\s*0\s*!important;[\s\S]*border:\s*1px solid rgb\(var\(--color-grid-border\)\)\s*!important;[\s\S]*border-left:\s*2px solid rgb\(var\(--color-on-surface-variant\)\)\s*!important;/,
     'expected code blocks to explicitly remove border radius and add a subtle frame with a stronger left accent',
   );
-  assert.match(
+  assert.doesNotMatch(
     source,
-    /\[data-theme='light'\]\s+\.prose pre\.astro-code\s*\{[\s\S]*background-color:\s*rgb\(var\(--color-surface-lowest\)\)\s*!important;/,
-    'expected light mode code blocks to use the same background token as the header surface',
+    /\[data-theme='light'\]\s+\.prose pre\.astro-code\s*\{/,
+    'expected light mode background overrides to avoid single-theme github-dark blocks that would become unreadable on a light surface',
   );
   assert.match(
     source,
-    /\[data-theme='dark'\]\s+\.prose pre\.astro-code,\s*\[data-theme='dark'\]\s+\.prose pre\.astro-code span\s*\{[\s\S]*color:\s*var\(--shiki-dark\)\s*!important;[\s\S]*background-color:\s*var\(--shiki-dark-bg\)\s*!important;/,
-    'expected dark mode to apply github-dark shiki variables while light mode uses the header surface background override',
+    /\[data-theme='light'\]\s+\.prose pre\.astro-code\.astro-code-themes\s*\{[\s\S]*background-color:\s*rgb\(var\(--color-surface-lowest\)\)\s*!important;/,
+    'expected light mode to only recolor dual-theme shiki blocks that also provide light-mode token colors',
+  );
+  assert.match(
+    source,
+    /\[data-theme='dark'\]\s+\.prose pre\.astro-code\.astro-code-themes,\s*\[data-theme='dark'\]\s+\.prose pre\.astro-code\.astro-code-themes span\s*\{[\s\S]*color:\s*var\(--shiki-dark\)\s*!important;[\s\S]*background-color:\s*var\(--shiki-dark-bg\)\s*!important;/,
+    'expected dark mode theme-variable overrides to stay scoped to dual-theme shiki blocks',
   );
 });
