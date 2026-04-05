@@ -10,8 +10,8 @@ const themeToggleClass = 'theme-toggle flex items-center justify-center gap-2 te
 const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center justify-center px-4 grid-border-r uppercase text-xs font-bold tracking-widest hover:bg-surface hover:text-primary';
 ---
 
-<header class="header-surface grid grid-cols-12 w-full grid-border-b sticky top-0 z-50">
-	<a href="/" class="col-span-8 lg:col-span-2 px-4 py-3 md:px-6 md:py-4 flex items-center lg:justify-center grid-border-r hover:bg-surface text-on-surface hover:text-primary font-black text-xl md:text-2xl tracking-tighter">
+<header class="header-surface grid grid-cols-[minmax(0,1fr)_4rem_4rem] lg:grid-cols-12 w-full grid-border-b sticky top-0 z-50">
+	<a href="/" class="px-4 py-3 md:px-6 md:py-4 flex items-center lg:col-span-2 lg:justify-center grid-border-r hover:bg-surface text-on-surface hover:text-primary font-black text-xl md:text-2xl tracking-tighter">
 		OB—01
 	</a>
 	{navLinks.map((link) => (
@@ -22,7 +22,7 @@ const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center ju
 			{link.label}
 		</a>
 	))}
-	<div class="col-span-4 lg:col-span-4 flex items-stretch justify-end lg:justify-stretch min-h-16 lg:min-h-0 lg:grid lg:grid-cols-2">
+	<div class="hidden lg:col-span-4 lg:grid lg:grid-cols-2 lg:min-h-0">
 		<button
 			type="button"
 			data-theme-toggle
@@ -52,37 +52,37 @@ const desktopNavLinkClass = 'hidden lg:flex lg:col-span-2 h-full items-center ju
 		>
 			Connect
 		</a>
-		<button
-			type="button"
-			data-theme-toggle
-			class={`${themeToggleClass} lg:hidden px-4 grid-border-l`}
-			aria-label="Activate light theme"
-			aria-pressed="false"
-		>
-			<svg data-theme-icon-light xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<circle cx="12" cy="12" r="4"></circle>
-				<path d="M12 2v2"></path>
-				<path d="M12 20v2"></path>
-				<path d="m4.93 4.93 1.41 1.41"></path>
-				<path d="m17.66 17.66 1.41 1.41"></path>
-				<path d="M2 12h2"></path>
-				<path d="M20 12h2"></path>
-				<path d="m6.34 17.66-1.41 1.41"></path>
-				<path d="m19.07 4.93-1.41 1.41"></path>
-			</svg>
-			<svg data-theme-icon-dark class="hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M12 3a6 6 0 1 0 9 9 9 9 0 1 1-9-9"></path>
-			</svg>
-			<span class="sr-only" data-theme-label>Light</span>
-		</button>
-		<button id="mobile-menu-toggle" type="button" class="lg:hidden p-4 text-on-surface-variant hover:text-primary grid-border-l" aria-label="Open menu">
-			<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<line x1="4" x2="20" y1="6" y2="6"></line>
-				<line x1="4" x2="20" y1="12" y2="12"></line>
-				<line x1="4" x2="20" y1="18" y2="18"></line>
-			</svg>
-		</button>
 	</div>
+	<button
+		type="button"
+		data-theme-toggle
+		class={`${themeToggleClass} lg:hidden w-16 px-4 grid-border-l`}
+		aria-label="Activate light theme"
+		aria-pressed="false"
+	>
+		<svg data-theme-icon-light xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="4"></circle>
+			<path d="M12 2v2"></path>
+			<path d="M12 20v2"></path>
+			<path d="m4.93 4.93 1.41 1.41"></path>
+			<path d="m17.66 17.66 1.41 1.41"></path>
+			<path d="M2 12h2"></path>
+			<path d="M20 12h2"></path>
+			<path d="m6.34 17.66-1.41 1.41"></path>
+			<path d="m19.07 4.93-1.41 1.41"></path>
+		</svg>
+		<svg data-theme-icon-dark class="hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<path d="M12 3a6 6 0 1 0 9 9 9 9 0 1 1-9-9"></path>
+		</svg>
+		<span class="sr-only" data-theme-label>Light</span>
+	</button>
+	<button id="mobile-menu-toggle" type="button" class="lg:hidden w-16 p-4 text-on-surface-variant hover:text-primary grid-border-l" aria-label="Open menu">
+		<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<line x1="4" x2="20" y1="6" y2="6"></line>
+			<line x1="4" x2="20" y1="12" y2="12"></line>
+			<line x1="4" x2="20" y1="18" y2="18"></line>
+		</svg>
+	</button>
 </header>
 
 <div id="mobile-menu" class="fixed inset-0 z-[100] bg-surface hidden flex-col">

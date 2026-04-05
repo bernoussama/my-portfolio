@@ -109,13 +109,14 @@ test('terminal block uses the lowest surface token for its background', () => {
 test('desktop header layout fills the full header width after removing the freelance link', () => {
 	const source = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
 
+	assert.match(source, /<header class="header-surface grid grid-cols-\[minmax\(0,1fr\)_4rem_4rem\] lg:grid-cols-12 w-full grid-border-b sticky top-0 z-50">/);
 	assert.match(source, /desktopNavLinkClass = 'hidden lg:flex lg:col-span-2/);
 	assert.match(source, /{navLinks\.map\(\(link\) => \([\s\S]*class=\{`\$\{desktopNavLinkClass\}/);
-	assert.match(source, /class="col-span-4 lg:col-span-4 flex items-stretch justify-end lg:justify-stretch min-h-16 lg:min-h-0 lg:grid lg:grid-cols-2/);
+	assert.match(source, /class="hidden lg:col-span-4 lg:grid lg:grid-cols-2 lg:min-h-0"/);
 	assert.match(source, /hidden lg:flex lg:w-full min-h-16/);
 	assert.match(source, /class="hidden lg:flex lg:w-full min-h-16 lg:min-h-0 lg:h-full bg-primary/);
-	assert.match(source, /data-theme-toggle[\s\S]*class={`\$\{themeToggleClass\} lg:hidden px-4 grid-border-l`}/);
-	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden p-4/);
+	assert.match(source, /data-theme-toggle[\s\S]*class={`\$\{themeToggleClass\} lg:hidden w-16 px-4 grid-border-l`}/);
+	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden w-16 p-4/);
 });
 
 test('header matches the footer only in light mode while keeping the dark header surface', () => {
@@ -127,4 +128,14 @@ test('header matches the footer only in light mode while keeping the dark header
 	assert.match(footerSource, /<footer class="[^"]*bg-surface-lowest[^"]*">/);
 	assert.match(styles, /\.header-surface\s*\{[\s\S]*background-color:\s*rgb\(var\(--color-surface-highest\)\);/);
 	assert.match(styles, /\[data-theme='light'\]\s+\.header-surface\s*\{[\s\S]*background-color:\s*rgb\(var\(--color-surface-lowest\)\);/);
+});
+
+test('mobile header only allocates space for the two action buttons', () => {
+	const source = readFileSync(new URL('../src/components/NavBar.astro', import.meta.url), 'utf8');
+
+	assert.match(source, /<header class="header-surface grid grid-cols-\[minmax\(0,1fr\)_4rem_4rem\] lg:grid-cols-12 w-full grid-border-b sticky top-0 z-50">/);
+	assert.match(source, /class="px-4 py-3 md:px-6 md:py-4 flex items-center lg:col-span-2 lg:justify-center grid-border-r/);
+	assert.match(source, /data-theme-toggle[\s\S]*class={`\$\{themeToggleClass\} lg:hidden w-16 px-4 grid-border-l`}/);
+	assert.match(source, /id="mobile-menu-toggle" type="button" class="lg:hidden w-16 p-4 text-on-surface-variant hover:text-primary grid-border-l"/);
+	assert.doesNotMatch(source, /col-span-4 lg:col-span-4 grid grid-cols-2 items-stretch min-h-16 lg:min-h-0 lg:grid-cols-2/);
 });
