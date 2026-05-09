@@ -10,12 +10,12 @@ function acceptsMarkdown(acceptHeader) {
 		.map((part) => part.trim().toLowerCase())
 		.some((part) => {
 			const [mediaType, ...params] = part.split(';').map((value) => value.trim());
-			if (mediaType !== MARKDOWN_MEDIA_TYPE) {
-				return false;
+			if (mediaType === MARKDOWN_MEDIA_TYPE) {
+				const quality = params.find((param) => param.startsWith('q='));
+				return quality ? Number.parseFloat(quality.slice(2)) > 0 : true;
 			}
 
-			const quality = params.find((param) => param.startsWith('q='));
-			return quality ? Number.parseFloat(quality.slice(2)) > 0 : true;
+			return false;
 		});
 }
 

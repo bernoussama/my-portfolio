@@ -7,7 +7,7 @@ test('cloudflare pages function negotiates markdown for root requests from agent
 
 	assert.match(source, /url\.pathname === '\/'/);
 	assert.match(source, /request\.method === 'GET' \|\| request\.method === 'HEAD'/);
-	assert.match(source, /mediaType !== MARKDOWN_MEDIA_TYPE/);
+	assert.match(source, /mediaType === MARKDOWN_MEDIA_TYPE/);
 	assert.match(source, /context\.next\('\/index\.md'\)/);
 	assert.match(source, /context\.next\(\)/);
 });
