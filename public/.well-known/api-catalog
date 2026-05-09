@@ -1,0 +1,24 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://bernoussama.com/",
+      "item": [
+        {
+          "href": "https://bernoussama.com/.well-known/openapi.json",
+          "rel": "service-desc",
+          "type": "application/openapi+json"
+        },
+        {
+          "href": "https://bernoussama.com/docs/api",
+          "rel": "service-doc",
+          "type": "text/html"
+        },
+        {
+          "href": "https://bernoussama.com/healthz",
+          "rel": "status",
+          "type": "text/plain"
+        }
+      ]
+    }
+  ]
+}
