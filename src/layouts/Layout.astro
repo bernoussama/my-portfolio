@@ -103,10 +103,22 @@ import '../../style.css';
 							additionalProperties: false,
 						},
 						execute: async ({ path }) => {
-							if (typeof path !== 'string' || !path.startsWith('/')) {
-								return { ok: false, error: 'path must be an absolute path starting with /' };
+							const candidatePath = typeof path === 'string' ? path.trim() : '';
+							const normalizedPath = candidatePath.toLowerCase();
+							const isUnsafePath = typeof path !== 'string'
+								|| !candidatePath.startsWith('/')
+								|| candidatePath.startsWith('//')
+								|| candidatePath.includes('://')
+								|| normalizedPath.includes('%2f')
+								|| normalizedPath.includes('%5c');
+							if (isUnsafePath) {
+								return { ok: false, error: 'path must be a safe same-origin absolute path starting with /' };
 							}
-							const destination = withOrigin(path);
+							const destinationUrl = new URL(candidatePath, window.location.origin);
+							if (destinationUrl.origin !== window.location.origin) {
+								return { ok: false, error: 'path must resolve to the current site origin' };
+							}
+							const destination = destinationUrl.toString();
 							window.location.assign(destination);
 							return { ok: true, destination };
 						},
