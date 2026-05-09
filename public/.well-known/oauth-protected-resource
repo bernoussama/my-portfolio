@@ -1,0 +1,9 @@
+{
+  "resource": "https://bernoussama.com",
+  "authorization_servers": [
+    "https://bernoussama.com"
+  ],
+  "scopes_supported": [
+    "portfolio.read"
+  ]
+}

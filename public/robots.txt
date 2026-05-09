@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /private/
+Disallow: /tmp/
+
+User-agent: Google-Extended
+Disallow: /
+
+Content-Signal: ai-train=no, search=yes, ai-input=no
+Sitemap: https://bernoussama.com/sitemap.xml
