@@ -11,8 +11,10 @@ function acceptsMarkdown(acceptHeader) {
 		.some((part) => {
 			const [mediaType, ...params] = part.split(';').map((value) => value.trim());
 			if (mediaType === MARKDOWN_MEDIA_TYPE) {
-				const quality = params.find((param) => param.startsWith('q='));
-				return quality ? Number.parseFloat(quality.slice(2)) > 0 : true;
+				const quality = params
+					.map((param) => param.match(/^q\s*=\s*(.+)$/))
+					.find((match) => match)?.[1];
+				return quality ? Number.parseFloat(quality) > 0 : true;
 			}
 
 			return false;
