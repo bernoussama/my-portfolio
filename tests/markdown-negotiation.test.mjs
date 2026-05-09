@@ -19,4 +19,3 @@ test('markdown endpoint keeps markdown-specific response headers', async () => {
 	assert.match(source, /'Vary': 'Accept'/);
 	assert.match(source, /'x-markdown-tokens': 'available'/);
 });
-
