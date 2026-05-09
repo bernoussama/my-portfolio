@@ -1,3 +1,4 @@
 # Markdown response negotiation
 
-Use `Accept: text/markdown` and `/index.md` for markdown-friendly homepage access.
+Send `Accept: text/markdown` on `/` to receive markdown automatically.
+`/index.md` is also available directly as the markdown source.
