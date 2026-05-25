@@ -1,182 +1,62 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import { featuredProjects } from '../data/projects';
-
-const featuredWriting = [
-	{
-		url: '/blog/go-embed',
-		title: 'How to Seamlessly Embed a Remix SPA into Your Go Backend',
-		description: 'Embedding a Remix SPA into a Go backend for a simpler full-stack deployment model.',
-		pubDate: '2025-01-28',
-	},
-	{
-		url: '/blog/rust-http-server-1',
-		title: 'Rewriting a C HTTP Server in Rust from Scratch, Part 1',
-		description: 'Rebuilding a C HTTP server in Rust to improve safety and maintainability.',
-		pubDate: '2025-03-09',
-	},
-	{
-		url: '/blog/web-request-journey',
-		title: 'The Journey of an HTTP Request',
-		description: 'What happens between entering a URL and loading a web page?',
-	},
-];
-
-const primaryProjects = featuredProjects.slice(0, 2);
-const secondaryProjects = featuredProjects.slice(2, 5);
 ---
 
 <Layout>
-	<main class="grid grid-cols-12 min-h-[calc(100svh-4.5rem)] md:min-h-[calc(100svh-5.75rem)] bg-surface">
-		<section class="col-span-12 lg:col-span-9 xl:col-span-8 px-8 py-10 md:px-16 md:py-12 lg:px-16 xl:px-24 lg:py-14 flex flex-col justify-center grid-border-r">
-			<div class="mb-8">
-				<p class="text-primary font-mono text-xs uppercase tracking-[0.3em] mb-4">High Performance Software Systems</p>
-				<h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.9] tracking-tight-display uppercase max-w-4xl">
-					Product<br />Engineering.
-				</h1>
-			</div>
-			<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl leading-relaxed">
-				Building end-to-end software across React, TypeScript, Node.js, Go, and Rust. Direct, efficient, and focused on product systems that ship cleanly.
-			</p>
-		</section>
-		<aside class="col-span-12 lg:col-span-3 xl:col-span-4 flex flex-col">
-			<div class="flex-grow p-8 md:p-12 flex flex-col justify-end grid-border-b bg-surface-highest">
-				<div class="font-mono text-[11px] text-on-surface-variant space-y-1 uppercase tracking-wider">
-					<p>Status: Open to opportunities</p>
-					<p>Focus: Product / Systems / AI Tooling</p>
-					<p>Stack: TypeScript / Go / Rust</p>
-				</div>
-			</div>
-			<a class="p-8 md:p-12 bg-surface-lowest group hover:bg-surface-high" href="/projects">
-				<div class="mb-4">
-					<svg class="w-8 h-8 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-					</svg>
-				</div>
-				<span class="text-2xl font-black uppercase tracking-tight block">View Portfolio</span>
-			</a>
-		</aside>
-	</main>
-
-	<section class="grid grid-cols-12 grid-border-t grid-border-b">
-		<div class="col-span-12 lg:col-span-6 grid-border-r h-[360px] md:h-[500px] bg-surface-lowest p-8 md:p-12 lg:p-16 flex items-center">
-			<h2 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight-display leading-none">
-				Featured<br />Projects
-			</h2>
-		</div>
-		<div class="col-span-12 lg:col-span-6 p-8 md:p-12 flex items-center justify-center bg-surface-highest">
-			<div class="w-full max-w-2xl terminal-block bg-surface-lowest">
-				<span class="text-primary mr-2">$</span>
-				<span>build product --stack react,node,go,rust --mode direct</span>
-			</div>
-		</div>
+	<!-- BEGIN: HeroSection -->
+	<section class="mb-16">
+		<p class="text-xl mb-4 font-semibold">Yoo,</p>
+		<p class="text-lg md:text-xl leading-relaxed mb-6">
+			This is side <span class="border-b-2 border-black font-bold">Oussama Bernou</span>, I like to build cool stuffs using <span class="text-blue-600 font-bold">Go</span>, <span class="bg-blue-600 text-white px-1 rounded font-bold">Ts</span> / <span class="bg-yellow-400 text-black px-1 rounded font-bold">Js</span> and <span class="font-bold">Python</span>
+		</p>
+		<p class="text-base md:text-lg mb-8 leading-relaxed max-w-4xl">
+			Building end-to-end software across React, TypeScript, Node.js, Go, and Rust. Direct, efficient, and focused on product systems that ship cleanly.
+		</p>
 	</section>
+	<!-- END: HeroSection -->
 
-	<section class="grid grid-cols-1 lg:grid-cols-2 grid-border-b">
-		{primaryProjects.map((project, index) => (
-			<article class={`p-8 md:p-12 relative group hover:bg-surface-high ${index === 0 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0`}>
-				<span class="absolute top-8 right-8 font-mono text-[10px] text-on-surface-variant border border-outline-variant/30 px-2 py-0.5">0{index + 1}</span>
-				<h3 class="text-3xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
-				<p class="text-on-surface-variant mb-8 max-w-md leading-relaxed">{project.body}</p>
-				<div class="flex flex-wrap gap-3 mb-8">
-					{project.techs.slice(0, 4).map((tech) => (
-						<span class="font-mono text-[9px] border border-outline-variant/30 px-2 py-1 uppercase tracking-[0.15em] text-on-surface-variant">{tech}</span>
-					))}
-				</div>
-				{project.actions && project.actions.length > 0 && (
-					<div class="flex flex-wrap gap-3">
-						{project.actions.slice(0, 2).map((action) => (
-							<a
-								href={action.href}
-								target={action.external ? '_blank' : undefined}
-								rel={action.external ? 'noreferrer' : undefined}
-								class={action.variant === 'default'
-									? 'border border-primary/40 text-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary hover:text-on-primary'
-									: 'bg-primary text-on-primary font-mono text-[10px] uppercase tracking-widest px-4 py-2 hover:bg-primary-dim'}
-							>
-								{action.label}
-							</a>
-						))}
-					</div>
-				)}
-			</article>
-		))}
+	<!-- BEGIN: InterestsSection -->
+	<section class="mb-16">
+		<h2 class="text-lg mb-4 font-bold">What I am into :</h2>
+		<ul class="list-disc list-inside space-y-2 text-base md:text-lg pl-4">
+			<li>Product Engineering</li>
+			<li>High Performance Software Systems</li>
+			<li>AI Tooling</li>
+			<li>Web Servers &amp;&amp; APIs</li>
+			<li>Distributed Systems</li>
+		</ul>
 	</section>
+	<!-- END: InterestsSection -->
 
-	<section class="grid grid-cols-12 grid-border-b">
-		{secondaryProjects.map((project, index) => (
-			<article class={`col-span-12 lg:col-span-4 p-8 md:p-12 relative flex flex-col justify-between min-h-[320px] ${index < secondaryProjects.length - 1 ? 'lg-grid-border-r' : ''} grid-border-b lg:border-b-0 ${index === 1 ? 'bg-surface-low' : ''}`}>
-				<div>
-					<p class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant mb-4">0{index + 3}</p>
-					<h3 class="text-2xl font-black uppercase tracking-tight-display mb-6">{project.title}</h3>
-					<p class="text-on-surface-variant text-sm leading-relaxed mb-8">
-						{project.body}
-					</p>
-				</div>
-				<div>
-					{project.statusLabel ? (
-						<span class="font-mono text-[10px] uppercase tracking-[0.18em] text-on-surface-variant">{project.statusLabel}</span>
-					) : project.actions?.[0] ? (
-						<a
-							href={project.actions[0].href}
-							target={project.actions[0].external ? '_blank' : undefined}
-							rel={project.actions[0].external ? 'noreferrer' : undefined}
-							class="font-mono text-[10px] uppercase tracking-[0.2em] underline underline-offset-8 decoration-primary hover:text-primary"
-						>
-							{project.actions[0].label}
-						</a>
-					) : null}
-				</div>
-			</article>
-		))}
+	<!-- BEGIN: StatsSection -->
+	<section class="mb-20">
+		<p class="text-base md:text-lg leading-relaxed mb-4 max-w-4xl">
+			Over the past few years built some awesome projects surrounding few topics like <span class="border-b-2 border-black font-semibold">infrastructure, observable metrics</span> which also got some traction on social media.
+		</p>
+		<p class="text-base md:text-lg font-medium">
+			Extras : Focus: Product / Systems / AI Tooling, Stack: TypeScript / Go / Rust
+		</p>
 	</section>
+	<!-- END: StatsSection -->
 
-	<section class="p-8 md:p-16 lg:p-24 grid grid-cols-12 items-end grid-border-b">
-		<div class="col-span-12 md:col-span-9">
-			<h2 class="text-5xl md:text-8xl font-black uppercase tracking-tight-display leading-none">
-				Selected<br />Writing
-			</h2>
-		</div>
-		<div class="col-span-12 md:col-span-3 flex md:justify-end mt-6 md:mt-0">
-			<a href="/blog" class="bg-primary hover:bg-primary-dim text-on-primary font-bold py-4 px-10 text-xs uppercase tracking-widest inline-block">
-				Read the Blog
-			</a>
+	<!-- BEGIN: ProjectsSection -->
+	<section>
+		<h2 class="text-3xl md:text-4xl font-bold mb-10 tracking-tight">Projects &amp; Paper Implementations</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			{featuredProjects.map((project, index) => (
+				<ProjectCard 
+					title={project.title}
+					body={project.body}
+					techs={project.techs}
+					projectPage={project.projectPage}
+					actions={project.actions}
+					statusLabel={project.statusLabel}
+					index={index}
+				/>
+			))}
 		</div>
 	</section>
-
-	<section class="grid grid-cols-1 grid-border-b">
-		{featuredWriting.map((post) => (
-			<a href={post.url} class="p-6 md:p-8 grid-border-b last:border-b-0 hover:bg-surface-high group">
-				<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-					<div>
-						<h3 class="text-xl font-bold tracking-tight group-hover:text-primary">{post.title}</h3>
-						<p class="mt-2 text-sm text-on-surface-variant max-w-3xl">{post.description}</p>
-					</div>
-					{post.pubDate && <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-on-surface-variant">{post.pubDate}</span>}
-				</div>
-			</a>
-		))}
-	</section>
-
-	<section class="grid grid-cols-12 grid-border-b bg-surface-highest">
-		<div class="col-span-12 px-8 py-16 md:px-16 md:py-20 lg:px-24 lg:py-24">
-			<div class="mx-auto max-w-4xl text-center">
-				<p class="mb-5 font-mono text-[10px] uppercase tracking-[0.25em] text-on-surface-variant">Open to product engineering roles</p>
-				<h2 class="text-4xl md:text-6xl font-black tracking-tight-display leading-[0.95] mb-6">
-					Let&apos;s build something useful
-				</h2>
-				<p class="mx-auto max-w-3xl text-base md:text-xl leading-relaxed text-on-surface-variant">
-					If you're hiring for someone who can own product work across frontend, backend, automation, and the engineering details underneath it, I'd be glad to talk.
-				</p>
-				<div class="mt-8 flex flex-col items-stretch justify-center gap-4 sm:flex-row">
-					<a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4 text-center">
-						Contact Me
-					</a>
-					<a href="/resume" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-primary hover:text-on-primary text-center">
-						Read Resume
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!-- END: ProjectsSection -->
 </Layout>

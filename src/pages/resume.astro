@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { featuredProjects } from '../data/projects';
 
 const coreStrengths = [
-  'Full-stack product development across TypeScript, React, Node.js, and Go',
+  'Full-stack product development across TypeScript, React, Remix, and Go',
   'Practical AI integrations and workflow tooling for developer productivity',
   'Backend and systems work across APIs, networking, and low-level services',
   'Ownership from user-facing product work through data flow and deployment-minded implementation',
@@ -23,84 +23,78 @@ const selectedWriting = [
 ---
 
 <Layout>
-  <section class="grid-border-b">
-    <div class="p-8 md:p-16">
-      <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant mb-6">Resume</p>
-      <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight-display leading-none">Oussama Bernou</h1>
-      <p class="mt-4 text-xl text-on-surface-variant max-w-2xl">Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.</p>
-      <p class="mt-4 text-on-surface-variant max-w-2xl">
-        I build end-to-end software across frontend, backend, and systems-heavy work, with particular strength in product engineering, developer tooling, and practical AI integrations.
-      </p>
-      <div class="mt-6 flex flex-wrap gap-4">
-        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">
-          hello@bernoussama.com
-        </span>
-        <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">github.com/bernoussama</a>
-        <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">linkedin.com/in/oussama-bernou</a>
-      </div>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3">Contact</a>
-        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary">View Projects</a>
-      </div>
+  <section class="mb-12 border-b-2 border-black pb-6">
+    <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+      [ Back to Home ]
+    </a>
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Oussama Bernou</h1>
+    <p class="text-xl text-gray-700 max-w-2xl mb-4">Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.</p>
+    <p class="text-gray-700 max-w-2xl leading-relaxed">
+      I build end-to-end software across frontend, backend, and systems-heavy work, with particular strength in product engineering, developer tooling, and practical AI integrations.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-gray-600">
+      <span>hello@bernoussama.com</span>
+      <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">[ github.com/bernoussama ]</a>
+      <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">[ linkedin.com/in/oussama-bernou ]</a>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="mailto:hello@bernoussama.com" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">Contact</a>
+      <a href="/projects" class="bg-[#1c2128] hover:bg-black text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">View Projects</a>
     </div>
   </section>
 
-  <section class="grid grid-cols-1 lg:grid-cols-2 grid-border-b">
-    <div class="p-8 md:p-12 grid-border-r grid-border-b lg:border-b-0">
-      <h2 class="text-2xl font-black uppercase tracking-tight-display mb-6">Core Strengths</h2>
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+    <div class="bg-white border border-black rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+      <h2 class="text-2xl font-bold mb-6">Core Strengths</h2>
       <ul class="space-y-4">
         {coreStrengths.map((strength) => (
-          <li class="flex gap-3 text-on-surface-variant">
-            <span class="mt-2 h-2 w-2 flex-none bg-primary"></span>
+          <li class="flex gap-3 text-gray-700">
+            <span class="mt-2 h-2 w-2 flex-none bg-blue-600 rounded-sm"></span>
             <span>{strength}</span>
           </li>
         ))}
       </ul>
     </div>
-    <div class="p-8 md:p-12">
-      <h2 class="text-2xl font-black uppercase tracking-tight-display mb-6">Core Stack</h2>
+    <div class="bg-white border border-black rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+      <h2 class="text-2xl font-bold mb-6">Core Stack</h2>
       <div class="space-y-4">
         {coreStack.map((stack) => (
-          <div class="grid-border-b pb-4 last:border-0">
-            <p class="font-bold text-sm">{stack.category}</p>
-            <p class="text-sm text-on-surface-variant">{stack.items}</p>
+          <div class="border-b border-gray-200 pb-4 last:border-0 last:pb-0">
+            <p class="font-bold text-base text-black mb-1">{stack.category}</p>
+            <p class="text-sm text-gray-700">{stack.items}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="grid-border-b">
-    <div class="p-8 md:p-12">
-      <div class="flex items-end justify-between gap-4 mb-8">
-        <h2 class="text-2xl font-black uppercase tracking-tight-display">Selected Projects</h2>
-        <a href="/projects" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">See all</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-0 grid-border-t grid-border-l">
-        {featuredProjects.slice(0, 4).map((project) => (
-          <div class="p-6 grid-border-r grid-border-b hover:bg-surface-high">
-            <h3 class="text-lg font-bold tracking-tight">{project.title}</h3>
-            {project.statusLabel && <span class="font-mono text-[9px] uppercase tracking-wider text-on-surface-variant">{project.statusLabel}</span>}
-            <p class="mt-2 text-sm text-on-surface-variant">{project.body}</p>
-          </div>
-        ))}
-      </div>
+  <section class="mb-12">
+    <div class="flex items-end justify-between gap-4 mb-6">
+      <h2 class="text-2xl font-bold">Selected Projects</h2>
+      <a href="/projects" class="text-blue-600 hover:underline font-mono text-sm font-semibold">[ See all ]</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {featuredProjects.slice(0, 4).map((project) => (
+        <div class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+          <h3 class="text-lg font-bold text-black mb-1">{project.title}</h3>
+          {project.statusLabel && <span class="font-mono text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded border border-gray-200 inline-block mb-3">{project.statusLabel}</span>}
+          <p class="text-sm text-gray-700 leading-relaxed mt-2">{project.body}</p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <section class="grid-border-b">
-    <div class="p-8 md:p-12">
-      <div class="flex items-end justify-between gap-4 mb-8">
-        <h2 class="text-2xl font-black uppercase tracking-tight-display">Selected Writing</h2>
-        <a href="/blog" class="font-mono text-[10px] uppercase tracking-[0.2em] text-primary hover:text-primary-dim">Read the blog</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-0 grid-border-t grid-border-l">
-        {selectedWriting.map((post) => (
-          <a href={post.href} class="p-6 grid-border-r grid-border-b hover:bg-surface-high">
-            <h3 class="text-sm font-bold tracking-tight">{post.title}</h3>
-          </a>
-        ))}
-      </div>
+  <section class="mb-16">
+    <div class="flex items-end justify-between gap-4 mb-6">
+      <h2 class="text-2xl font-bold">Selected Writing</h2>
+      <a href="/blog" class="text-blue-600 hover:underline font-mono text-sm font-semibold">[ Read the blog ]</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {selectedWriting.map((post) => (
+        <a href={post.href} class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:text-blue-600 block">
+          <h3 class="text-sm font-bold leading-snug">{post.title}</h3>
+        </a>
+      ))}
     </div>
   </section>
 </Layout>

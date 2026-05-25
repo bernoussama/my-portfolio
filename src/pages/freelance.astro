@@ -10,54 +10,67 @@ const services = [
 ];
 
 const samples = [
-  { src: 'images/desktop-preview.webp', title: 'Fylo Landing Page', body: 'Responsive SaaS landing page.', href: 'https://github.com/bernoussama/fylo-landing-page', demoUrl: 'https://fylo.oussamabernou.me/', techs: ['HTML', 'CSS'] },
-  { src: 'images/Source-project.webp', title: 'Source Template', body: 'Multipurpose responsive template.', href: 'https://github.com/bernoussama/source-layout', demoUrl: 'https://source-layout.oussamabernou.me/', techs: ['HTML', 'CSS'] },
-  { src: 'images/random-user.gif', title: 'Random User Generator', body: 'Random user data with clean UI.', href: '#', demoUrl: 'https://random-user.oussamabernou.me/', techs: ['HTML', 'CSS', 'JS'] },
-  { src: 'images/grocery.gif', title: 'Mobile Grocery List', body: 'Mobile-friendly grocery list with local storage.', href: 'https://github.com/bernoussama/grocery-list', demoUrl: 'https://grocery-list.oussamabernou.me/', techs: ['HTML', 'CSS', 'JS'] },
+  { title: 'Fylo Landing Page', body: 'Responsive SaaS landing page.', href: 'https://github.com/bernoussama/fylo-landing-page', demoUrl: 'https://fylo.oussamabernou.me/', techs: ['HTML', 'CSS'] },
+  { title: 'Source Template', body: 'Multipurpose responsive template.', href: 'https://github.com/bernoussama/source-layout', demoUrl: 'https://source-layout.oussamabernou.me/', techs: ['HTML', 'CSS'] },
+  { title: 'Random User Generator', body: 'Random user data with clean UI.', href: '#', demoUrl: 'https://random-user.oussamabernou.me/', techs: ['HTML', 'CSS', 'JS'] },
+  { title: 'Grocery List', body: 'Mobile-friendly grocery list with local storage.', href: 'https://github.com/bernoussama/grocery-list', demoUrl: 'https://grocery-list.oussamabernou.me/', techs: ['HTML', 'CSS', 'JS'] },
 ];
 ---
 
 <Layout>
-  <section class="grid-border-b">
-    <div class="p-8 md:p-16 lg:p-24 text-center">
-      <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tight-display">Selective Consulting</h1>
-      <p class="mt-4 text-on-surface-variant max-w-xl mx-auto">Short-term product engineering, AI workflow, and backend-heavy consulting work.</p>
-      <div class="mt-8 flex justify-center gap-4">
-        <a href="mailto:hello@bernoussama.com" class="bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-6 py-3">Contact Me</a>
-        <a href="/projects" class="border border-primary/40 text-primary font-bold text-xs uppercase tracking-widest px-6 py-3 hover:bg-primary hover:text-on-primary">View Projects</a>
-      </div>
+  <section class="mb-12 border-b-2 border-black pb-6">
+    <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+      [ Back to Home ]
+    </a>
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Selective Consulting</h1>
+    <p class="text-gray-700 max-w-2xl text-base md:text-lg leading-relaxed mb-6">
+      Short-term product engineering, AI workflow optimization, and backend-heavy consulting services.
+    </p>
+    <div class="flex gap-3">
+      <a href="mailto:hello@bernoussama.com" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">Contact Me</a>
+      <a href="/projects" class="bg-[#1c2128] hover:bg-black text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">View Projects</a>
     </div>
   </section>
 
-  <section class="grid-border-b">
-    <div class="p-8 md:p-16">
-      <h2 class="text-3xl font-black uppercase tracking-tight-display mb-8">How I Work</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 grid-border-t grid-border-l">
-        {services.map((s, idx) => (
-          <div class="p-6 grid-border-r grid-border-b">
-            <span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider">Step {idx + 1}</span>
-            <h3 class="text-lg font-bold mt-2 mb-2">{s.title}</h3>
-            <p class="text-sm text-on-surface-variant">{s.desc}</p>
-          </div>
-        ))}
-      </div>
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8">How I Work</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {services.map((s, idx) => (
+        <div class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full">
+          <span class="font-mono text-xs text-gray-500 block mb-2">[ Step {idx + 1} ]</span>
+          <h3 class="text-lg font-bold text-black mb-2">{s.title}</h3>
+          <p class="text-sm text-gray-700 leading-relaxed">{s.desc}</p>
+        </div>
+      ))}
     </div>
   </section>
 
-  <section class="grid-border-b">
-    <div class="p-8 md:p-16">
-      <h2 class="text-3xl font-black uppercase tracking-tight-display mb-8">Work Samples</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-0 grid-border-t grid-border-l">
-        {samples.map((p, i) => (
-          <ProjectCard src={p.src} title={p.title} body={p.body} href={p.href} demoUrl={p.demoUrl} techs={p.techs} index={i} />
-        ))}
-      </div>
+  <section class="mb-16">
+    <h2 class="text-3xl font-bold mb-8">Work Samples</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {samples.map((p, i) => (
+        <ProjectCard 
+          title={p.title} 
+          body={p.body} 
+          actions={[
+            ...(p.demoUrl && p.demoUrl !== '#' ? [{ label: 'Live Demo', href: p.demoUrl, external: true }] : []),
+            ...(p.href && p.href !== '#' ? [{ label: 'GitHub', href: p.href, external: true }] : [])
+          ]}
+          techs={p.techs} 
+          index={i} 
+          category="Sample"
+        />
+      ))}
     </div>
   </section>
 
-  <section class="p-8 md:p-16 text-center grid-border-b">
-    <h2 class="text-3xl font-black uppercase tracking-tight-display">Interested in Working Together?</h2>
-    <p class="mt-4 text-on-surface-variant max-w-xl mx-auto">If you need help shipping a product feature, building an internal tool, or tightening up a backend workflow, reach out.</p>
-    <a href="mailto:hello@bernoussama.com" class="mt-6 inline-block bg-primary hover:bg-primary-dim text-on-primary font-bold text-xs uppercase tracking-widest px-8 py-4">Get in Touch</a>
+  <section class="bg-white border border-black rounded-lg p-8 md:p-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center mb-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-4">Interested in Working Together?</h2>
+    <p class="text-gray-700 max-w-xl mx-auto text-sm leading-relaxed mb-6">
+      If you need leverage shipping a product feature, building an internal developer tool, or tightening up a backend workflow, reach out.
+    </p>
+    <a href="mailto:hello@bernoussama.com" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded font-medium transition-colors">
+      Get in Touch
+    </a>
   </section>
 </Layout>
