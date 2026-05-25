@@ -10,11 +10,11 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-black pb-4 gap-4">
+<header class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-[var(--border-color)] pb-4 gap-4">
 	<div class="text-2xl font-bold tracking-tighter">
 		<a href="/" class="hover:text-blue-600 transition-colors">[ Oussama Bernou ]</a>
 	</div>
-	<nav>
+	<nav class="flex items-center gap-4 sm:gap-6 flex-wrap">
 		<ul class="flex flex-wrap gap-4 sm:gap-6 text-sm font-medium">
 			<li>
 				<a 
@@ -49,5 +49,51 @@ const isActive = (href: string) => {
 				</a>
 			</li>
 		</ul>
+		
+		<!-- Minimalist Theme Toggle -->
+		<button
+			type="button"
+			data-theme-toggle
+			class="hover:underline hover:text-blue-600 font-mono text-sm font-medium transition-colors cursor-pointer select-none"
+			aria-label="Toggle theme"
+		>
+			[ <span data-theme-label>Dark</span> ]
+		</button>
 	</nav>
 </header>
+
+<script is:inline>
+	(() => {
+		const themeButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+		const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+		const syncThemeControls = (theme) => {
+			const nextTheme = theme === 'dark' ? 'light' : 'dark';
+			themeButtons.forEach((button) => {
+				const label = button.querySelector('[data-theme-label]');
+				if (label) {
+					label.textContent = nextTheme.charAt(0).toUpperCase() + nextTheme.slice(1);
+				}
+			});
+		};
+
+		const currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+		syncThemeControls(currentTheme);
+
+		themeButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+				document.documentElement.dataset.theme = nextTheme;
+				localStorage.setItem('theme', nextTheme);
+				syncThemeControls(nextTheme);
+			});
+		});
+
+		themeMediaQuery.addEventListener('change', (event) => {
+			if (localStorage.getItem('theme')) return;
+			const nextTheme = event.matches ? 'dark' : 'light';
+			document.documentElement.dataset.theme = nextTheme;
+			syncThemeControls(nextTheme);
+		});
+	})();
+</script>

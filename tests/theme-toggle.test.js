@@ -70,6 +70,13 @@ test('design tokens support both dark and light themes', () => {
 	assert.match(tailwindConfig, /'on-surface': 'rgb\(var\(--color-fg\) \/ <alpha-value>\)'/);
 });
 
+test('dark mode uses a subdued background dot color', () => {
+	const styles = readFileSync(new URL('../style.css', import.meta.url), 'utf8');
+
+	assert.match(styles, /\[data-theme='dark'\]\s*\{[\s\S]*--dot-color:\s*#1f1f1f;/);
+	assert.match(styles, /body\s*\{[\s\S]*background-image:\s*radial-gradient\(var\(--dot-color\) 1px, transparent 1px\);/);
+});
+
 test('shared layouts no longer preconnect to remote font providers', () => {
 	const layoutSource = readFileSync(new URL('../src/layouts/Layout.astro', import.meta.url), 'utf8');
 	const notFoundSource = readFileSync(new URL('../src/pages/404.astro', import.meta.url), 'utf8');

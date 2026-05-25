@@ -15,16 +15,16 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
       [ Back to Writing ]
     </a>
     <h1 class="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-6">{frontmatter.title}</h1>
-    <div class="flex items-center gap-4 text-sm text-gray-500 font-mono">
+    <div class="flex items-center gap-4 text-sm text-slate-500 dark:text-slate-400 font-mono">
       <span>{formattedDate}</span>
       <span>|</span>
       <PageViews url={pageUrl} />
     </div>
-    <p class="mt-4 text-gray-700 text-lg leading-relaxed max-w-3xl">{frontmatter.description}</p>
+    <p class="mt-4 text-slate-600 dark:text-slate-400 text-lg leading-relaxed max-w-3xl">{frontmatter.description}</p>
   </section>
 
   <article class="max-w-4xl mx-auto py-6">
-    <div class="post-content prose max-w-none prose-headings:font-bold prose-headings:text-black prose-p:text-gray-800 prose-strong:text-black prose-li:text-gray-800 prose-blockquote:text-gray-700 prose-code:text-black prose-code:bg-gray-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-hr:border-gray-300 prose-th:text-black prose-td:text-gray-800">
+    <div class="post-content prose dark:prose-invert max-w-none prose-headings:font-bold prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
       <slot />
     </div>
   </article>
@@ -32,7 +32,7 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
 
 <style is:global>
   .post-content :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
-    color: #000000;
+    color: var(--border-color);
     font-weight: 600;
     text-decoration: underline;
     text-decoration-color: rgba(37, 99, 235, 0.6);

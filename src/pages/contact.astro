@@ -30,20 +30,20 @@ const contactMethods = [
 ---
 
 <Layout>
-  <section class="mb-12 border-b-2 border-black pb-6">
+  <section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
     <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
       [ Back to Home ]
     </a>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Contact</h1>
-    <p class="text-gray-700 max-w-2xl text-base md:text-lg leading-relaxed">
+    <p class="text-slate-600 dark:text-slate-400 max-w-2xl text-base md:text-lg leading-relaxed">
       Reach out for product engineering roles, selective consulting, or backend-heavy builds that need clear ownership from idea to shipped system.
     </p>
   </section>
 
   <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-    <div class="md:col-span-2 bg-white border border-black rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+    <div class="md:col-span-2 bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_var(--shadow-color)]">
       <h2 class="text-xl font-bold mb-4">Availability</h2>
-      <p class="text-gray-700 leading-relaxed">
+      <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
         I am currently open to product engineering conversations. I prefer remote or hybrid arrangements, focusing on systems architecture, automation, and core product tools.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
@@ -52,13 +52,13 @@ const contactMethods = [
         </a>
       </div>
     </div>
-    <div class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] flex flex-col justify-between">
+    <div class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] flex flex-col justify-between">
       <div>
-        <h3 class="font-mono text-xs uppercase tracking-widest text-gray-500 mb-2">[ Availability Stats ]</h3>
-        <p class="font-bold text-sm text-black">Location: Remote / Hybrid</p>
-        <p class="font-bold text-sm text-black mt-1">Focus: Product / Systems / AI</p>
+        <h3 class="font-mono text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">[ Availability Stats ]</h3>
+        <p class="font-bold text-sm text-[var(--color-fg)]">Location: Remote / Hybrid</p>
+        <p class="font-bold text-sm text-[var(--color-fg)] mt-1">Focus: Product / Systems / AI</p>
       </div>
-      <div class="mt-6 border-t border-gray-200 pt-4 font-mono text-xs text-gray-500">
+      <div class="mt-6 border-t border-[var(--border-color)]/20 pt-4 font-mono text-xs text-slate-500 dark:text-slate-400">
         Response: Usually within 48 hours
       </div>
     </div>
@@ -72,22 +72,22 @@ const contactMethods = [
           href={method.href}
           target={method.href.startsWith('http') ? '_blank' : undefined}
           rel={method.href.startsWith('http') ? 'noreferrer' : undefined}
-          class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:text-blue-600 block group"
+          class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all hover:text-blue-600 block group"
         >
-          <span class="font-mono text-xs text-gray-500 block mb-2">[ {method.label} ]</span>
+          <span class="font-mono text-xs text-slate-500 dark:text-slate-400 block mb-2">[ {method.label} ]</span>
           <h3 class="text-xl font-bold tracking-tight mb-2 break-all group-hover:text-blue-600 transition-colors">{method.value}</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">{method.note}</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{method.note}</p>
         </a>
       ))}
     </div>
   </section>
 
-  <section class="bg-white border border-black rounded-lg p-8 md:p-12 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] text-center mb-16">
-    <p class="font-mono text-xs text-gray-500 uppercase tracking-widest mb-3">[ Best First Message ]</p>
+  <section class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-8 md:p-12 shadow-[3px_3px_0px_0px_var(--shadow-color)] text-center mb-16">
+    <p class="font-mono text-xs text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-3">[ Best First Message ]</p>
     <h2 class="text-2xl md:text-3xl font-bold mb-4 max-w-2xl mx-auto">
       Share the problem, timeline, and where you need leverage.
     </h2>
-    <p class="text-gray-700 max-w-xl mx-auto text-sm leading-relaxed">
+    <p class="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
       A short note outlining the role, product stage, or specific technical challenge is enough to start a highly productive conversation.
     </p>
   </section>

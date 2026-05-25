@@ -72,21 +72,21 @@ if (githubAction) {
 }
 ---
 
-<article class="card-brutalist bg-white p-8 flex flex-col h-full" data-purpose="project-card">
+<article class="card-brutalist p-8 flex flex-col h-full" data-purpose="project-card">
 	<div class="mb-4">
-		<span class="text-xs font-bold uppercase tracking-widest">[ {category} ]</span>
+		<span class="text-xs font-bold uppercase tracking-widest text-[var(--color-on-surface-variant)]">[ {category} ]</span>
 	</div>
 	
 	<h3 class="text-xl font-bold mb-3">{title}</h3>
 	
-	<p class="text-sm text-gray-700 mb-6 flex-grow leading-relaxed">
+	<p class="text-sm mb-6 flex-grow leading-relaxed opacity-80">
 		{body}
 	</p>
 	
 	{techs && techs.length > 0 && (
 		<div class="flex flex-wrap gap-2 mb-6">
 			{techs.map((tech) => (
-				<span class="bg-gray-100 px-2 py-1 text-xs rounded-sm font-semibold text-gray-800 font-mono">
+				<span class="bg-[var(--tech-chip-bg)] text-[var(--tech-chip-fg)] px-2 py-1 text-xs rounded-sm font-semibold font-mono">
 					{tech}
 				</span>
 			))}
@@ -113,7 +113,7 @@ if (githubAction) {
 
 		{secondaryBtn.enabled ? (
 			<a 
-				class="bg-[#1c2128] hover:bg-black text-white px-3 py-2 text-sm rounded flex-1 text-center font-medium transition-colors" 
+				class="bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] border border-[var(--border-color)] px-3 py-2 text-sm rounded flex-1 text-center font-medium transition-colors" 
 				href={secondaryBtn.href}
 				target={secondaryBtn.href.startsWith('http') ? '_blank' : undefined}
 				rel={secondaryBtn.href.startsWith('http') ? 'noreferrer' : undefined}
@@ -122,7 +122,7 @@ if (githubAction) {
 			</a>
 		) : (
 			<span 
-				class="bg-[#1c2128] text-white px-3 py-2 text-sm rounded flex-1 text-center font-medium opacity-50 cursor-not-allowed select-none" 
+				class="bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-text)] opacity-50 border border-[var(--border-color)]/20 px-3 py-2 text-sm rounded flex-1 text-center font-medium select-none" 
 			>
 				{secondaryBtn.label}
 			</span>

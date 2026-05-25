@@ -23,45 +23,45 @@ const selectedWriting = [
 ---
 
 <Layout>
-  <section class="mb-12 border-b-2 border-black pb-6">
+  <section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
     <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
       [ Back to Home ]
     </a>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Oussama Bernou</h1>
-    <p class="text-xl text-gray-700 max-w-2xl mb-4">Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.</p>
-    <p class="text-gray-700 max-w-2xl leading-relaxed">
+    <p class="text-base text-slate-600 dark:text-slate-400 mb-4">Full-stack engineer focused on product engineering, AI-powered tooling, and backend systems.</p>
+    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
       I build end-to-end software across frontend, backend, and systems-heavy work, with particular strength in product engineering, developer tooling, and practical AI integrations.
     </p>
-    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-gray-600">
+    <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-slate-500 dark:text-slate-400">
       <span>hello@bernoussama.com</span>
       <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">[ github.com/bernoussama ]</a>
       <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">[ linkedin.com/in/oussama-bernou ]</a>
     </div>
     <div class="mt-8 flex flex-wrap gap-3">
       <a href="mailto:hello@bernoussama.com" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">Contact</a>
-      <a href="/projects" class="bg-[#1c2128] hover:bg-black text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">View Projects</a>
+      <a href="/projects" class="bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] border border-[var(--border-color)] px-5 py-2.5 rounded text-sm font-medium transition-colors">View Projects</a>
     </div>
   </section>
 
   <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-    <div class="bg-white border border-black rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+    <div class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_var(--shadow-color)]">
       <h2 class="text-2xl font-bold mb-6">Core Strengths</h2>
       <ul class="space-y-4">
         {coreStrengths.map((strength) => (
-          <li class="flex gap-3 text-gray-700">
+          <li class="flex gap-3 text-slate-600 dark:text-slate-400">
             <span class="mt-2 h-2 w-2 flex-none bg-blue-600 rounded-sm"></span>
             <span>{strength}</span>
           </li>
         ))}
       </ul>
     </div>
-    <div class="bg-white border border-black rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
+    <div class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 md:p-8 shadow-[3px_3px_0px_0px_var(--shadow-color)]">
       <h2 class="text-2xl font-bold mb-6">Core Stack</h2>
       <div class="space-y-4">
         {coreStack.map((stack) => (
           <div class="border-b border-gray-200 pb-4 last:border-0 last:pb-0">
-            <p class="font-bold text-base text-black mb-1">{stack.category}</p>
-            <p class="text-sm text-gray-700">{stack.items}</p>
+            <p class="font-bold text-base text-[var(--color-fg)] mb-1">{stack.category}</p>
+            <p class="text-sm text-slate-600 dark:text-slate-400">{stack.items}</p>
           </div>
         ))}
       </div>
@@ -75,10 +75,10 @@ const selectedWriting = [
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {featuredProjects.slice(0, 4).map((project) => (
-        <div class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
-          <h3 class="text-lg font-bold text-black mb-1">{project.title}</h3>
-          {project.statusLabel && <span class="font-mono text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded border border-gray-200 inline-block mb-3">{project.statusLabel}</span>}
-          <p class="text-sm text-gray-700 leading-relaxed mt-2">{project.body}</p>
+        <div class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all">
+          <h3 class="text-lg font-bold text-[var(--color-fg)] mb-1">{project.title}</h3>
+          {project.statusLabel && <span class="font-mono text-xs text-[var(--tech-chip-fg)] bg-[var(--tech-chip-bg)] px-2 py-0.5 rounded border border-[var(--border-color)]/20 inline-block mb-3">{project.statusLabel}</span>}
+          <p class="text-sm opacity-80 leading-relaxed mt-2">{project.body}</p>
         </div>
       ))}
     </div>
@@ -91,7 +91,7 @@ const selectedWriting = [
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {selectedWriting.map((post) => (
-        <a href={post.href} class="bg-white border border-black rounded-lg p-6 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all hover:text-blue-600 block">
+        <a href={post.href} class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all hover:text-blue-600 block">
           <h3 class="text-sm font-bold leading-snug">{post.title}</h3>
         </a>
       ))}
