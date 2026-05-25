@@ -6,44 +6,47 @@ import { featuredProjects } from '../data/projects';
 
 <Layout>
 	<!-- BEGIN: HeroSection -->
-	<section class="mb-16">
-		<p class="text-base mb-4 font-semibold">Yoo,</p>
+	<section class="mb-8">
+		<p class="text-base mb-4 font-semibold">Hi,</p>
 		<p class="text-base leading-relaxed mb-6">
-			This is side <span class="border-b-2 border-[var(--border-color)] font-bold">Oussama Bernou</span>, I like to build cool stuffs using <span class="text-blue-600 font-bold">Go</span>, <span class="bg-blue-600 text-white px-1 rounded font-bold">Ts</span> / <span class="bg-yellow-400 text-black px-1 rounded font-bold">Js</span> and <span class="font-bold">Python</span>
-		</p>
-		<p class="text-base md:text-lg mb-8 leading-relaxed max-w-4xl">
-			Building end-to-end software across React, TypeScript, Node.js, Go, and Rust. Direct, efficient, and focused on product systems that ship cleanly.
+			This is <span class="border-b-2 border-[var(--border-color)] font-bold">Oussama Bernou</span>, I like building end-to-end software across <span class="text-blue-500 font-bold">Go</span>, <span class="bg-blue-600 text-white px-1 rounded font-bold">Ts</span> / <span class="bg-yellow-400 text-black px-1 rounded font-bold">Js</span> and <span class="font-bold text-slate-600 dark:text-slate-400">Python</span>
 		</p>
 	</section>
 	<!-- END: HeroSection -->
 
 	<!-- BEGIN: InterestsSection -->
-	<section class="mb-16">
+	<section class="mb-8">
 		<h2 class="text-lg mb-4 font-bold">What I am into :</h2>
-		<ul class="list-disc list-inside space-y-2 text-base md:text-lg pl-4">
+		<ul class="list-disc list-inside space-y-2 text-base  pl-4">
 			<li>Product Engineering</li>
-			<li>High Performance Software Systems</li>
-			<li>AI Tooling</li>
-			<li>Web Servers &amp;&amp; APIs</li>
+      <li>AI Engineering/Tooling</li>
+			<li>Web Servers &amp; APIs</li>
 			<li>Distributed Systems</li>
 		</ul>
 	</section>
 	<!-- END: InterestsSection -->
 
+	<!-- BEGIN: InterestsSection -->
+	<section class="mb-8">
+		<h2 class="text-lg mb-4 font-bold">Highlights :</h2>
+		<ul class="list-disc list-inside space-y-2 text-base  pl-4">
+      <li>Built <a class="font-bold" href="https://github.com/bernoussama/lazyshell">Lazyshell</a> - AI-powered cli interpreting natral language to shell commands, that had 6000+ users</li>
+      <li>Currently Building <a class="font-bold" href="https://clankeroverflow.com">clankeroverflow</a> stopping agents from making the same mistakes</li>
+		</ul>
+	</section>
+	<!-- END: InterestsSection -->
+
 	<!-- BEGIN: StatsSection -->
-	<section class="mb-20">
-		<p class="text-base md:text-lg leading-relaxed mb-4 max-w-4xl">
-			Over the past few years built some awesome projects surrounding few topics like <span class="border-b-2 border-[var(--border-color)] font-semibold">infrastructure, observable metrics</span> which also got some traction on social media.
-		</p>
-		<p class="text-base md:text-lg font-medium">
-			Extras : Focus: Product / Systems / AI Tooling, Stack: TypeScript / Go / Rust
+	<section class="mb-8">
+		<p class="text-base leading-relaxed mb-4 max-w-4xl">
+      Over the past few years built some awesome projects surrounding few topics like <span class="border-b-2 border-(--border-color) font-semibold">infrastructure, networking, and AI tooling</span>.
 		</p>
 	</section>
 	<!-- END: StatsSection -->
 
 	<!-- BEGIN: ProjectsSection -->
 	<section>
-		<h2 class="text-3xl md:text-4xl font-bold mb-10 tracking-tight">Projects &amp; Paper Implementations</h2>
+		<h2 class="text-3xl md:text-4xl font-bold mb-10 tracking-tight">Projects</h2>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 			{featuredProjects.map((project, index) => (
 				<ProjectCard 

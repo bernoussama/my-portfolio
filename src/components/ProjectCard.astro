@@ -24,6 +24,7 @@ const { title, body, techs, projectPage, actions = [], category: propCategory }:
 // Determine category
 const category = propCategory ?? (() => {
 	const t = title.toLowerCase();
+	if (t.includes('clankeroverflow')) return 'AI Tooling';
 	if (t.includes('simplinvo') || t.includes('netflix') || t.includes('yanc')) return 'Project';
 	if (t.includes('lazyshell')) return 'AI Tooling';
 	if (t.includes('context')) return 'Extension';
@@ -52,12 +53,7 @@ if (demoAction) {
 } else if (projectPage) {
 	primaryBtn = { label: 'Details →', href: projectPage, enabled: true };
 } else {
-	// Fallback/Placeholder
-	if (title.toLowerCase().includes('lazyshell') || title.toLowerCase().includes('trustun')) {
-		primaryBtn = { label: 'View Tweet →', href: '#', enabled: true };
-	} else {
-		primaryBtn = { label: 'No Tweet', href: '#', enabled: false };
-	}
+		primaryBtn = { label: 'No Demo', href: '#', enabled: false };
 }
 
 // Configure secondary (second) button
