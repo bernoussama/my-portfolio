@@ -1,0 +1,22 @@
+{
+  "issuer": "https://bernoussama.com",
+  "authorization_endpoint": "https://bernoussama.com/oauth/authorize",
+  "token_endpoint": "https://bernoussama.com/oauth/token",
+  "jwks_uri": "https://bernoussama.com/.well-known/jwks.json",
+  "grant_types_supported": [
+    "authorization_code",
+    "client_credentials",
+    "refresh_token"
+  ],
+  "response_types_supported": [
+    "code"
+  ],
+  "scopes_supported": [
+    "portfolio.read"
+  ],
+  "token_endpoint_auth_methods_supported": [
+    "client_secret_post"
+  ],
+  "service_documentation": "https://bernoussama.com/docs/api#authentication",
+  "x-oauth-active": false
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://agentskills.io/schemas/agent-skills-index.v0.2.0.json",
+  "skills": [
+    {
+      "name": "robots-policy",
+      "type": "documentation",
+      "description": "Crawler and AI policy directives for robots.txt and content signals.",
+      "url": "https://bernoussama.com/.well-known/agent-skills/robots.md",
+      "sha256": "67d292a26757d3d054e9d36725ab4353263138c04d98dd4065f7cf4dd0112b40"
+    },
+    {
+      "name": "api-catalog",
+      "type": "documentation",
+      "description": "API discovery metadata published via RFC 9727 API catalog.",
+      "url": "https://bernoussama.com/.well-known/agent-skills/api-catalog.md",
+      "sha256": "155fb3447fa7ad361df3e612b6d00ef0fa2bd8f913d02c831db8c3ca342b9fd6"
+    },
+    {
+      "name": "markdown-access",
+      "type": "documentation",
+      "description": "Markdown-friendly homepage representation and agent access hints.",
+      "url": "https://bernoussama.com/.well-known/agent-skills/markdown.md",
+      "sha256": "e28d400a826466cab38383ca342c1c3f7ea3824eaaa9dd3f9f44040ff45d96dd"
+    },
+    {
+      "name": "webmcp-tools",
+      "type": "documentation",
+      "description": "Browser-native WebMCP tools exposed from the homepage.",
+      "url": "https://bernoussama.com/.well-known/agent-skills/webmcp.md",
+      "sha256": "aaade539cdbe2f2f62397918860d3ade2fae3fa1031ee74961c23a4e3cd1eef5"
+    }
+  ]
+}
