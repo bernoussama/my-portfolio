@@ -88,7 +88,7 @@ export const allProjects: PortfolioProject[] = [
       { label: 'GitHub', href: `${githubProfile}/mercury`, external: true, variant: 'default' },
       { label: 'Details', href: '/projects/dns-server', variant: 'primary' },
     ],
-    featured: false,
+    featured: true,
   },
   {
     title: 'Multithreaded HTTP Server',
