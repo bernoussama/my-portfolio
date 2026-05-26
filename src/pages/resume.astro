@@ -24,7 +24,7 @@ const selectedWriting = [
 
 <Layout>
   <section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
-    <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+    <a href="/" class="hover:underline hover:text-blue-500 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
       [ Back to Home ]
     </a>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Oussama Bernou</h1>
@@ -34,8 +34,8 @@ const selectedWriting = [
     </p>
     <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2 font-mono text-sm text-slate-500 dark:text-slate-400">
       <span>hello@bernoussama.com</span>
-      <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">[ github.com/bernoussama ]</a>
-      <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">[ linkedin.com/in/oussama-bernou ]</a>
+      <a href="https://github.com/bernoussama" target="_blank" rel="noreferrer" class="text-blue-500 hover:underline">[ github.com/bernoussama ]</a>
+      <a href="https://linkedin.com/in/oussama-bernou" target="_blank" rel="noreferrer" class="text-blue-500 hover:underline">[ linkedin.com/in/oussama-bernou ]</a>
     </div>
     <div class="mt-8 flex flex-wrap gap-3">
       <a href="mailto:hello@bernoussama.com" class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded text-sm font-medium transition-colors">Contact</a>
@@ -71,7 +71,7 @@ const selectedWriting = [
   <section class="mb-12">
     <div class="flex items-end justify-between gap-4 mb-6">
       <h2 class="text-2xl font-bold">Selected Projects</h2>
-      <a href="/projects" class="text-blue-600 hover:underline font-mono text-sm font-semibold">[ See all ]</a>
+      <a href="/projects" class="text-blue-500 hover:underline font-mono text-sm font-semibold">[ See all ]</a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       {featuredProjects.slice(0, 4).map((project) => (
@@ -87,11 +87,11 @@ const selectedWriting = [
   <section class="mb-16">
     <div class="flex items-end justify-between gap-4 mb-6">
       <h2 class="text-2xl font-bold">Selected Writing</h2>
-      <a href="/blog" class="text-blue-600 hover:underline font-mono text-sm font-semibold">[ Read the blog ]</a>
+      <a href="/blog" class="text-blue-500 hover:underline font-mono text-sm font-semibold">[ Read the blog ]</a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {selectedWriting.map((post) => (
-        <a href={post.href} class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all hover:text-blue-600 block">
+        <a href={post.href} class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all hover:text-blue-500 block">
           <h3 class="text-sm font-bold leading-snug">{post.title}</h3>
         </a>
       ))}

@@ -31,7 +31,7 @@ const contactMethods = [
 
 <Layout>
   <section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
-    <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+    <a href="/" class="hover:underline hover:text-blue-500 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
       [ Back to Home ]
     </a>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Contact</h1>
@@ -72,10 +72,10 @@ const contactMethods = [
           href={method.href}
           target={method.href.startsWith('http') ? '_blank' : undefined}
           rel={method.href.startsWith('http') ? 'noreferrer' : undefined}
-          class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all hover:text-blue-600 block group"
+          class="bg-[var(--card-bg)] border border-[var(--border-color)] rounded-lg p-6 shadow-[3px_3px_0px_0px_var(--shadow-color)] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_var(--shadow-color)] transition-all hover:text-blue-500 block group"
         >
           <span class="font-mono text-xs text-slate-500 dark:text-slate-400 block mb-2">[ {method.label} ]</span>
-          <h3 class="text-xl font-bold tracking-tight mb-2 break-all group-hover:text-blue-600 transition-colors">{method.value}</h3>
+          <h3 class="text-xl font-bold tracking-tight mb-2 break-all group-hover:text-blue-500 transition-colors">{method.value}</h3>
           <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{method.note}</p>
         </a>
       ))}

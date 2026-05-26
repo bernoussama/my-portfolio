@@ -19,7 +19,7 @@ const samples = [
 
 <Layout>
   <section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
-    <a href="/" class="hover:underline hover:text-blue-600 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+    <a href="/" class="hover:underline hover:text-blue-500 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
       [ Back to Home ]
     </a>
     <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Selective Consulting</h1>
@@ -49,15 +49,15 @@ const samples = [
     <h2 class="text-3xl font-bold mb-8">Work Samples</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {samples.map((p, i) => (
-        <ProjectCard 
-          title={p.title} 
-          body={p.body} 
+        <ProjectCard
+          title={p.title}
+          body={p.body}
           actions={[
             ...(p.demoUrl && p.demoUrl !== '#' ? [{ label: 'Live Demo', href: p.demoUrl, external: true }] : []),
             ...(p.href && p.href !== '#' ? [{ label: 'GitHub', href: p.href, external: true }] : [])
           ]}
-          techs={p.techs} 
-          index={i} 
+          techs={p.techs}
+          index={i}
           category="Sample"
         />
       ))}

@@ -12,49 +12,49 @@ const isActive = (href: string) => {
 
 <header class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center border-b-2 border-[var(--border-color)] pb-4 gap-4">
 	<div class="text-2xl font-bold tracking-tighter">
-		<a href="/" class="hover:text-blue-600 transition-colors">[ Oussama Bernou ]</a>
+		<a href="/" class="hover:text-blue-500 transition-colors">[ Oussama Bernou ]</a>
 	</div>
 	<nav class="flex items-center gap-4 sm:gap-6 flex-wrap">
 		<ul class="flex flex-wrap gap-4 sm:gap-6 text-sm font-medium">
 			<li>
-				<a 
-					class={`hover:underline hover:text-blue-600 transition-colors ${isActive('/projects') ? 'text-blue-600 underline font-bold' : ''}`} 
+				<a
+					class={`hover:underline hover:text-blue-500 transition-colors ${isActive('/projects') ? 'text-blue-500 underline font-bold' : ''}`}
 					href="/projects"
 				>
 					[ Projects ]
 				</a>
 			</li>
 			<li>
-				<a 
-					class={`hover:underline hover:text-blue-600 transition-colors ${isActive('/blog') ? 'text-blue-600 underline font-bold' : ''}`} 
+				<a
+					class={`hover:underline hover:text-blue-500 transition-colors ${isActive('/blog') ? 'text-blue-500 underline font-bold' : ''}`}
 					href="/blog"
 				>
 					[ Writing ]
 				</a>
 			</li>
 			<li>
-				<a 
-					class={`hover:underline hover:text-blue-600 transition-colors ${isActive('/resume') ? 'text-blue-600 underline font-bold' : ''}`} 
+				<a
+					class={`hover:underline hover:text-blue-500 transition-colors ${isActive('/resume') ? 'text-blue-500 underline font-bold' : ''}`}
 					href="/resume"
 				>
 					[ About ]
 				</a>
 			</li>
 			<li>
-				<a 
-					class={`hover:underline hover:text-blue-600 transition-colors ${isActive('/contact') ? 'text-blue-600 underline font-bold' : ''}`} 
+				<a
+					class={`hover:underline hover:text-blue-500 transition-colors ${isActive('/contact') ? 'text-blue-500 underline font-bold' : ''}`}
 					href="/contact"
 				>
 					[ Connect ]
 				</a>
 			</li>
 		</ul>
-		
+
 		<!-- Minimalist Theme Toggle -->
 		<button
 			type="button"
 			data-theme-toggle
-			class="hover:underline hover:text-blue-600 font-mono text-sm font-medium transition-colors cursor-pointer select-none"
+			class="hover:underline hover:text-blue-500 font-mono text-sm font-medium transition-colors cursor-pointer select-none"
 			aria-label="Toggle theme"
 		>
 			[ <span data-theme-label>Dark</span> ]
