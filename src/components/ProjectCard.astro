@@ -17,9 +17,10 @@ interface Props {
 	statusLabel?: string;
 	index?: number;
 	category?: string;
+	hideSecondaryAction?: boolean;
 }
 
-const { title, body, techs, projectPage, actions = [], category: propCategory }: Props = Astro.props;
+const { title, body, techs, projectPage, actions = [], category: propCategory, buttonText, hideSecondaryAction = false }: Props = Astro.props;
 
 // Determine category
 const category = propCategory ?? (() => {
@@ -47,11 +48,11 @@ const detailsAction = actions.find(a => a.label.toLowerCase().includes('details'
 
 // Configure primary (first) button
 if (demoAction) {
-	primaryBtn = { label: 'Live Demo →', href: demoAction.href, enabled: true };
+	primaryBtn = { label: buttonText ? `${buttonText} →` : 'Live Demo →', href: demoAction.href, enabled: true };
 } else if (detailsAction) {
-	primaryBtn = { label: 'Details →', href: detailsAction.href, enabled: true };
+	primaryBtn = { label: buttonText ? `${buttonText} →` : 'Details →', href: detailsAction.href, enabled: true };
 } else if (projectPage) {
-	primaryBtn = { label: 'Details →', href: projectPage, enabled: true };
+	primaryBtn = { label: buttonText ? `${buttonText} →` : 'Details →', href: projectPage, enabled: true };
 } else {
 		primaryBtn = { label: 'No Demo', href: '#', enabled: false };
 }
@@ -107,7 +108,7 @@ if (githubAction) {
 			</span>
 		)}
 
-		{secondaryBtn.enabled ? (
+		{!hideSecondaryAction && secondaryBtn.enabled ? (
 			<a 
 				class="bg-[var(--btn-secondary-bg)] hover:bg-[var(--btn-secondary-hover)] text-[var(--btn-secondary-text)] border border-[var(--border-color)] px-3 py-2 text-sm rounded flex-1 text-center font-medium transition-colors" 
 				href={secondaryBtn.href}
@@ -116,7 +117,7 @@ if (githubAction) {
 			>
 				{secondaryBtn.label}
 			</a>
-		) : (
+		) : !hideSecondaryAction && (
 			<span 
 				class="bg-[var(--btn-secondary-bg)] text-[var(--btn-secondary-text)] opacity-50 border border-[var(--border-color)]/20 px-3 py-2 text-sm rounded flex-1 text-center font-medium select-none" 
 			>

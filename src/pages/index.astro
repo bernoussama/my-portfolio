@@ -2,6 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { featuredProjects } from '../data/projects';
+
+interface BlogFrontmatter {
+	title: string;
+	description: string;
+	pubDate?: string;
+	tags?: Array<string>;
+}
+
+const latestPosts = Object.entries(
+	import.meta.glob<BlogFrontmatter>('./blog/*.md', { eager: true, import: 'frontmatter' }),
+)
+	.map(([path, frontmatter]) => ({
+		url: path.replace('./blog/', '/blog/').replace(/\.md$/, ''),
+		...frontmatter,
+	}))
+	.sort((a, b) => {
+		const dateA = a.pubDate ? new Date(a.pubDate).getTime() : 0;
+		const dateB = b.pubDate ? new Date(b.pubDate).getTime() : 0;
+		return dateB - dateA;
+	})
+	.slice(0, 3);
 ---
 
 <Layout>
@@ -33,6 +54,7 @@ import { featuredProjects } from '../data/projects';
       <li>Built <a class="font-bold" href="https://github.com/bernoussama/lazyshell">Lazyshell</a> - AI-powered cli interpreting natral language to shell commands, that had 6000+ users</li>
       <li>Currently Building <a class="font-bold" href="https://clankeroverflow.com">clankeroverflow</a> - Stopping agents from making the same mistakes</li>
       <li>Built <a class="font-bold" href="https://simplinvo.com">Simplinvo</a> - Invoicing app built to simplify and accelerate business workflows</li>
+      <li>Building AI tools - <a class="font-bold" href="https://github.com/bernoussama/lazyshell">Lazyshell</a>, <a class="font-bold" href="https://github.com/bernoussama/context-tools">Context tools</a>...</li>
 		</ul>
 	</section>
 	<!-- END: InterestsSection -->
@@ -63,4 +85,24 @@ import { featuredProjects } from '../data/projects';
 		</div>
 	</section>
 	<!-- END: ProjectsSection -->
+
+	<!-- BEGIN: WritingsSection -->
+	<section class="mt-16">
+		<h2 class="text-3xl md:text-4xl font-bold mb-10 tracking-tight">Writings</h2>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			{latestPosts.map((post, index) => (
+				<ProjectCard
+					title={post.title}
+					body={post.description}
+					techs={post.tags?.slice(0, 4)}
+					projectPage={post.url}
+					category="Writing"
+					buttonText="Read"
+					hideSecondaryAction
+					index={index}
+				/>
+			))}
+		</div>
+	</section>
+	<!-- END: WritingsSection -->
 </Layout>

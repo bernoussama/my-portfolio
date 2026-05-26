@@ -10,7 +10,7 @@ const formattedDate = pubDate ? new Date(pubDate).toLocaleDateString('en-US', {
 	<div class="flex flex-col md:flex-row md:items-start md:justify-between gap-5">
 		<div class="flex-1 max-w-3xl">
 			<div class="flex flex-wrap items-center gap-3 mb-3">
-				<span class="font-mono text-xs font-bold text-[var(--color-on-surface-variant)]">[ Article ]</span>
+				<span class="font-mono text-xs font-bold text-(--color-on-surface-variant)">[ Article ]</span>
 				{formattedDate && (
 					<span class="font-mono text-xs text-[var(--tech-chip-fg)] bg-[var(--tech-chip-bg)] px-2 py-0.5 rounded border border-[var(--border-color)]/20">{formattedDate}</span>
 				)}

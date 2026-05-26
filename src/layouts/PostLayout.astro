@@ -24,13 +24,33 @@ const formattedDate = new Date(frontmatter.pubDate).toLocaleDateString('en-US', 
   </section>
 
   <article class="max-w-4xl mx-auto py-6">
-    <div class="post-content prose dark:prose-invert max-w-none prose-headings:font-bold prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
+    <div class="post-content prose max-w-none prose-headings:font-bold prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded">
       <slot />
     </div>
   </article>
 </Layout>
 
 <style is:global>
+  [data-theme='light'] .post-content,
+  [data-theme='dark'] .post-content {
+    --tw-prose-body: rgb(var(--color-fg));
+    --tw-prose-headings: rgb(var(--color-fg));
+    --tw-prose-lead: rgb(var(--color-on-surface-variant));
+    --tw-prose-links: rgb(var(--color-fg));
+    --tw-prose-bold: rgb(var(--color-fg));
+    --tw-prose-counters: rgb(var(--color-on-surface-variant));
+    --tw-prose-bullets: rgb(var(--color-on-surface-variant));
+    --tw-prose-hr: rgb(var(--color-outline-variant));
+    --tw-prose-quotes: rgb(var(--color-fg));
+    --tw-prose-quote-borders: rgb(var(--color-outline-variant));
+    --tw-prose-captions: rgb(var(--color-on-surface-variant));
+    --tw-prose-kbd: rgb(var(--color-fg));
+    --tw-prose-code: rgb(var(--color-fg));
+    --tw-prose-th-borders: rgb(var(--color-outline-variant));
+    --tw-prose-td-borders: rgb(var(--color-outline-variant));
+    color: rgb(var(--color-fg));
+  }
+
   .post-content :where(a):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
     color: var(--border-color);
     font-weight: 600;
