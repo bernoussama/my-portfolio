@@ -2,40 +2,32 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { allProjects } from '../data/projects';
-
-const projectCardPlaceholder = 'https://placehold.co/1200x800/111827/f3f4f6?text=Project+Preview';
 ---
 
 <Layout>
-  <section class="grid-border-b">
-    <div class="p-8 md:p-16">
-      <a href="/" class="font-mono text-[10px] uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary inline-flex items-center gap-2 mb-8">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="m15 18-6-6 6-6"/>
-        </svg>
-        Back
-      </a>
-      <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight-display">Projects</h1>
-      <p class="mt-4 text-on-surface-variant max-w-xl text-lg">
-        A selection of product, AI, and systems work that shows technical range, engineering judgment, and end-to-end ownership.
-      </p>
-    </div>
-  </section>
-  
-  <section class="grid-border-b">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 grid-border-t grid-border-l">
-      {allProjects.map((project, i) => (
-       <ProjectCard 
-          src={project.src ?? projectCardPlaceholder}
-          title={project.title}
-          body={project.body}
-          techs={project.techs}
-          projectPage={project.projectPage}
-          actions={project.actions}
-          statusLabel={project.statusLabel}
-          index={i}
-        />
-      ))}
-    </div>
-  </section>
+	<section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
+		<a href="/" class="hover:underline hover:text-blue-500 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+			[ Back to Home ]
+		</a>
+		<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Projects</h1>
+		<p class="text-slate-600 dark:text-slate-400 max-w-2xl text-base md:text-lg leading-relaxed">
+			A selection of product, AI, and systems work that shows technical range, engineering judgment, and end-to-end ownership.
+		</p>
+	</section>
+
+	<section class="mb-16">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			{allProjects.map((project, i) => (
+				<ProjectCard
+					title={project.title}
+					body={project.body}
+					techs={project.techs}
+					projectPage={project.projectPage}
+					actions={project.actions}
+					statusLabel={project.statusLabel}
+					index={i}
+				/>
+			))}
+		</div>
+	</section>
 </Layout>

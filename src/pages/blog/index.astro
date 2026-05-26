@@ -23,14 +23,18 @@ const allPosts = Object.entries(
 ---
 
 <Layout>
-  <section class="grid-border-b">
-    <div class="p-8 md:p-16">
-      <h1 class="text-5xl md:text-7xl font-black uppercase tracking-tight-display">Writing</h1>
-      <p class="mt-4 text-on-surface-variant max-w-xl">Thinking through systems, tradeoffs, and implementation details across full-stack and low-level work.</p>
-    </div>
-  </section>
-	<section class="grid-border-b">
-		<div class="grid-border-t">
+	<section class="mb-12 border-b-2 border-[var(--border-color)] pb-6">
+		<a href="/" class="hover:underline hover:text-blue-500 transition-colors inline-flex items-center gap-2 mb-8 font-medium">
+			[ Back to Home ]
+		</a>
+		<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">Writing</h1>
+		<p class="text-slate-600 dark:text-slate-400 max-w-2xl text-base md:text-lg leading-relaxed">
+			Thinking through systems, tradeoffs, and implementation details across full-stack and low-level work.
+		</p>
+	</section>
+
+	<section class="mb-16">
+		<div class="flex flex-col gap-4">
 			{allPosts.map((post) => (
 				<BlogPost url={post.url} title={post.title} description={post.description} pubDate={post.pubDate} />
 			))}
