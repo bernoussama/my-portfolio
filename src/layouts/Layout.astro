@@ -56,12 +56,14 @@ import '../../style.css';
 	<link rel="icon" href="/images/favicon.png">
 </head>
 
-<body class="min-h-screen py-12 px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto">
-	<NavBar />
-	<main>
-		<slot />
-	</main>
-	<Footer />
+<body class="min-h-screen">
+	<div class="py-12 px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto">
+		<NavBar />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</div>
 
 	<script is:inline>
 		(() => {
