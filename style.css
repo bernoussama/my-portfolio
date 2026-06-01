@@ -99,6 +99,10 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+html {
+	background-color: rgb(var(--color-surface));
+}
+
 .card-brutalist {
 	border: 2px solid var(--border-color);
 	border-radius: 8px;

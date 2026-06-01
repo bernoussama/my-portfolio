@@ -12,18 +12,29 @@ import '../../style.css';
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Portfolio of Oussama Bernou, a full-stack engineer focused on product engineering, AI-powered tooling, and backend systems." />
+	<style is:inline>
+		html { background-color: #fff; }
+		@media (prefers-color-scheme: dark) {
+			html { background-color: #0e0e0e; }
+		}
+	</style>
 	<script is:inline>
 		(() => {
 			try {
 				const storedTheme = localStorage.getItem('theme');
 				const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-				document.documentElement.dataset.theme = storedTheme === 'light' || storedTheme === 'dark'
+				const theme = storedTheme === 'light' || storedTheme === 'dark'
 					? storedTheme
 					: prefersDark
 						? 'dark'
 						: 'light';
+				document.documentElement.dataset.theme = theme;
+				document.documentElement.style.backgroundColor = theme === 'dark' ? '#0e0e0e' : '#fff';
+				document.documentElement.style.colorScheme = theme;
 			} catch {
 				document.documentElement.dataset.theme = 'light';
+				document.documentElement.style.backgroundColor = '#fff';
+				document.documentElement.style.colorScheme = 'light';
 			}
 		})();
 	</script>
