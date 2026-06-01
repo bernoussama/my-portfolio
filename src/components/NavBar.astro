@@ -67,6 +67,12 @@ const isActive = (href: string) => {
 		const themeButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
 		const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
+		const applyTheme = (theme) => {
+			document.documentElement.dataset.theme = theme;
+			document.documentElement.style.backgroundColor = theme === 'dark' ? '#0e0e0e' : '#fff';
+			document.documentElement.style.colorScheme = theme;
+		};
+
 		const syncThemeControls = (theme) => {
 			const nextTheme = theme === 'dark' ? 'light' : 'dark';
 			themeButtons.forEach((button) => {
@@ -83,7 +89,7 @@ const isActive = (href: string) => {
 		themeButtons.forEach((button) => {
 			button.addEventListener('click', () => {
 				const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
-				document.documentElement.dataset.theme = nextTheme;
+				applyTheme(nextTheme);
 				localStorage.setItem('theme', nextTheme);
 				syncThemeControls(nextTheme);
 			});
@@ -92,7 +98,7 @@ const isActive = (href: string) => {
 		themeMediaQuery.addEventListener('change', (event) => {
 			if (localStorage.getItem('theme')) return;
 			const nextTheme = event.matches ? 'dark' : 'light';
-			document.documentElement.dataset.theme = nextTheme;
+			applyTheme(nextTheme);
 			syncThemeControls(nextTheme);
 		});
 	})();
