@@ -12,6 +12,29 @@ import '../../style.css';
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Portfolio of Oussama Bernou, a full-stack engineer focused on product engineering, AI-powered tooling, and backend systems." />
+	<style is:inline>
+		:root {
+			background-color: #ffffff;
+			color-scheme: light;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root {
+				background-color: #0e0e0e;
+				color-scheme: dark;
+			}
+		}
+
+		:root[data-theme='light'] {
+			background-color: #ffffff;
+			color-scheme: light;
+		}
+
+		:root[data-theme='dark'] {
+			background-color: #0e0e0e;
+			color-scheme: dark;
+		}
+	</style>
 	<script is:inline>
 		(() => {
 			try {
@@ -33,12 +56,14 @@ import '../../style.css';
 	<link rel="icon" href="/images/favicon.png">
 </head>
 
-<body class="min-h-screen py-12 px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto">
-	<NavBar />
-	<main>
-		<slot />
-	</main>
-	<Footer />
+<body class="min-h-screen">
+	<div class="py-12 px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto">
+		<NavBar />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</div>
 
 	<script is:inline>
 		(() => {
