@@ -3,6 +3,8 @@
 @config "./tailwind.config.js";
 @plugin "@tailwindcss/typography";
 
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
 @font-face {
 	font-family: 'Inter';
 	src: url('/fonts/inter/inter-latin-400.woff2') format('woff2');
@@ -19,7 +21,8 @@
 	font-display: swap;
 }
 
-:root, [data-theme='light'] {
+:root:not([data-theme]),
+[data-theme='light'] {
 	--color-brand-rgb: 37 99 235;
 	--color-surface: 255 255 255;
 	--color-surface-low: 241 245 249;

@@ -12,30 +12,8 @@ import '../../style.css';
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Portfolio of Oussama Bernou, a full-stack engineer focused on product engineering, AI-powered tooling, and backend systems." />
-	<style is:inline>
-		:root {
-			background-color: #ffffff;
-			color-scheme: light;
-		}
-
-		@media (prefers-color-scheme: dark) {
-			:root {
-				background-color: #0e0e0e;
-				color-scheme: dark;
-			}
-		}
-
-		:root[data-theme='light'] {
-			background-color: #ffffff;
-			color-scheme: light;
-		}
-
-		:root[data-theme='dark'] {
-			background-color: #0e0e0e;
-			color-scheme: dark;
-		}
-	</style>
-	<script is:inline>
+	<!-- Must run before first paint; data-cfasync opts out of Cloudflare Rocket Loader -->
+	<script is:inline data-cfasync="false">
 		(() => {
 			try {
 				const storedTheme = localStorage.getItem('theme');
@@ -50,18 +28,47 @@ import '../../style.css';
 			}
 		})();
 	</script>
+	<style is:inline>
+		:root,
+		body {
+			background-color: #ffffff;
+			color-scheme: light;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			:root:not([data-theme]),
+			:root:not([data-theme]) body {
+				background-color: #0e0e0e;
+				color-scheme: dark;
+			}
+		}
+
+		:root[data-theme='light'],
+		:root[data-theme='light'] body {
+			background-color: #ffffff;
+			color-scheme: light;
+		}
+
+		:root[data-theme='dark'],
+		:root[data-theme='dark'] body {
+			background-color: #0e0e0e;
+			color-scheme: dark;
+		}
+	</style>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap" rel="stylesheet" />
 	<link rel="icon" href="/images/favicon.png">
 </head>
 
-<body class="min-h-screen py-12 px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto">
-	<NavBar />
-	<main>
-		<slot />
-	</main>
-	<Footer />
+<body class="min-h-screen">
+	<div class="py-12 px-4 sm:px-8 lg:px-16 max-w-6xl mx-auto">
+		<NavBar />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</div>
 
 	<script is:inline>
 		(() => {
