@@ -16,13 +16,6 @@
       "sha256": "155fb3447fa7ad361df3e612b6d00ef0fa2bd8f913d02c831db8c3ca342b9fd6"
     },
     {
-      "name": "markdown-access",
-      "type": "documentation",
-      "description": "Markdown-friendly homepage representation and agent access hints.",
-      "url": "https://bernoussama.com/.well-known/agent-skills/markdown.md",
-      "sha256": "e28d400a826466cab38383ca342c1c3f7ea3824eaaa9dd3f9f44040ff45d96dd"
-    },
-    {
       "name": "webmcp-tools",
       "type": "documentation",
       "description": "Browser-native WebMCP tools exposed from the homepage.",

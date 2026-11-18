@@ -2,8 +2,6 @@
   Link: <https://bernoussama.com/.well-known/api-catalog>; rel="api-catalog"
   Link: <https://bernoussama.com/docs/api>; rel="service-doc"
   Link: <https://bernoussama.com/healthz>; rel="status"
-  Link: <https://bernoussama.com/index.md>; rel="alternate"; type="text/markdown"
-  Vary: Accept
 
 /.well-known/api-catalog
   Content-Type: application/linkset+json; charset=utf-8
